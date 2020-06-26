@@ -1,0 +1,59 @@
+.articleAdd-container {
+  width: 850px;
+  height: 450px;
+  margin: 50px auto;
+  background: #555;
+  padding: 20px 30px 20px 30px;
+  color: #d3d3d3;
+  text-shadow: 1px 1px 1px #444;
+  border: none;
+  border-radius: 5px;
+
+  
+  .articleAdd-container-top {
+    display: flex;
+    height: 30px;
+    .addLabel {
+      display: flex;
+       h2{
+         width: 160px;
+       }
+      height: 30px;
+      .select{
+        height: 30px;
+        // margin-left: 15px;
+      }
+    }
+    .addTag {
+      display: flex;
+      margin-left: 30px;
+
+    }
+  }
+  .addInputTitle {
+    margin-top: 50px;
+    width: 400px;
+    height: 30px;
+  }
+  .addContent {
+    margin-top: 20px;
+    width: 400px;
+    height: 280px;
+  }
+  .addData {
+    float: right;
+    margin: -40px 0 0 0;
+  }
+  .addImg {
+    float: right;
+    width: 300px;
+    height: 200px;
+    margin: -270px 25px;
+  }
+  .addBtn {
+    float: right;
+    margin:-40px 25px;
+
+  
+  }
+}

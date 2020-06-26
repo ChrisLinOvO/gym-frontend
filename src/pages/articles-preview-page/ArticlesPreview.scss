@@ -1,0 +1,200 @@
+.articles-preview-container {
+  width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  padding: 50px;
+  background: #ffffff;
+  // border: 1px solid #000000;
+  color: #000000;
+  .contentCard-container {
+    .card-top {
+      font-size: 20px;
+      width: 1160px;
+      .membar {
+        display: flex;
+        .member-avatar {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          border: 1px solid #000000;
+          // background-color: #fecc2f;
+          margin: 0 10px 0 0;
+        }
+
+        .membar-info{
+          margin:0 0 30px 20px;
+
+          h4{
+            margin-bottom: 30px;
+          }
+        }
+      }
+    }
+    .card-body-mid {
+      width: 1000px;
+      h1 {
+        font-size: 36px;
+        margin: 30px auto;
+      }
+
+      .card-category {
+        display: flex;
+        margin: 10px 0 30px 0;
+
+        .card-category-parent {
+          margin: 0 5px 0 0;
+          widows: 20%;
+          height: 30px;
+          transform: skewX(-10deg);
+          position: relative;
+          z-index: 2;
+          box-shadow: 3px 3px 6px black;
+          background: #fecc2f;
+        }
+
+        .card-category-child {
+          width: 80px;
+          height: 30px;
+          background: #1178b8;
+          font-size: 16px;
+        }
+      }
+      p {
+        line-height: 50px;
+        margin: 20px auto;
+      }
+      img {
+        width: 600px;
+        height: 400px;
+        margin: auto 200px;
+      }
+      .card-tag {
+        display: flex;
+        margin: 10px 0 10px 0;
+
+        .card-tag1 {
+          // width: 80px;
+          // height: 30px;
+          // background: #fecc2f;
+          // margin: 0 15px 0 0;
+          // font-size: 16px;
+          margin: 0 5px 0 0;
+          widows: 20%;
+          height: 30px;
+          transform: skewX(-10deg);
+          position: relative;
+          z-index: 2;
+          box-shadow: 3px 3px 6px black;
+          background: #fecc2f;
+        }
+
+        .card-tag2 {
+          margin: 0 5px 0 0;
+          widows: 20%;
+          height: 30px;
+          transform: skewX(-10deg);
+          position: relative;
+          z-index: 2;
+          box-shadow: 3px 3px 6px black;
+          background: #fecc2f;
+        }
+      }
+    }
+    .card-body-under {
+      display: flex;
+      font-size: 16px;
+      margin: 50px auto;
+
+      .card-like {
+        display: flex;
+      }
+
+      .card-comment {
+        display: flex;
+        margin-left: 50px;
+      }
+
+      .card-watch {
+        display: flex;
+        margin-left: 25px;
+      }
+    }
+  }
+
+  .line {
+    width: 1000px;
+    height: 2px;
+
+    background-color: #1178b8;
+  }
+
+  .ArticleContentCard {
+    width: 1160px;
+
+    .articleCommentCard {
+      p {
+        margin: 10px auto;
+      }
+      .membar-comment {
+        display: flex;
+        margin: 20px auto;
+        .member-avatar {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: 1px solid #000000;
+          // background-color: #fecc2f;
+          margin: 0 25px 0 0;
+        }
+
+        input {
+          width: 450px;
+          height: 60px;
+
+          font-size: 20px;
+        }
+        button {
+          width: 50px;
+          height: 30px;
+          margin-top: 35px;
+        }
+      }
+      .article-comment {
+        width: 300px;
+        height: 80px;
+        display: flex;
+        .member-avatar-res {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: 1px solid #000000;
+          // background-color: #fecc2f;
+          float: left;
+        }
+        .member-info {
+          // display: flex;
+          h5 {
+            margin-left: 15px;
+          }
+          p {
+            font-size: 12px;
+            margin-top: 2px;
+            padding: 0;
+            margin-left: 15px;
+          }
+          .info {
+            display: flex;
+
+            .time{
+              margin-left: 20px;
+            }
+          }
+        }
+        .commentText {
+          margin: 4px 0 0 15px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

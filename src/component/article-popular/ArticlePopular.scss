@@ -1,0 +1,44 @@
+.hotArticle{
+    list-style: none;
+    width: 200px;
+    height:100px;
+    margin: 0 auto;
+    .hotArticle-title{
+        margin-top: 20px;
+    }
+    
+    .hotArticle-under {
+        display: flex;
+        font-size: 12px;
+        margin-top: 10px;
+        border-bottom: 1px solid #000000;
+        
+        
+
+        .hotArticle-like {
+          display: flex;
+          p {
+            font-size: 12px;
+          }
+        }
+
+        .hotArticle-comment {
+          display: flex;
+          width: 80px;
+          margin-left: 30px;
+          p {
+            font-size: 12px;
+          }
+        }
+
+        .hotArticle-watch {
+          display: flex;
+          width: 80px;
+    
+
+          p {
+            font-size: 12px;
+          }
+        }
+      }
+}

@@ -1,0 +1,148 @@
+$text: #000000;
+.masonry {
+  column-count: 3;
+
+  .item {
+    break-inside: avoid;
+
+    .card-container {
+      display: block;
+      width: 300px;
+      height: auto;
+      margin-bottom: 15px;
+
+      border: 1px solid #000000;
+
+      .card-img {
+        width: 300px;
+        height: 200px;
+        object-fit: cover;
+        object-position: 50% 10%;
+      }
+
+      .card-body {
+        width: 280px;
+        margin: 10px;
+
+        .card-body-top {
+          display: flex;
+          font-size: 12px;
+
+          .member-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid #000000;
+            // background-color: #fecc2f;
+            margin: 0 10px 0 0;
+          }
+
+          .create-time {
+            margin: 10px 0 0 0;
+          }
+        }
+
+        .card-body-mid {
+          .articleTitle {
+            color: $text;
+            &:hover {
+              color: #fecc2f;
+            }
+          }
+
+          .card-category {
+            display: flex;
+            margin: 10px 0 10px 0;
+
+            .card-category-parent {
+              widows: 20%;
+              height: 20px;
+              transform: skewX(-10deg);
+              position: relative;
+              z-index: 2;
+              box-shadow: 3px 3px 6px black;
+              background: #fecc2f;
+            }
+
+            .card-category-child {
+              width: 40px;
+              height: 20px;
+              background: #1178b8;
+              font-size: 12px;
+            }
+          }
+
+          .articleContent {
+            font-size: 12px;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+          }
+
+          .card-tag {
+            display: flex;
+            margin: 10px 0 10px 0;
+
+            .card-tag1 {
+              margin: 0 5px 0 0;
+              widows: 20%;
+              height: 20px;
+              transform: skewX(-10deg);
+              position: relative;
+              z-index: 2;
+              box-shadow: 3px 3px 6px black;
+              background: #fecc2f;
+            }
+
+            .card-tag2 {
+              widows: 20%;
+              height: 20px;
+              transform: skewX(-10deg);
+              position: relative;
+              z-index: 2;
+              box-shadow: 3px 3px 6px black;
+              background: #fecc2f;
+            }
+          }
+        }
+
+        .card-body-mid > p {
+          font-size: 12px;
+        }
+
+        .card-body-under {
+          display: flex;
+          font-size: 12px;
+
+          .card-like {
+            display: flex;
+            p {
+              font-size: 12px;
+            }
+          }
+
+          .card-comment {
+            display: flex;
+            width: 70px;
+            margin-left: 100px;
+            p {
+              font-size: 12px;
+            }
+          }
+
+          .card-watch {
+            display: flex;
+            width: 80px;
+
+            p {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
