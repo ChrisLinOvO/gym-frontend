@@ -1,24 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { Link, withRouter } from "react-router-dom";
-import "./Articles.scss";
-import ArticleCard from "../../component/article-card/ArticleCard";
-import ArticlePopular from "../../component/article-popular/ArticlePopular";
+import React, { useState, useEffect } from "react"
+import { Link, withRouter } from "react-router-dom"
+
+import "./Articles.scss"
+
+import ArticleCard from "../../component/article-card/ArticleCard"
+import ArticlePopular from "../../component/article-popular/ArticlePopular"
 
 function Articles() {
-  const [allArticles, setAllArticles] = useState([]);
- 
-  const [popular, setPopular] = useState([]);
-
-  const [text, setText] = useState("");
+  const [allArticles, setAllArticles] = useState([])
+  const [popular, setPopular] = useState([])
+  const [text, setText] = useState("")
 
   function handleClick(value) {
     setText(value);
   }
 
+  //取得文章列表資料
   async function getData() {
-    // 開啟載入指示
-    // setDataLoading(true)
-
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request("http://localhost:5000/api/articles", {
       method: "GET",
@@ -27,10 +25,9 @@ function Articles() {
         "Content-Type": "appliaction/json",
       }),
     });
-
     const response = await fetch(request);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     // 設定資料
     setAllArticles(data);
   }
@@ -120,4 +117,4 @@ function Articles() {
   );
 }
 
-export default withRouter(Articles);
+export default withRouter(Articles)

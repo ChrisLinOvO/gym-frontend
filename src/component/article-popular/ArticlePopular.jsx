@@ -3,7 +3,6 @@ import "./ArticlePopular.scss";
 import { AiFillLike } from "react-icons/ai";
 
 function ArticlePopular(props) {
-  const { popular, setPopular } = props;
   const [hotdata, setHotdata] = useState("");
 
   async function getHotData() {
@@ -24,7 +23,7 @@ function ArticlePopular(props) {
 
     const response = await fetch(request);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     // console.log(data[0]);
     setHotdata(data);
   }

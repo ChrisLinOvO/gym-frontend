@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import "./ArticlesAdd.scss";
-import axios from "axios";
+import React, { useState } from "react"
+import { connect } from "react-redux"
 import { withRouter } from "react-router-dom";
+
+import "./ArticlesAdd.scss"
+import axios from "axios";
 
 import { createStructuredSelector } from "reselect";
 import { currentUserSelect } from "../../redux/user/user-selector"
@@ -11,22 +12,19 @@ function ArticlesAdd(props) {
   const { currentUserData } = props
   //該使用者的id
   const currentUserId = currentUserData ? currentUserData.memberId : ''
-  console.log(currentUserId)
-  console.log(currentUserData.memberNickname)
+  // console.log(currentUserId)
+  // console.log(currentUserData.memberNickname)
 
 
-
-  const [Data, setData] = useState();
-
-  const [memberId, setMemberId] = useState(currentUserId);
-  const [memberName, setMemberName] = useState("");
+  const [memberId] = useState(currentUserId);
+  const [memberName] = useState("");
   // const [articleId, setArticleId] = useState();
   const [articleTitle, setArticleTitle] = useState("");
   const [articleContent, setArticleContent] = useState("");
   const [categoryName, setCategoryName] = useState("");
   const [tagName1, setTagName1] = useState("");
   const [tagName2, setTagName2] = useState("");
-  const [memberImg, setMemberImg] = useState("");
+  const [memberImg] = useState("");
   const [articleImages, setArticleImages] = useState("");
   const [imgDataFiles, setImgDataFiles] = useState();
 
@@ -47,7 +45,7 @@ function ArticlesAdd(props) {
 
   async function addArticleToSever(item) {
     // 注意資料格式要設定，伺服器才知道是json格式
-    console.log(item);
+    // console.log(item);
     axios.post(`http://localhost:5000/api/articles/add`, {
       method: "POST",
       credentials: "include", // 需傳送 Cookie 必須開啟

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { withRouter, useParams, Link } from "react-router-dom";
+import { withRouter,  Link } from "react-router-dom";
 import "./ArticlesEdit.scss";
 import axios from "axios";
 
@@ -12,7 +12,7 @@ function ArticlesEdit(props) {
   const { currentUserData } = props
   //該使用者的id
   const currentUserId = currentUserData ? currentUserData.memberId : ''
-  console.log(currentUserId)
+  // console.log(currentUserId)
 
   const [Data, setData] = useState("");
   const [delData, setDelData] = useState("")
@@ -28,7 +28,7 @@ function ArticlesEdit(props) {
       );
 
       setData(result.data);
-      console.log(result)
+      // console.log(result)
     };
     FetchData(currentUserId);
   }, []);
@@ -55,7 +55,7 @@ function ArticlesEdit(props) {
       window.location.reload()
       const response = await fetch(request);
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setDelData(data)
 
   }
@@ -95,6 +95,4 @@ function ArticlesEdit(props) {
 const mapStateToProps = createStructuredSelector({
   currentUserData: currentUserSelect,
 });
-
 export default withRouter(connect(mapStateToProps)(ArticlesEdit));
-

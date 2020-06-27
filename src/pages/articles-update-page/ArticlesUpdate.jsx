@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { withRouter, useParams } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./ArticlesUpdate.scss";
 import axios from "axios";
 import Moment from "react-moment";
@@ -13,9 +13,9 @@ function ArticlesUpdate(props) {
 
   const { currentUserData } = props
   //該使用者的id
-  const currentUserId = currentUserData ? currentUserData.memberId : ''
-  console.log(currentUserId)
-  console.log(currentUserData.memberNickname)
+  // const currentUserId = currentUserData ? currentUserData.memberId : ''
+  // console.log(currentUserId)
+  // console.log(currentUserData.memberNickname)
 
   const {
     match: { params },
@@ -24,15 +24,15 @@ function ArticlesUpdate(props) {
 
   const [Data, setData] = useState();
 
-  const [memberId, setMemberId] = useState(currentUserId);
-  const [memberName, setMemberName] = useState("");
+  // const [memberId, setMemberId] = useState(currentUserId);
+  // const [memberName, setMemberName] = useState("");
   // const [articleId, setArticleId] = useState("");
   const [articleTitle, setArticleTitle] = useState("");
   const [articleContent, setArticleContent] = useState("");
   const [categoryName, setCategoryName] = useState("");
   const [tagName1, setTagName1] = useState("");
   const [tagName2, setTagName2] = useState("");
-  const [memberImg, setMemberImg] = useState("");
+  // const [memberImg, setMemberImg] = useState("");
   const [articleImages, setArticleImages] = useState("");
   const [imgDataFiles, setImgDataFiles] = useState();
   const handleImgChange = (event) => {
@@ -85,15 +85,15 @@ function ArticlesUpdate(props) {
         }),
         data: {
           articleId: item.articleId,
-          memberId: item.memberId,
-          memberName: item.memberName,
+          // memberId: item.memberId,
+          // memberName: item.memberName,
           articleTitle: item.articleTitle,
           categoryName: item.categoryName,
           articleContent: item.articleContent,
           tagName1: item.tagName1,
           tagName2: item.tagName2,
           articleImages: item.articleImages,
-          memberImg: item.memberImg,
+          // memberImg: item.memberImg,
         },
       }
     );
@@ -201,17 +201,17 @@ function ArticlesUpdate(props) {
                   type="button"
                   onClick={() => {
                     articleDataUpdate({
-                      memberId,
-                      memberName,
+                      // memberId,
+                      // memberName,
                       articleTitle,
                       categoryName,
                       articleContent,
                       tagName1,
                       tagName2,
                       articleImages,
-                      memberImg,
+                      // memberImg,
                     });
-                    props.history.push("/articles");
+                    props.history.push("/articlesEdit");
                   }}
                 >
                   更新

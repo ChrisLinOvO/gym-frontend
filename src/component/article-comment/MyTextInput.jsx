@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react"
 
 // 所有狀態與更動狀態均來自於上層父母元件
 function MyTextInput(props) {

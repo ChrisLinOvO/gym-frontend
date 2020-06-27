@@ -1,32 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import { Link, withRouter } from "react-router-dom";
-import axios from "axios";
-import Moment from "react-moment";
+import React from "react" 
+import { Link, withRouter } from "react-router-dom"
+import axios from "axios"
+import Moment from "react-moment"
 
-import "./ArticleCard.scss";
-import { AiFillLike } from "react-icons/ai";
-
-
-import { createStructuredSelector } from "reselect";
-import { currentUserSelect } from "../../redux/user/user-selector"
+import "./ArticleCard.scss"
+import { AiFillLike } from "react-icons/ai"
 
 const ArticleCard = (props) => {
+  const { text, allArticles, setAllArticles } = props
 
-  const { currentUserData } = props
-  //該使用者的id
-  const currentUserId = currentUserData ? currentUserData.memberId : ''
-  console.log(currentUserId)
-  console.log(currentUserData.memberNickname)
-
-  const { text, allArticles, setAllArticles } = props;
-  // console.log(props.allArticles)
-  // console.log(props.allArticles[0]);
-  const [getArticleId, setGetArticleId] = useState("");
-
-  const [commentsNum, setCommentsNum] = useState("");
-  console.log(commentsNum);
-  console.log(props.match.params)
+ //取得個別文章資料
   function handleClick(articleId) {
     const result = axios.get(
       `http://localhost:5000/api/articles/${articleId}`,
@@ -40,41 +23,11 @@ const ArticleCard = (props) => {
         data: {},
       }
     );
-    setGetArticleId(result);
-    console.log(result);
-
+    setAllArticles(result)
   }
 
-  async function getCommentsNumber(result) {
-    // 開啟載入指示
-    // setDataLoading(true)
-
-    // 注意header資料格式要設定，伺服器才知道是json格式
-    const request = new Request(
-      `http://localhost:5000/api/articles/getCommentsNumber/${result}`,
-      {
-        method: "GET",
-        headers: new Headers({
-          Accept: "application/json",
-          "Content-Type": "appliaction/json",
-        }),
-      }
-    );
-
-    const response = await fetch(request);
-    const data = await response.json();
-    console.log(data);
-    for (let i of data) {
-      console.log("test" + Object.values(i));
-      setCommentsNum(Object.values(i));
-    }
-    // 設定資料
-  }
-  useEffect(() => {
-    getCommentsNumber();
-  }, []);
-
-
+  
+//類別篩選
   function change() {
     let update = allArticles.filter((item) => {
       return item.categoryName.indexOf(text) !== -1;
@@ -126,7 +79,7 @@ const ArticleCard = (props) => {
                   </div>
                   <div className="card-comment">
                     <p>留言</p>
-                    <p>{commentsNum}</p>
+                    <p></p>
                   </div>
                   <div className="card-watch">
                     <p>瀏覽人數</p>
@@ -150,7 +103,4 @@ const ArticleCard = (props) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  currentUserData: currentUserSelect,
-});
-export default withRouter(connect(mapStateToProps)(ArticleCard));
+export default withRouter(ArticleCard)

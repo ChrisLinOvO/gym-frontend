@@ -13,11 +13,11 @@ import EmployeeFormPage from "./pages/employee-form-page/EmployeeFormPage";
 import EmployeeCenterPage from "./pages/employee-center-page/EmployeeCenterPage";
 import EmployeeSignInOutPage from "./pages/employee-sign-in-out-page/employee-sign-in-out-page";
 //討論區-----------
-import Articles from "./pages/articles-page/Articles"
-import ArticlesAdd from "./pages/articles-add-page/ArticlesAdd"
-import ArticlesPreview from "./pages/articles-preview-page/ArticlesPreview"
-import ArticlesEdit from "./pages/articles-edit-page/ArticlesEdit"
-import ArticlesUpdate from "./pages/articles-update-page/ArticlesUpdate"
+import Articles from "./pages/articles-page/Articles";
+import ArticlesAdd from "./pages/articles-add-page/ArticlesAdd";
+import ArticlesPreview from "./pages/articles-preview-page/ArticlesPreview";
+import ArticlesEdit from "./pages/articles-edit-page/ArticlesEdit";
+import ArticlesUpdate from "./pages/articles-update-page/ArticlesUpdate";
 // Component------
 import LoadingSpinner from "./component/loading-spinner/LoadingSpinner";
 import ErrorBoundary from "./component/error-boundary/ErrorBoundary";
