@@ -81,6 +81,7 @@ function ArticlesUpdate(props) {
         headers: new Headers({
           Accept: "application/json",
           "Content-Type": "application/json",
+          
         }),
         data: {
           articleId: item.articleId,
