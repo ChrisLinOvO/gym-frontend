@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 import "./ArticlesPreview.scss";
@@ -6,9 +7,22 @@ import Moment from "react-moment";
 import { AiFillLike } from "react-icons/ai";
 import MyTextInput from "../../component/article-comment/MyTextInput";
 
+import { createStructuredSelector } from "reselect";
+import { currentUserSelect } from "../../redux/user/user-selector"
+
+
 const ArticlesPreview = (props) => {
+
+  const { currentUserData } = props
+  //該使用者的id
+  const currentUserId = currentUserData ? currentUserData.memberId : ''
+  console.log(currentUserId)
+  console.log(currentUserData.memberNickname)
+
+
   const [Data, setData] = useState();
 
+// const [count, setCount] = useState(articleLike);
   const [articleId, setArticleId] = useState();
   const [memberId, setMemberId] = useState(1);
   const [memberName, setMemberName] = useState("");
@@ -174,7 +188,7 @@ const ArticlesPreview = (props) => {
                   <div className="articleCommentCard">
                     <p>{commentsNum}則留言</p>
                     <div className="membar-comment">
-                      <img className="member-avatar" src={list.memberImg}></img>
+                      <img className="member-avatar" src={currentUserData.memberImg}></img>
                       <MyTextInput
                         value={content}
                         onChange={(event) => setContent(event.target.value)}
@@ -201,11 +215,11 @@ const ArticlesPreview = (props) => {
                           <div className="article-comment" key={index}>
                             <img
                               className="member-avatar-res"
-                              src={list.memberImg}
+                              src={currentUserData.memberImg}
                             ></img>
                             <div className="member-info">
                               <div className="info">
-                                <h5>{list.memberNickname}</h5>
+                                <h5>{currentUserData.memberNickname}</h5>
                                 <Moment className="time" format="YYYY-MM-DD HH:mm">
                                   {list.created_at}
                                 </Moment>
@@ -224,5 +238,9 @@ const ArticlesPreview = (props) => {
     </>
   );
 };
+const mapStateToProps = createStructuredSelector({
+  currentUserData: currentUserSelect,
+});
 
-export default withRouter(ArticlesPreview);
+export default withRouter(connect(mapStateToProps)(ArticlesPreview));
+

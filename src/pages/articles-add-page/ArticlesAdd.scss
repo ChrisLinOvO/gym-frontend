@@ -9,17 +9,16 @@
   border: none;
   border-radius: 5px;
 
-  
   .articleAdd-container-top {
     display: flex;
     height: 30px;
     .addLabel {
       display: flex;
-       h2{
-         width: 160px;
-       }
+      h2 {
+        width: 160px;
+      }
       height: 30px;
-      .select{
+      .select {
         height: 30px;
         // margin-left: 15px;
       }
@@ -27,11 +26,20 @@
     .addTag {
       display: flex;
       margin-left: 30px;
-
     }
   }
+.memberInfo{
+  display: flex;
+  .member-avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    // background-color: #fecc2f;
+    margin: 0 10px 0 0;
+  }}
   .addInputTitle {
-    margin-top: 50px;
+    margin-top: 10px;
     width: 400px;
     height: 30px;
   }
@@ -52,8 +60,6 @@
   }
   .addBtn {
     float: right;
-    margin:-40px 25px;
-
-  
+    margin: -40px 25px;
   }
 }

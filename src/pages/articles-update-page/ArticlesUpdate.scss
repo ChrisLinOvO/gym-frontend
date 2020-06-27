@@ -9,26 +9,7 @@
   border: none;
   border-radius: 5px;
 
-  input:focus {
-    outline: none;
-  }
-  textarea:focus {
-    outline: none;
-  }
-  input:focus {
-    border: 2px solid;
-    border-color: #0070e5;
-  }
-  input:focus::placeholder {
-    color: #0070e5;
-  }
-  textarea:focus {
-    border: 2px solid;
-    border-color: #0070e5;
-  }
-  textarea:focus::placeholder {
-    color: #0070e5;
-  }
+  
   .articleUpdate-container-top {
     display: flex;
     .membar {
@@ -43,7 +24,8 @@
       }
   
       .membar-info{
-        // margin:0 0 30px 20px;
+        width: 150px;
+        margin:0 0 30px 20px;
   
         h4{
           margin-bottom: 5px;
@@ -51,22 +33,26 @@
       }
     }
     
-    .select1{
-      height: 30px;
-    }
     .updateLabel {
       display: flex;
       margin-left: 10px;
+      h2{
+        width: 120px;
+      }
+          .select1{
+            height: 30px;
+          }
      
     }
     .updateTag {
       display: flex;
      
       height: 30px;
-      margin-left: 120px;
+      // margin-left: 120px;
 
       .updateTagName1{
         width: 100px;
+        margin-right: 10px;
       }
       .updateTagName2{
         width: 100px;
@@ -77,13 +63,12 @@
   }
   
   .updateInputTitle {
-    margin-top: 50px;
-    width: 500px;
+    width: 400px;
     height: 30px;
   }
   .updateContent {
-    margin-top: 20px;
-    width: 500px;
+    margin-top: 15px;
+    width: 400px;
     height: 300px;
   }
   .updateData {
@@ -94,12 +79,11 @@
     float: right;
     width: 300px;
     height: 200px;
-    margin: -310px 15px;
+    margin: -300px 25px;
   }
   .updateBtn {
-    display: flex;
     float: right;
-    margin: -30px 0 0 0;
+    margin: -50px 20px;
 
     .updateCancle {
       margin-left: 30px;

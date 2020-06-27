@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import { withRouter, useParams } from "react-router-dom";
 import "./ArticlesUpdate.scss";
 import axios from "axios";
 import Moment from "react-moment";
 
+import { createStructuredSelector } from "reselect";
+import { currentUserSelect } from "../../redux/user/user-selector"
+
 function ArticlesUpdate(props) {
+
+
+  const { currentUserData } = props
+  //該使用者的id
+  const currentUserId = currentUserData ? currentUserData.memberId : ''
+  console.log(currentUserId)
+  console.log(currentUserData.memberNickname)
+
   const {
     match: { params },
   } = props;
@@ -12,7 +24,7 @@ function ArticlesUpdate(props) {
 
   const [Data, setData] = useState();
 
-  const [memberId, setMemberId] = useState("1");
+  const [memberId, setMemberId] = useState(currentUserId);
   const [memberName, setMemberName] = useState("");
   // const [articleId, setArticleId] = useState("");
   const [articleTitle, setArticleTitle] = useState("");
@@ -45,6 +57,14 @@ function ArticlesUpdate(props) {
       );
       console.log(result);
       setData(result.data);
+      setArticleTitle(result.articleTitle);
+      setCategoryName(result.categoryName);
+      setArticleContent(result.articleContent);
+      setArticleImages(result.articleImages);
+      setTagName1(result.tagName1);
+      setTagName2(result.tagName2);
+     
+
     };
     FetchData(props.match.params.articleId);
   }, [props.match.params.articleId]);
@@ -82,17 +102,21 @@ function ArticlesUpdate(props) {
     <>
       {Data
         ? Data.map((list, index) => (
+
+
+
+
             <div className="articleUpdate-container " key={index}>
               <div className="articleUpdate-container-top">
               <div className="membar">
-                <img className="member-avatar" src={list.memberImg}></img>
+                <img className="member-avatar" src={currentUserData.memberImg}></img>
                 <div className="membar-info">
-                  <h4>{list.memberNickname}</h4>
+                  <h4>{currentUserData.memberNickname}</h4>
                   <Moment format="YYYY-MM-DD HH:mm">{list.created_at}</Moment>
                 </div>
               </div>
                 <label className="updateLabel">
-                  <p>點選發表類別：</p>
+                  <h2>點選發表類別：</h2>
                   <select
                     className="select1"
                     defaultValue={list.categoryName}
@@ -109,7 +133,7 @@ function ArticlesUpdate(props) {
                 </label>
 
                 <div className="updateTag">
-                  <p>請輸入標籤:</p>
+                  <h2>請輸入標籤:</h2>
                   <input
                     name="updateTagName1"
                     type="text"
@@ -147,7 +171,7 @@ function ArticlesUpdate(props) {
               />
 
               <label class="updateData">
-                <p>上傳檔案</p>
+                <h2>上傳檔案</h2>
                 <input
                   name="updateImg"
                   className="inputavatar"
@@ -186,7 +210,7 @@ function ArticlesUpdate(props) {
                       articleImages,
                       memberImg,
                     });
-                 
+                    props.history.push("/articles");
                   }}
                 >
                   更新
@@ -198,4 +222,9 @@ function ArticlesUpdate(props) {
     </>
   );
 }
-export default withRouter(ArticlesUpdate);
+const mapStateToProps = createStructuredSelector({
+  currentUserData: currentUserSelect,
+});
+
+export default withRouter(connect(mapStateToProps)(ArticlesUpdate));
+

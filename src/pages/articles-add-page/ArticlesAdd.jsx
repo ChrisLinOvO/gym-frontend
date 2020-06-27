@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import "./ArticlesAdd.scss";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 
+import { createStructuredSelector } from "reselect";
+import { currentUserSelect } from "../../redux/user/user-selector"
+
 function ArticlesAdd(props) {
+  const { currentUserData } = props
+  //該使用者的id
+  const currentUserId = currentUserData ? currentUserData.memberId : ''
+  console.log(currentUserId)
+  console.log(currentUserData.memberNickname)
+
+
+
   const [Data, setData] = useState();
 
-  const [memberId, setMemberId] = useState("1");
+  const [memberId, setMemberId] = useState(currentUserId);
   const [memberName, setMemberName] = useState("");
   // const [articleId, setArticleId] = useState();
   const [articleTitle, setArticleTitle] = useState("");
@@ -17,6 +29,7 @@ function ArticlesAdd(props) {
   const [memberImg, setMemberImg] = useState("");
   const [articleImages, setArticleImages] = useState("");
   const [imgDataFiles, setImgDataFiles] = useState();
+
   const handleImgChange = (event) => {
     setArticleImages(URL.createObjectURL(event.target.files[0]));
     setImgDataFiles(event.target.files[0]);
@@ -98,67 +111,77 @@ function ArticlesAdd(props) {
             />
           </div>
         </div>
-        <div>{memberImg}</div>
-        <div>{memberName}</div>
+        <div className="memberInfo">
+        <img
+          className ="member-avatar"
+           src={currentUserData.memberImg}
+        ></img>
+        <div>{currentUserData.memberNickname}</div>
+        </div>
+        
+        <input
+          type="text"
+          name="articleTitle"
+          value={articleTitle}
+          placeholder="請輸入標題"
+          className=" addInputTitle"
+          onChange={(event) => setArticleTitle(event.target.value)}
+          required
+        />
+        <br />
+        <textarea
+          name="addContent"
+          className="addContent"
+          value={articleContent}
+          placeholder="請輸入內文"
+          onChange={(event) => setArticleContent(event.target.value)}
+        />
+
+        <label class="addData">
+          <h2>上傳檔案</h2>
           <input
-            type="text"
-            name="articleTitle"
-            value={articleTitle}
-            placeholder="請輸入標題"
-            className=" addInputTitle"
-            onChange={(event) => setArticleTitle(event.target.value)}
-            required
+            name="addImg"
+            className="inputavatar"
+            type="file"
+            onChange={(event) => {
+              handleChange(event);
+              handleImgChange(event);
+            }}
           />
-          <br />
-          <textarea
-            name="addContent"
-            className="addContent"
-            value={articleContent}
-            placeholder="請輸入內文"
-            onChange={(event) => setArticleContent(event.target.value)}
-          />
-
-          <label class="addData">
-            <h2>上傳檔案</h2>
-            <input
-              name="addImg"
-              className="inputavatar"
-              type="file"
-              onChange={(event) => {
-                handleChange(event);
-                handleImgChange(event);
-              }}
-            />
-          </label>
-          <img className="addImg" src={avatarFile ? avatarFile : imgDataFiles} />
-          <div className="addBtn">
-            <button onClick={(e) => { }} className=" addCancle" type="button">
-              取消
+        </label>
+        <img className="addImg" src={avatarFile ? avatarFile : imgDataFiles} />
+        <div className="addBtn">
+          <button onClick={(e) => { }} className=" addCancle" type="button">
+            取消
           </button>
 
-            <button
-              type="button"
-              onClick={() => {
-                addArticleToSever({
-                  memberId,
-                  memberName,
-                  articleTitle,
-                  categoryName,
-                  articleContent,
-                  tagName1,
-                  tagName2,
-                  articleImages,
-                  memberImg,
-                });
-
-              }}
-            >
-              發佈
+          <button
+            type="button"
+            onClick={() => {
+              addArticleToSever({
+                memberId,
+                memberName,
+                articleTitle,
+                categoryName,
+                articleContent,
+                tagName1,
+                tagName2,
+                articleImages,
+                memberImg,
+              });
+              props.history.push("/articles");
+            }}
+          >
+            發佈
           </button>
-          </div>
-      
+        </div>
+
       </div>
     </>
   );
 }
-export default withRouter(ArticlesAdd);
+const mapStateToProps = createStructuredSelector({
+  currentUserData: currentUserSelect,
+});
+
+export default withRouter(connect(mapStateToProps)(ArticlesAdd));

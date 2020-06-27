@@ -81,7 +81,7 @@ const App = ({ userListStart, employeeListStart }) => {
               <Route exact path="/articles" component={Articles} />
               <Route path="/articles/:articleId" component={ArticlesPreview} />
               <Route path="/articlesAdd" component={ArticlesAdd} />
-              <Route path="/articlesEdit/:memberId" component={ArticlesEdit} />
+              <Route path="/articlesEdit" component={ArticlesEdit} />
               <Route path="/articlesUpdate/:articleId" component={ArticlesUpdate} />
               
 
