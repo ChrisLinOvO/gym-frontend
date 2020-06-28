@@ -1,0 +1,26 @@
+.content-right {
+  width: 30%;
+  height: 200px;
+  display: grid;
+  margin-left: 30px;
+  padding-left: 10px;
+  margin-top: 110px;
+}
+.content-right h3 {
+  color: rgb(0, 0, 0);
+}
+
+.content-right button {
+  color: #fff;
+  background-color: #4f4f4f;
+  border: 1px solid transparent;
+  cursor: pointer;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.content-right input {
+  margin-top: 10px;
+  padding: 10px 5px;
+  font-size: 13px;
+}

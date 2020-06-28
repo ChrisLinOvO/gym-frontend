@@ -18,6 +18,7 @@ import { taggleCartDropdown } from "../../redux/cart/cart-action";
 import LikeIcon from "../like-icon/LikeIcon";
 import CartIcon from "../cart-icon/Cart-icon";
 import CustomButton from "../custom-button/Custom-button";
+import { useHistory } from "react-router-dom";
 
 const CartDropdown = ({
   cartItems,
@@ -25,6 +26,7 @@ const CartDropdown = ({
   hidden,
   taggleCartDropdown,
 }) => {
+  const history = useHistory();
   const content = (
     <CSSTransition
       in={hidden}
@@ -71,7 +73,9 @@ const CartDropdown = ({
             <span className="empty-message">快來收藏我喔～</span>
           )}
         </div>
-        <CustomButton>結帳</CustomButton>
+        <CustomButton onClick={() => history.push("/CartList")}>
+          結帳
+        </CustomButton>
       </div>
     </CSSTransition>
   );

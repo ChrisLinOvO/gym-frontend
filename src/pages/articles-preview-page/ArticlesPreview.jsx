@@ -18,14 +18,18 @@ const ArticlesPreview = (props) => {
   const { currentUserData } = props
   //該使用者的id
   const currentUserId = currentUserData ? currentUserData.memberId : ''
-  // console.log(currentUserId)
+  console.log(currentUserId)
+
+  const currentUserImg = currentUserData ? currentUserData.memberImg : ''
+  const currentUserNickname = currentUserData ? currentUserData.memberNickname: ''
+ 
 
 
 
   const [Data, setData] = useState()
   const [articleId, setArticleId] = useState("")
   const [memberId] = useState(currentUserId)
-  const [memberName] = useState(currentUserData.memberName)
+  const [memberName] = useState("")
   const [content, setContent] = useState("")
   const [memberImg] = useState("")
   const [comments, setComments] = useState("")
@@ -45,7 +49,7 @@ const ArticlesPreview = (props) => {
   //傳送留言
   async function addToSever(item) {
     // 注意資料格式要設定，伺服器才知道是json格式
-    // console.log(item);
+     console.log(item);
     axios.post(
       `http://localhost:5000/api/articles/postComments/:articleId`,
       {
@@ -64,11 +68,12 @@ const ArticlesPreview = (props) => {
         },
       },
       window.location.reload()
-    );
-  }
-
-  //取得留言
-  async function getAddCommentsData() {
+      );
+    }
+  
+    
+    //取得留言
+    async function getAddCommentsData() {
     const request = new Request(
       `http://localhost:5000/api/articles/getComments/${props.match.params.articleId}`,
       {
@@ -132,7 +137,7 @@ const ArticlesPreview = (props) => {
               <div className="contentCard-container" key={index}>
                 <div className="card-top">
                   <div className="membar">
-                    <img className="member-avatar" src={list.memberImg}></img>
+                    <img className="member-avatar" src={list.memberImg} alt=""></img>
                     <div className="membar-info">
                       <h4>{list.memberNickname}</h4>
                       <Moment format="YYYY-MM-DD HH:mm">
@@ -149,7 +154,7 @@ const ArticlesPreview = (props) => {
                     </div>
                   </div>
                   <p>{list.articleContent}</p>
-                  <img src={list.articleImages}></img>
+                  <img src={list.articleImages} alt=""></img>
                   <div className="card-tag">
                     <div className="card-tag1">{list.tagName1}</div>
                     <div className="card-tag2">{list.tagName2}</div>
@@ -177,7 +182,7 @@ const ArticlesPreview = (props) => {
                 <div className="articleCommentCard">
                   <p>{commentsNum}則留言</p>
                   <div className="membar-comment">
-                    <img className="member-avatar" src={currentUserData.memberImg}></img>
+                    <img className="member-avatar" src={currentUserImg} alt=""></img>
                     <MyTextInput
                       value={content}
                       onChange={(event) => setContent(event.target.value)}
@@ -204,11 +209,11 @@ const ArticlesPreview = (props) => {
                       <div className="article-comment" key={index}>
                         <img
                           className="member-avatar-res"
-                          src={currentUserData.memberImg}
+                          src={list.memberImg} alt=""
                         ></img>
                         <div className="member-info">
-                          <div className="info">
-                            <h5>{currentUserData.memberNickname}</h5>
+                          <div className="info1">
+                            <h5>{list.memberNickname}</h5>
                             <Moment className="time" format="YYYY-MM-DD HH:mm">
                               {list.created_at}
                             </Moment>

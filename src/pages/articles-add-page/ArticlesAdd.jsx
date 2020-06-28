@@ -12,8 +12,9 @@ function ArticlesAdd(props) {
   const { currentUserData } = props
   //該使用者的id
   const currentUserId = currentUserData ? currentUserData.memberId : ''
-  // console.log(currentUserId)
-  // console.log(currentUserData.memberNickname)
+  const currentUserImg = currentUserData ? currentUserData.memberImg : ''
+  const currentUserNickname = currentUserData ? currentUserData.memberNickname : ''
+  
 
 
   const [memberId] = useState(currentUserId);
@@ -75,12 +76,14 @@ function ArticlesAdd(props) {
           <label className="addLabel">
             <h2>點選發表類別：</h2>
             <select
+            
               className="select"
               value={categoryName}
               onChange={(event) => {
                 setCategoryName(event.target.value);
               }}
             >
+          
               <option>重訓技巧</option>
               <option>體脂控制</option>
               <option>健康飲食</option>
@@ -110,11 +113,12 @@ function ArticlesAdd(props) {
           </div>
         </div>
         <div className="memberInfo">
+
         <img
           className ="member-avatar"
-           src={currentUserData.memberImg}
+           src={currentUserImg} alt=""
         ></img>
-        <div>{currentUserData.memberNickname}</div>
+        <div>{currentUserNickname}</div>
         </div>
         
         <input
@@ -157,6 +161,7 @@ function ArticlesAdd(props) {
             type="button"
             onClick={() => {
               addArticleToSever({
+                // articleId,
                 memberId,
                 memberName,
                 articleTitle,

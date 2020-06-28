@@ -29,3 +29,17 @@ export const addQuantity = (item, quantity) => ({
   payload: item,
   quantity,
 });
+
+
+//訂單
+export const ReduceItem = item => ({
+  type: cartActionTypes.REDUCE_ITEM,
+  payload: item,
+
+});
+
+
+export const ChangeFavr = (item) => ({
+  type: cartActionTypes.CHANGEFAVR_ITEM,
+  payload: item,
+});

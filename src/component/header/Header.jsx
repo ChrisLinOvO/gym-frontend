@@ -56,6 +56,7 @@ const Header = ({
           onMouseOver={() => {
             if (subDiv) return;
           }}
+          // onMouseLeave={() => setSubDiv(false)}
         >
           <Link
             to="/shopping"

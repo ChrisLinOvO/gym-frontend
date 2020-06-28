@@ -119,6 +119,9 @@ $text: #000000;
 
           .card-like {
             display: flex;
+            .icon{
+              margin-top: -10px;
+            }
             p {
               font-size: 12px;
             }

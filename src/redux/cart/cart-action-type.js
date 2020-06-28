@@ -5,4 +5,10 @@ export const cartActionTypes = {
   LIKE_ITEM: "LIKE_ITEM",
   UNLIKE_ITEM: "UNLIKE_ITEM",
   ADD_QUANTITY: "ADD_QUANTITY",
+
+
+  //訂單
+  REDUCE_ITEM: "REDUCE_ITEM",
+  CHANGEFAVR_ITEM: "CHANGEFAVR_ITEM",
+
 };

@@ -23,3 +23,28 @@ export const unlikeCartItem = (cartFavoriteItems, item) => {
 // Object.values(cartFavoriteItems).filter(
 //   (cartItem) => cartItem.itemId !== item.itemId
 // );
+
+export const RedeuceCartItem = (cartItems, cartItemsToReduce) => {
+  const existCartItem = cartItems.find(
+    (cartItem) => cartItem.itemId === cartItemsToReduce.itemId
+  );
+  if (existCartItem === 1) {
+    return cartItems.filter((cart => cart.itemId !== cartItemsToReduce.itemId))
+  }
+  return cartItems.map(
+    cartItem => cartItem.itemId === cartItemsToReduce.itemId ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
+  )
+};
+
+
+export const ChangeFavr = (cartItems, item) => {
+  return cartItems.filter((i) => i.itemId !== item.itemId)
+};
+
+// item 傳入的參數
+export const FavCartItem = (FavCartItem, item) => {
+  return FavCartItem.filter((i) => i.itemId !== item.itemId)
+
+};
+
+

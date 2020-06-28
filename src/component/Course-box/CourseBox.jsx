@@ -4,7 +4,6 @@ import CJumpWindow from "../c-jump-window/CJumpWindow";
 import SJumpWindow from "../s-jump-window/SJumpWindow";
 import { Link } from "react-router-dom";
 // import ControllerButton from '../controller-button/controllerButton'
-
 function CourseBox(props) {
   let t = props.course.courseTime;
   // console.log('t', t)
@@ -35,8 +34,8 @@ function CourseBox(props) {
       },
     ];
     console.log("b:", b);
-    console.log("c:", c);
     //將b跟c陣列中的物件合併
+
     // const d = Object.assign(b[0], c[0]);
 
     //將資料轉成json字串格式
@@ -51,7 +50,6 @@ function CourseBox(props) {
     //     "Content-Type": "application/json",
     //   }),
     // });
-
     // const response = await fetch(request)
     // const data = await response.json()
   }
@@ -68,6 +66,7 @@ function CourseBox(props) {
         </div>
         {/* <a onClick={} className="booking btn">已報名</a> */}
         {/* <a className="bookingFull btn">已額滿</a> */}
+
         <Link to={() => bookingCourse()} className="accessBooking btn">
           預約
         </Link>

@@ -14,8 +14,9 @@ function ArticlesUpdate(props) {
   const { currentUserData } = props
   //該使用者的id
   // const currentUserId = currentUserData ? currentUserData.memberId : ''
-  // console.log(currentUserId)
-  // console.log(currentUserData.memberNickname)
+  const currentUserImg = currentUserData ? currentUserData.memberImg : ''
+  const currentUserNickname = currentUserData ? currentUserData.memberNickname : ''
+ 
 
   const {
     match: { params },
@@ -110,9 +111,9 @@ function ArticlesUpdate(props) {
             <div className="articleUpdate-container " key={index}>
               <div className="articleUpdate-container-top">
               <div className="membar">
-                <img className="member-avatar" src={currentUserData.memberImg}></img>
+                <img className="member-avatar" src={currentUserImg} alt=""></img>
                 <div className="membar-info">
-                  <h4>{currentUserData.memberNickname}</h4>
+                  <h4>{currentUserNickname}</h4>
                   <Moment format="YYYY-MM-DD HH:mm">{list.created_at}</Moment>
                 </div>
               </div>
@@ -184,10 +185,11 @@ function ArticlesUpdate(props) {
                   }}
                 />
               </label>
+              
               <img
                 className="updateImg"
-                src={avatarFile ? avatarFile : list.articleImages}
-              />
+                src={avatarFile ? avatarFile : list.articleImages} alt={list.articleImages}
+             />
               <div className="updateBtn">
                 <button
                   onClick={(e) => {}}

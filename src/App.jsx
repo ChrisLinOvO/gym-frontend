@@ -18,6 +18,15 @@ import ArticlesAdd from "./pages/articles-add-page/ArticlesAdd";
 import ArticlesPreview from "./pages/articles-preview-page/ArticlesPreview";
 import ArticlesEdit from "./pages/articles-edit-page/ArticlesEdit";
 import ArticlesUpdate from "./pages/articles-update-page/ArticlesUpdate";
+
+// 訂單----------
+import OrderList from "./pages/orders-list-page/OrderList";
+import OrderListDetail from "./component/OrderList/OrderListDetail";
+import CartList from "./component/Order-CartList/CartList";
+import CheckOutPage from "./component/Order-CheckOutPage/CheckOutPage";
+import OrderCompleted from "./component/OrderCompleted/OrderCompleted";
+
+import HomePage from "./pages/HomePage/Home";
 // Component------
 import LoadingSpinner from "./component/loading-spinner/LoadingSpinner";
 import ErrorBoundary from "./component/error-boundary/ErrorBoundary";
@@ -27,6 +36,7 @@ import { userListStart } from "./redux/user/user-action";
 import { employeeListStart } from "./redux/employee/employee-action";
 
 import "./App.scss";
+
 // react lazy
 const ShopPage = lazy(() => import("./pages/shop-page/ShopPage"));
 const ShopCollectionPage = lazy(() =>
@@ -34,8 +44,6 @@ const ShopCollectionPage = lazy(() =>
 );
 const ShopItemPage = lazy(() => import("./pages/shop-item-page/ShopItemPage"));
 // -----------
-
-const HomePage = () => <div>Hi</div>;
 
 // APP component
 const App = ({ userListStart, employeeListStart }) => {
@@ -86,6 +94,13 @@ const App = ({ userListStart, employeeListStart }) => {
               
 
 
+
+              {/* Darren測試用 */}
+              <Route path="/OrderList" component={OrderList} />
+              <Route path="/CartList" component={CartList} />
+              <Route path="/OrderListDetail" component={OrderListDetail} />
+              <Route path="/CheckOutPage" component={CheckOutPage} />
+              <Route path="/OrderCompleted" component={OrderCompleted} />
             </Suspense>
           </ErrorBoundary>
         </Switch>

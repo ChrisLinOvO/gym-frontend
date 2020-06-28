@@ -9,6 +9,7 @@ const FormInput = ({ handleChange, label, type, ...otherProps }) => (
       {...otherProps}
       className="form-input"
       type={type}
+      required
     />
     {label ? (
       <label

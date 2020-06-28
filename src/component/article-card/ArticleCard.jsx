@@ -42,7 +42,7 @@ const ArticleCard = (props) => {
               <img className="card-img" src={v.articleImages} ></img>
               <div className="card-body">
                 <div className="card-body-top">
-                  <img className="member-avatar" src={v.memberImg}></img>
+                  <img className="member-avatar" src={v.memberImg} alt=""></img>
                   <div className="membar-info">
                     <h4>{v.memberNickname}</h4>
                     <Moment format="YYYY-MM-DD HH:mm">{v.created_at}</Moment>

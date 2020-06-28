@@ -47,7 +47,7 @@ class SignIn extends React.Component {
   render() {
     return (
       <div className="sign-in">
-        <h2 className="title">會員登入</h2>
+        <h2 className="sign-in-title">會員登入</h2>
         <span>輸入帳號 & 密碼登入</span>
         <form>
           <FormInput
