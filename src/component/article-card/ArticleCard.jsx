@@ -28,13 +28,13 @@ const ArticleCard = (props) => {
 
   
 //類別篩選
-  function change() {
-    let update = allArticles.filter((item) => {
+  function showArticles() {
+    let filterArticles = allArticles.filter((item) => {
       return item.categoryName.indexOf(text) !== -1;
     });
     // console.log(update);
 
-    const card = update.map((v) => {
+    const card = filterArticles.map((v) => {
       return (
         <>
           <div className="item">
@@ -79,7 +79,7 @@ const ArticleCard = (props) => {
                   </div>
                   <div className="card-comment">
                     <p>留言</p>
-                    <p></p>
+                    <p>{v.COUNT}</p>
                   </div>
                   <div className="card-watch">
                     <p>瀏覽人數</p>
@@ -97,7 +97,7 @@ const ArticleCard = (props) => {
   return (
     <>
       <div className="masonry">
-        {change()}
+        {showArticles()}
       </div>
     </>
   );

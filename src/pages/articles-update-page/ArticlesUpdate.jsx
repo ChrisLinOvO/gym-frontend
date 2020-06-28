@@ -104,10 +104,6 @@ function ArticlesUpdate(props) {
     <>
       {Data
         ? Data.map((list, index) => (
-
-
-
-
             <div className="articleUpdate-container " key={index}>
               <div className="articleUpdate-container-top">
               <div className="membar">

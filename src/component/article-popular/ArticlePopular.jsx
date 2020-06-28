@@ -52,7 +52,7 @@ function ArticlePopular(props) {
                 </div>
                 <div className="hotArticle-comment">
                   <p>留言</p>
-                  <p>30</p>
+                  <p>{list.COUNT}</p>
                 </div>
                 <div className="hotArticle-watch">
                   <p>瀏覽人數</p>

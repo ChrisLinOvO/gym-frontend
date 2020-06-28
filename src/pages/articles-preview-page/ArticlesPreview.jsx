@@ -6,6 +6,7 @@ import axios from "axios"
 import "./ArticlesPreview.scss"
 import Moment from "react-moment"
 import { AiFillLike } from "react-icons/ai"
+import { AiOutlineLike } from "react-icons/ai"
 
 import MyTextInput from "../../component/article-comment/MyTextInput"
 
@@ -18,11 +19,11 @@ const ArticlesPreview = (props) => {
   const { currentUserData } = props
   //該使用者的id
   const currentUserId = currentUserData ? currentUserData.memberId : ''
-  console.log(currentUserId)
+  // console.log(currentUserId)
 
   const currentUserImg = currentUserData ? currentUserData.memberImg : ''
-  const currentUserNickname = currentUserData ? currentUserData.memberNickname: ''
- 
+  const currentUserNickname = currentUserData ? currentUserData.memberNickname : ''
+
 
 
 
@@ -35,9 +36,10 @@ const ArticlesPreview = (props) => {
   const [comments, setComments] = useState("")
   const [commentsNum, setCommentsNum] = useState("")
   // console.log(commentsNum);
+  // const [icon,setIcon] =useState(false)
 
 
-//取得文章資料
+  //取得文章資料
   useEffect(() => {
     const FetchData = async (id) => {
       const result = await axios(`http://localhost:5000/api/articles/${id}`);
@@ -49,7 +51,7 @@ const ArticlesPreview = (props) => {
   //傳送留言
   async function addToSever(item) {
     // 注意資料格式要設定，伺服器才知道是json格式
-     console.log(item);
+    console.log(item);
     axios.post(
       `http://localhost:5000/api/articles/postComments/:articleId`,
       {
@@ -68,12 +70,12 @@ const ArticlesPreview = (props) => {
         },
       },
       window.location.reload()
-      );
-    }
-  
-    
-    //取得留言
-    async function getAddCommentsData() {
+    );
+  }
+
+
+  //取得留言
+  async function getAddCommentsData() {
     const request = new Request(
       `http://localhost:5000/api/articles/getComments/${props.match.params.articleId}`,
       {
@@ -93,7 +95,7 @@ const ArticlesPreview = (props) => {
   }
   useEffect(() => {
     getAddCommentsData();
-  },[]);
+  }, []);
   useEffect(() => {
     setArticleId(props.match.params.articleId);
   }, [articleId]);
@@ -114,11 +116,8 @@ const ArticlesPreview = (props) => {
 
     const response = await fetch(request);
     const data = await response.json();
-    // console.log(data);
-    for (let i of data) {
-      // console.log("test" + Object.values(i));
-      setCommentsNum(Object.values(i));
-    }
+    setCommentsNum(data[0].COUNT);
+
   }
 
   useEffect(() => {
@@ -127,6 +126,28 @@ const ArticlesPreview = (props) => {
   useEffect(() => {
     getCommentsNumber();
   }, []);
+
+  //更新點讚數
+  async function postArticeLikeUpdate(item) {
+    // 注意資料格式要設定，伺服器才知道是json格式
+    console.log(item);
+    axios.post(
+      `http://localhost:5000/api/articles/postArticeLikeUpdate`,
+      {
+        method: "POST",
+        credentials: "include", // 需傳送 Cookie 必須開啟
+        headers: new Headers({
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        }),
+        data: {
+          articleId: item.articleId,
+        }
+      },
+      window.location.reload()
+    );
+  }
+
 
   return (
     <>
@@ -164,8 +185,9 @@ const ArticlesPreview = (props) => {
                   <div className="card-like">
                     <div className="icon">
                       <AiFillLike />
+
                     </div>
-                    <p>{list.articleLike}</p>
+                    <p>{list.articleLike }</p>
                   </div>
                   <div className="card-comment">
                     <p>留言</p>
@@ -175,6 +197,12 @@ const ArticlesPreview = (props) => {
                     <p>瀏覽人數</p>
                     <p>800</p>
                   </div>
+                  <AiOutlineLike onClick={() => {
+                    postArticeLikeUpdate({
+                      articleId
+                    });
+                    alert("點讚")
+                  }} />
                 </div>
               </div>
               <div className="ArticleContentCard">
@@ -203,7 +231,7 @@ const ArticlesPreview = (props) => {
                       發佈
                       </button>
                   </div>
-                  <p>熱門留言111</p>
+                  <p>熱門留言</p>
                   {comments
                     ? comments.map((list, index) => (
                       <div className="article-comment" key={index}>
