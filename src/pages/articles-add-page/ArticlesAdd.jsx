@@ -14,7 +14,7 @@ function ArticlesAdd(props) {
   const currentUserId = currentUserData ? currentUserData.memberId : ''
   const currentUserImg = currentUserData ? currentUserData.memberImg : ''
   const currentUserNickname = currentUserData ? currentUserData.memberNickname : ''
-  
+
 
 
   const [memberId] = useState(currentUserId);
@@ -26,22 +26,27 @@ function ArticlesAdd(props) {
   const [tagName1, setTagName1] = useState("");
   const [tagName2, setTagName2] = useState("");
   const [memberImg] = useState("");
-  const [articleImages, setArticleImages] = useState("");
-  const [imgDataFiles, setImgDataFiles] = useState();
+  const [articleImages, setArticleImages] = useState();
+  const [avatarFile, setAvatarFile] = useState("");
 
+  //圖片上傳後轉base64存進資料庫
   const handleImgChange = (event) => {
-    setArticleImages(URL.createObjectURL(event.target.files[0]));
-    setImgDataFiles(event.target.files[0]);
+    let input = event.target.files[0];
+    let reader = new FileReader();
+    reader.onload = function () {
+      let dataURL = reader.result;
+      setArticleImages(dataURL)
+    };
+    reader.readAsDataURL(input);
   };
 
   //上傳圖片 即時顯示
-  const [avatarFile, setAvatarFile] = useState("");
-  const [avatarDataFiles, setAvatarDataFiles] = useState("");
-  const handleChange = (event) => {
-    // console.log(event.target.files);
+
+  const handleImgDisplay = (event) => {
+
     setAvatarFile(URL.createObjectURL(event.target.files[0]));
-    // console.log(event.target.files[0]);
-    setAvatarDataFiles(event.target.files[0]);
+
+    setArticleImages(event.target.files[0]);
   };
 
   async function addArticleToSever(item) {
@@ -76,14 +81,14 @@ function ArticlesAdd(props) {
           <label className="addLabel">
             <h2>點選發表類別：</h2>
             <select
-            
+
               className="select"
               value={categoryName}
               onChange={(event) => {
                 setCategoryName(event.target.value);
               }}
             >
-          
+
               <option>重訓技巧</option>
               <option>體脂控制</option>
               <option>健康飲食</option>
@@ -114,13 +119,13 @@ function ArticlesAdd(props) {
         </div>
         <div className="memberInfo">
 
-        <img
-          className ="member-avatar"
-           src={currentUserImg} alt=""
-        ></img>
-        <div>{currentUserNickname}</div>
+          <img
+            className="member-avatar"
+            src={currentUserImg} alt=""
+          ></img>
+          <div>{currentUserNickname}</div>
         </div>
-        
+
         <input
           type="text"
           name="articleTitle"
@@ -145,13 +150,14 @@ function ArticlesAdd(props) {
             name="addImg"
             className="inputavatar"
             type="file"
+            accept=".jpg,.png"
             onChange={(event) => {
-              handleChange(event);
               handleImgChange(event);
+              handleImgDisplay(event);
             }}
           />
         </label>
-        <img className="addImg" src={avatarFile ? avatarFile : imgDataFiles} />
+        <img className="addImg" src={avatarFile ? avatarFile : articleImages} alt="" />
         <div className="addBtn">
           <button onClick={(e) => { }} className=" addCancle" type="button">
             取消

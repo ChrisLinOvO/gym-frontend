@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ArticlePopular.scss";
+import { Link} from "react-router-dom"
 import { AiFillLike } from "react-icons/ai";
 
 function ArticlePopular(props) {
@@ -34,15 +35,15 @@ function ArticlePopular(props) {
 
   return (
     <>
-   
-         
+
       {hotdata
       
         ? hotdata.map((list, index) => (
          
             <div className="hotArticle" key={index}>
-            
+            <Link to={"/articles/" + list.articleId}>
               <div className="hotArticle-title">{list.articleTitle}</div>
+              </Link>
               <div className="hotArticle-under">
                 <div className="hotArticle-like">
                   <div className="icon">

@@ -8,7 +8,7 @@ import ArticlePopular from "../../component/article-popular/ArticlePopular"
 
 function Articles() {
   const [allArticles, setAllArticles] = useState([])
-  const [popular, setPopular] = useState([])
+  
   const [text, setText] = useState("")
 
   function handleClick(value) {
@@ -36,9 +36,10 @@ function Articles() {
     getData();
   }, []);
 
+
   return (
     <>
-      <banner>
+      <div>
         <div className="category">
           <button
             onClick={() => {
@@ -84,7 +85,7 @@ function Articles() {
             減肥
           </button>
         </div>
-      </banner>
+      </div>
       <Link to="./articlesAdd">
         <div className="article-add-box">
           <button className="article-add">發表文章</button>
@@ -102,7 +103,7 @@ function Articles() {
           <div className="popular-top">人氣文章排行</div>
           <ul className="popular-list">
             <li>
-              <ArticlePopular popular={popular} setPopular={setPopular} />
+              <ArticlePopular/>
               
             </li>
             <li></li>

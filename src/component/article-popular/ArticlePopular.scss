@@ -5,6 +5,9 @@
     margin: 0 auto;
     .hotArticle-title{
         margin-top: 20px;
+        &:hover {
+          color: #fecc2f;
+        }
     }
     
     .hotArticle-under {

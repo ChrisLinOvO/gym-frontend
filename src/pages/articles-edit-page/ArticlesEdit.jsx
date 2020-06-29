@@ -17,7 +17,7 @@ function ArticlesEdit(props) {
   const [Data, setData] = useState("");
   const [delData, setDelData] = useState("")
 
-  // console.log(Data);
+  // console.log(delData);
   // const userId = useParams().memberId;
   // console.log(userId);
 
@@ -55,7 +55,7 @@ function ArticlesEdit(props) {
       window.location.reload()
       const response = await fetch(request);
       const data = await response.json();
-      // console.log(data);
+      console.log(data);
       setDelData(data)
 
   }
@@ -74,8 +74,8 @@ function ArticlesEdit(props) {
         </div>
         {Data
           ? Data.map((list, index) => (
-            <div className="articleItem">
-              <ul className="articleList " key={index}>
+            <div className="articleItem" key={index}>
+              <ul className="articleList">
                 <li className="articleListId">{list.articleId}</li>
                 <li className="articleListTitle">{list.articleTitle}</li>
                 <li className="articleListContent">{list.articleContent}</li>

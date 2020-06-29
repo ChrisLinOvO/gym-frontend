@@ -35,22 +35,27 @@ function ArticlesUpdate(props) {
   const [tagName2, setTagName2] = useState("");
   // const [memberImg, setMemberImg] = useState("");
   const [articleImages, setArticleImages] = useState("");
-  const [imgDataFiles, setImgDataFiles] = useState();
+  const [avatarFile, setAvatarFile] = useState("");
+
+  //圖片更新後轉base64存進資料庫
   const handleImgChange = (event) => {
-    setArticleImages(URL.createObjectURL(event.target.files[0]));
-    setImgDataFiles(event.target.files[0]);
+    let input = event.target.files[0];
+    let reader = new FileReader();
+    reader.onload = function () {
+      let dataURL = reader.result;
+      setArticleImages(dataURL)
+    };
+    reader.readAsDataURL(input);
   };
 
   //上傳圖片 即時顯示
-  const [avatarFile, setAvatarFile] = useState("");
-  const [avatarDataFiles, setAvatarDataFiles] = useState("");
-  const handleChange = (event) => {
-    // console.log(event.target.files);
-    setAvatarFile(URL.createObjectURL(event.target.files[0]));
-    // console.log(event.target.files[0]);
-    setAvatarDataFiles(event.target.files[0]);
-  };
 
+  const handleImgDisplay = (event) => {
+
+    setAvatarFile(URL.createObjectURL(event.target.files[0]));
+
+    setArticleImages(event.target.files[0]);
+  };
   useEffect(() => {
     const FetchData = async (articleId) => {
       const result = await axios(
@@ -135,7 +140,7 @@ function ArticlesUpdate(props) {
                   <input
                     name="updateTagName1"
                     type="text"
-                   
+                    placeholder="輸入標籤"
                     defaultValue={list.tagName1}
                     className="updateTagName1"
                     onChange={(event) => setTagName1(event.target.value)}
@@ -143,7 +148,7 @@ function ArticlesUpdate(props) {
                   <input
                     name="updateTagName2"
                     type="text"
-              
+                    placeholder="輸入標籤"
                     defaultValue={list.tagName2}
                     className="updateTagName2"
                     onChange={(event) => setTagName2(event.target.value)}
@@ -168,7 +173,7 @@ function ArticlesUpdate(props) {
                 onChange={(event) => setArticleContent(event.target.value)}
               />
 
-              <label class="updateData">
+              <div className="updateData">
                 <h2>上傳檔案</h2>
                 <input
                   name="updateImg"
@@ -176,15 +181,15 @@ function ArticlesUpdate(props) {
                   // value={list.articleImages}
                   type="file"
                   onChange={(event) => {
-                    handleChange(event);
                     handleImgChange(event);
+                    handleImgDisplay(event);
                   }}
                 />
-              </label>
+              </div>
               
               <img
                 className="updateImg"
-                src={avatarFile ? avatarFile : list.articleImages} alt={list.articleImages}
+                src={avatarFile ? avatarFile : list.articleImages} alt=""
              />
               <div className="updateBtn">
                 <button

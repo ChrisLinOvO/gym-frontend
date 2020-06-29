@@ -1,4 +1,4 @@
-import React from "react" 
+import React from "react"
 import { Link, withRouter } from "react-router-dom"
 import axios from "axios"
 import Moment from "react-moment"
@@ -9,7 +9,7 @@ import { AiFillLike } from "react-icons/ai"
 const ArticleCard = (props) => {
   const { text, allArticles, setAllArticles } = props
 
- //取得個別文章資料
+  //取得個別文章資料
   function handleClick(articleId) {
     const result = axios.get(
       `http://localhost:5000/api/articles/${articleId}`,
@@ -26,48 +26,49 @@ const ArticleCard = (props) => {
     setAllArticles(result)
   }
 
-  
-//類別篩選
-  function showArticles() {
-    let filterArticles = allArticles.filter((item) => {
-      return item.categoryName.indexOf(text) !== -1;
-    });
-    // console.log(update);
 
-    const card = filterArticles.map((v) => {
-      return (
-        <>
-          <div className="item">
-            <div className="card-container" key={v.articleId}>
-              <img className="card-img" src={v.articleImages} ></img>
+  //類別篩選
+
+  let filterArticles = allArticles.filter((item) => {
+    return item.categoryName.indexOf(text) !== -1;
+  });
+  // console.log(update);
+
+  return (
+    <><div className="masonry">
+      {filterArticles
+        ? filterArticles.map((list, index) => (
+          <div className="item" key={index}>
+            <div className="card-container" >
+              <img className="card-img" src={list.articleImages} alt="" ></img>
               <div className="card-body">
                 <div className="card-body-top">
-                  <img className="member-avatar" src={v.memberImg} alt=""></img>
+                  <img className="member-avatar" src={list.memberImg} alt=""></img>
                   <div className="membar-info">
-                    <h4>{v.memberNickname}</h4>
-                    <Moment format="YYYY-MM-DD HH:mm">{v.created_at}</Moment>
+                    <h4>{list.memberNickname}</h4>
+                    <Moment format="YYYY-MM-DD HH:mm">{list.created_at}</Moment>
                   </div>
                 </div>
                 <div className="card-body-mid">
-                  <Link to={"/articles/" + v.articleId}>
+                  <Link to={"/articles/" + list.articleId}>
                     <h4
                       className="articleTitle"
                       onClick={() => {
-                        handleClick(v.articleId);
+                        handleClick(list.articleId);
                         // console.log(v.articleId);
                       }}
                     >
-                      {v.articleTitle}
+                      {list.articleTitle}
                     </h4>
                   </Link>
                   <div className="card-category">
-                    <div className="card-category-parent">{v.categoryName}</div>
+                    <div className="card-category-parent">{list.categoryName}</div>
                   </div>
-                  <div className="articleContent">{v.articleContent}</div>
+                  <div className="articleContent">{list.articleContent}</div>
 
                   <div className="card-tag">
-                    <div className="card-tag1">{v.tagName1}</div>
-                    <div className="card-tag2">{v.tagName2}</div>
+                    <div className="card-tag1">{list.tagName1}</div>
+                    <div className="card-tag2">{list.tagName2}</div>
                   </div>
                 </div>
                 <div className="card-body-under">
@@ -75,11 +76,11 @@ const ArticleCard = (props) => {
                     <div className="icon">
                       <AiFillLike />
                     </div>
-                    <p>{v.articleLike}</p>
+                    <p>{list.articleLike}</p>
                   </div>
                   <div className="card-comment">
                     <p>留言</p>
-                    <p>{v.COUNT}</p>
+                    <p>{list.COUNT}</p>
                   </div>
                   <div className="card-watch">
                     <p>瀏覽人數</p>
@@ -87,19 +88,13 @@ const ArticleCard = (props) => {
                   </div>
                 </div>
               </div>
-            </div></div>
-        </>
-      );
-    });
-    return card;
-  }
-
-  return (
-    <>
-      <div className="masonry">
-        {showArticles()}
-      </div>
+            </div>
+          </div>
+        ))
+        : ""}
+    </div>
     </>
+
   );
 };
 

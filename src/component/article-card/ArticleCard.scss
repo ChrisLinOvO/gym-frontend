@@ -10,19 +10,29 @@ $text: #000000;
       width: 300px;
       height: auto;
       margin-bottom: 15px;
+      border-radius:6px;
+      border-right: 1px solid rgba(black, .1);
+      border-bottom: 1px solid rgba(black, .1);
+      background-color: #FFFFFF;
+  
+      
+   
 
-      border: 1px solid #000000;
 
       .card-img {
-        width: 300px;
+        width: 100%;
         height: 200px;
         object-fit: cover;
         object-position: 50% 10%;
+        display: block;
+        opacity: 0.8;
+  
       }
 
       .card-body {
         width: 280px;
         margin: 10px;
+      
 
         .card-body-top {
           display: flex;
