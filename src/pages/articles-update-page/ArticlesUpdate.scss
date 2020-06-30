@@ -1,6 +1,6 @@
 .articleUpdate-container {
-  width: 850px;
-  height: 450px;
+  width: 1260px;
+  height: 900px;
   margin: 50px auto;
   background: #555;
   padding: 20px 30px 20px 30px;
@@ -8,85 +8,168 @@
   text-shadow: 1px 1px 1px #444;
   border: none;
   border-radius: 5px;
-
-  
-  .articleUpdate-container-top {
+  .articleUpdate-box {
+    width: 1200px;
+    height: 750px;
+    // border: 1px solid #000000;
+    margin: 0 auto;
+    padding: 20px;
     display: flex;
-    .membar {
-      display: flex;
-      .member-avatar {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        border: 1px solid #000000;
-        // background-color: #fecc2f;
-        margin: 0 10px 0 0;
+    .articleUpdate-box-left {
+      width: 550px;
+      height: 800px;
+      // border: 1px solid #000000;
+      .articleMemberInfo-update{
+        display: flex;
+        .article-member-avatar-update {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: 1px solid #000000;
+          // background-color: #fecc2f;
+          margin: 0 10px 0 0;
+
+        }
+        .articleUpdate-time{
+          margin-top: 5px;
+        }
       }
-  
-      .membar-info{
-        width: 150px;
-        margin:0 0 30px 20px;
-  
-        h4{
-          margin-bottom: 5px;
+      .articleUpdateLabel {
+        width: 100px;
+        height: 80px;
+        margin-top: 25px;
+        // border: 1px solid #000000;
+        border-radius: 2px;
+
+        .articleUpdateSelect {
+          width: 500px;
+          height: 45px;
+          margin-top: 10px;
+          padding-left: 10px;
+          border-radius: 5px;
+        }
+      }
+
+      .articleUpdateTag {
+        margin-top: 15px;
+        width: 100px;
+        height: 150px;
+        // border: 1px solid #000000;
+        &::-webkit-input-placeholder {
+          color: #222222;
+        }
+
+        .articleAddUpdateName1 {
+          width: 500px;
+          height: 45px;
+          margin-top: 10px;
+          padding-left: 10px;
+          border-radius: 5px;
+        }
+        .articleAddUpdateName2 {
+          width: 500px;
+          height: 45px;
+          margin-top: 10px;
+          padding-left: 10px;
+          border-radius: 5px;
+        }
+      }
+      .articleUpdateData {
+        width: 500px;
+        height: 365px;
+        margin-top: 10px;
+        // border: 1px solid #000000;
+        .articleUpdateImgBox {
+          position: relative;
+          width: 500px;
+          height: 300px;
+          margin-top: 10px;
+          background: #ffffff;
+          border: 1px solid #d3d3d3;
+          object-fit: fill;
+          border-radius: 5px;
+          .articleUpdateImg {
+            max-height: 100%;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            // border: 1px solid #000000;
+          }
         }
       }
     }
-    
-    .updateLabel {
-      display: flex;
-      margin-left: 10px;
-      h2{
-        width: 120px;
+    .articleUpdate-box-right {
+      margin-top: 3px;
+      width: 600px;
+      height: 600px;
+      margin-left: 5px;
+      // border: 1px solid #000000;
+      .articleTitle-box-update{
+        margin-top: 70px;
+        .articleUpdateInputTitle {
+          width: 600px;
+          height: 45px;
+          margin-top: 10px;
+          padding-left: 10px;
+          border-radius: 5px;
+        }
       }
-          .select1{
-            height: 30px;
-          }
-     
+      .articleContent-box-update {
+        width: 600px;
+        height: 560px;
+        // border: 1px solid #000000;
+        margin-top: 20px;
+        .articleUpdateContent {
+          width: 600px;
+          height: 490px;
+          margin-top: 10px;
+          padding: 10px;
+          border-radius: 5px;
+        }
+      }
     }
-    .updateTag {
+  }
+  .articleUpdate-footer {
+    width: 1160px;
+    height: 100px;
+    // border: 1px solid #000000;
+    border-top: 1px solid #d3d3d3;
+    margin: 0 auto;
+
+    .articleUpdateBtn {
+      margin: 30px 360px;
+      width: 550px;
       display: flex;
-     
-      height: 30px;
-      // margin-left: 120px;
+      cursor: pointer;
 
-      .updateTagName1{
-        width: 100px;
-        margin-right: 10px;
+      .articleUpdateCancle {
+        width: 200px;
+        height: 45px;
+        margin: 0 10px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        &:hover {
+          background: #1178b8;
+        }
       }
-      .updateTagName2{
-        width: 100px;
+      .articleUpdateSubmit {
+        width: 200px;
+        height: 45px;
+        margin: 0 10px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        &:hover {
+          background: #1178b8;
+        }
       }
-      
-   
-    }
-  }
-  
-  .updateInputTitle {
-    width: 400px;
-    height: 30px;
-  }
-  .updateContent {
-    margin-top: 15px;
-    width: 400px;
-    height: 300px;
-  }
-  .updateData {
-    float: right;
-    margin: -40px 0 0 0;
-  }
-  .updateImg {
-    float: right;
-    width: 300px;
-    height: 200px;
-    margin: -300px 25px;
-  }
-  .updateBtn {
-    float: right;
-    margin: -50px 20px;
-
-    .updateCancle {
-      margin-left: 30px;
     }
   }
 }

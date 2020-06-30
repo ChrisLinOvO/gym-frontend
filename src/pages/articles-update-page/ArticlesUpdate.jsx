@@ -16,7 +16,7 @@ function ArticlesUpdate(props) {
   // const currentUserId = currentUserData ? currentUserData.memberId : ''
   const currentUserImg = currentUserData ? currentUserData.memberImg : ''
   const currentUserNickname = currentUserData ? currentUserData.memberNickname : ''
- 
+
 
   const {
     match: { params },
@@ -69,7 +69,7 @@ function ArticlesUpdate(props) {
       setArticleImages(result.articleImages);
       setTagName1(result.tagName1);
       setTagName2(result.tagName2);
-     
+
 
     };
     FetchData(props.match.params.articleId);
@@ -87,7 +87,7 @@ function ArticlesUpdate(props) {
         headers: new Headers({
           Accept: "application/json",
           "Content-Type": "application/json",
-          
+
         }),
         data: {
           articleId: item.articleId,
@@ -109,19 +109,25 @@ function ArticlesUpdate(props) {
     <>
       {Data
         ? Data.map((list, index) => (
-            <div className="articleUpdate-container " key={index}>
-              <div className="articleUpdate-container-top">
-              <div className="membar">
-                <img className="member-avatar" src={currentUserImg} alt=""></img>
-                <div className="membar-info">
-                  <h4>{currentUserNickname}</h4>
-                  <Moment format="YYYY-MM-DD HH:mm">{list.created_at}</Moment>
+          <div className="articleUpdate-container" key={index}>
+            <div className="articleUpdate-box">
+              <div className="articleUpdate-box-left">
+                <div className="articleMemberInfo-update">
+                  <img
+                    className="article-member-avatar-update"
+                    src={currentUserImg} alt=""
+                  ></img>
+                  <div>
+                    <div>{currentUserNickname}</div>
+                    <div className="articleUpdate-time">
+                      <Moment format="YYYY-MM-DD HH:mm">{list.created_at}</Moment>
+                    </div>
+                  </div>
                 </div>
-              </div>
-                <label className="updateLabel">
-                  <h2>點選發表類別：</h2>
+                <div className="articleUpdateLabel">
+                  <h2>發表類別</h2>
                   <select
-                    className="select1"
+                    className="articleUpdateSelect"
                     defaultValue={list.categoryName}
                     onChange={(event) => {
                       setCategoryName(event.target.value);
@@ -133,74 +139,74 @@ function ArticlesUpdate(props) {
                     <option>提升免疫力</option>
                     <option>減肥</option>
                   </select>
-                </label>
+                </div>
 
-                <div className="updateTag">
-                  <h2>請輸入標籤:</h2>
+                <div className="articleUpdateTag">
+                  <h2>輸入標籤</h2>
                   <input
-                    name="updateTagName1"
+                    name="articleAddUpdateName1"
                     type="text"
                     placeholder="輸入標籤"
                     defaultValue={list.tagName1}
-                    className="updateTagName1"
+                    className="articleAddUpdateName1"
                     onChange={(event) => setTagName1(event.target.value)}
                   />
                   <input
-                    name="updateTagName2"
+                    name="articleAddUpdateName2"
                     type="text"
                     placeholder="輸入標籤"
                     defaultValue={list.tagName2}
-                    className="updateTagName2"
+                    className="articleAddUpdateName2"
                     onChange={(event) => setTagName2(event.target.value)}
                   />
                 </div>
+                <div className="articleUpdateData">
+                  <h2>上傳檔案</h2>
+                  <input
+                    name="addImg"
+                    className="articleInputAvatar-update"
+                    type="file"
+                    accept=".jpg,.png"
+                    onChange={(event) => {
+                      handleImgChange(event);
+                      handleImgDisplay(event);
+                    }}
+                  />
+                  <div className="articleUpdateImgBox">
+                    <img className="articleUpdateImg" src={avatarFile ? avatarFile : list.articleImages} alt="" />
+                  </div>
+                </div>
               </div>
-              
-              <input
-                type="text"
-                name="articleTitle"
-                defaultValue={list.articleTitle}
-                placeholder="請輸入標題"
-                className=" updateInputTitle"
-                onChange={(event) => setArticleTitle(event.target.value)}
-              />
-              <br />
-              <textarea
-                name="updateContent"
-                className="updateContent"
-                defaultValue={list.articleContent}
-                placeholder="請輸入內文"
-                onChange={(event) => setArticleContent(event.target.value)}
-              />
-
-              <div className="updateData">
-                <h2>上傳檔案</h2>
-                <input
-                  name="updateImg"
-                  className="inputavatar"
-                  // value={list.articleImages}
-                  type="file"
-                  onChange={(event) => {
-                    handleImgChange(event);
-                    handleImgDisplay(event);
-                  }}
-                />
+              <div className="articleUpdate-box-right">
+                <div className="articleTitle-box-update">
+                  <h2>標題</h2>
+                  <input
+                    type="text"
+                    name="articleTitle"
+                    defaultValue={list.articleTitle}
+                    placeholder="請輸入標題"
+                    className="articleUpdateInputTitle"
+                    onChange={(event) => setArticleTitle(event.target.value)}
+                  /></div>
+                <div className="articleContent-box-update">
+                  <h2>內容</h2>
+                  <textarea
+                    name="updateContent"
+                    className="articleUpdateContent"
+                    defaultValue={list.articleContent}
+                    placeholder="請輸入內文"
+                    onChange={(event) => setArticleContent(event.target.value)}
+                  />
+                </div>
               </div>
-              
-              <img
-                className="updateImg"
-                src={avatarFile ? avatarFile : list.articleImages} alt=""
-             />
-              <div className="updateBtn">
-                <button
-                  onClick={(e) => {}}
-                  className=" updateCancle"
-                  type="button"
-                >
+            </div>
+            <div className="articleUpdate-footer">
+              <div className="articleUpdateBtn">
+                <button onClick={(e) => { props.history.push("/articlesEdit") }} className="articleUpdateCancle" type="button">
                   取消
-                </button>
-
+          </button>
                 <button
+                  className="articleUpdateSubmit"
                   type="button"
                   onClick={() => {
                     articleDataUpdate({
@@ -218,10 +224,11 @@ function ArticlesUpdate(props) {
                   }}
                 >
                   更新
-                </button>
+          </button>
               </div>
             </div>
-          ))
+          </div>
+        ))
         : ""}
     </>
   );

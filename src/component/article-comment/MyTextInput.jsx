@@ -1,5 +1,5 @@
 import React from "react"
-
+import "./MyTextInput.scss"
 // 所有狀態與更動狀態均來自於上層父母元件
 function MyTextInput(props) {
   const { value, onChange } = props;
@@ -7,6 +7,7 @@ function MyTextInput(props) {
   return (
     <>
       <input
+       className="myCommentsInput"
         type="text"
         value={value}
         onChange={onChange}

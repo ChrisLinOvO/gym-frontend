@@ -1,6 +1,6 @@
 .articleAdd-container {
-  width: 850px;
-  height: 450px;
+  width: 1260px;
+  height: 900px;
   margin: 50px auto;
   background: #555;
   padding: 20px 30px 20px 30px;
@@ -8,58 +8,164 @@
   text-shadow: 1px 1px 1px #444;
   border: none;
   border-radius: 5px;
-
-  .articleAdd-container-top {
+  .articleAdd-box {
+    width: 1200px;
+    height: 750px;
+    // border: 1px solid #000000;
+    margin: 0 auto;
+    padding: 20px;
     display: flex;
-    height: 30px;
-    .addLabel {
-      display: flex;
-      h2 {
-        width: 160px;
+    .articleAdd-box-left {
+      width: 550px;
+      height: 800px;
+      // border: 1px solid #000000;
+      .articleMemberInfo {
+        display: flex;
+        .article-member-avatar {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: 1px solid #000000;
+          // background-color: #fecc2f;
+          margin: 0 10px 0 0;
+        }
       }
-      height: 30px;
-      .select {
-        height: 30px;
-        // margin-left: 15px;
+      .articleAddLabel {
+        width: 100px;
+        height: 80px;
+        margin-top: 25px;
+        // border: 1px solid #000000;
+        border-radius: 2px;
+
+        .articleAddSelect {
+          width: 500px;
+          height: 45px;
+          margin-top: 10px;
+          padding-left: 10px;
+          border-radius: 5px;
+        }
+      }
+
+      .articleAddTag {
+        margin-top: 15px;
+        width: 100px;
+        height: 150px;
+        // border: 1px solid #000000;
+        &::-webkit-input-placeholder {
+          color: #222222;
+        }
+
+        .articleAddTagName1 {
+          width: 500px;
+          height: 45px;
+          margin-top: 10px;
+          padding-left: 10px;
+          border-radius: 5px;
+        }
+        .articleAddTagName2 {
+          width: 500px;
+          height: 45px;
+          margin-top: 10px;
+          padding-left: 10px;
+          border-radius: 5px;
+        }
+      }
+      .articleAddData {
+        width: 500px;
+        height: 365px;
+        margin-top: 10px;
+        // border: 1px solid #000000;
+        .articleAddImgBox {
+          position: relative;
+          width: 500px;
+          height: 300px;
+          margin-top: 10px;
+          background: #ffffff;
+          border: 1px solid #d3d3d3;
+          object-fit: fill;
+          border-radius: 5px;
+          .articleAddImg {
+            max-height: 100%;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            // border: 1px solid #000000;
+          }
+        }
       }
     }
-    .addTag {
-      display: flex;
-      margin-left: 30px;
+    .articleAdd-box-right {
+      margin-top: 3px;
+      width: 600px;
+      height: 600px;
+      margin-left: 5px;
+      // border: 1px solid #000000;
+      .articleTitle-box {
+        margin-top: 70px;
+        .articleAddInputTitle {
+          width: 600px;
+          height: 45px;
+          margin-top: 10px;
+          padding-left: 10px;
+          border-radius: 5px;
+        }
+      }
+      .articleContent-box {
+        width: 600px;
+        height: 560px;
+        // border: 1px solid #000000;
+        margin-top: 20px;
+        .articleAddContent {
+          width: 600px;
+          height: 490px;
+          margin-top: 10px;
+          padding: 10px;
+          border-radius: 5px;
+        }
+      }
     }
   }
-.memberInfo{
-  display: flex;
-  .member-avatar{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid #000000;
-    // background-color: #fecc2f;
-    margin: 0 10px 0 0;
-  }}
-  .addInputTitle {
-    margin-top: 10px;
-    width: 400px;
-    height: 30px;
-  }
-  .addContent {
-    margin-top: 20px;
-    width: 400px;
-    height: 280px;
-  }
-  .addData {
-    float: right;
-    margin: -40px 0 0 0;
-  }
-  .addImg {
-    float: right;
-    width: 300px;
-    height: 200px;
-    margin: -270px 25px;
-  }
-  .addBtn {
-    float: right;
-    margin: -40px 25px;
+  .articleAdd-footer {
+    width: 1160px;
+    height: 100px;
+    // border: 1px solid #000000;
+    border-top: 1px solid #d3d3d3;
+    margin: 0 auto;
+
+    .articleAddBtn {
+      margin: 30px 360px;
+      width: 550px;
+      display: flex;
+      cursor: pointer;
+
+      .articleAddCancle {
+        width: 200px;
+        height: 45px;
+        margin: 0 10px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        &:hover {
+          background: #1178b8;
+        }
+      }
+      .articleAddSubmit {
+        width: 200px;
+        height: 45px;
+        margin: 0 10px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        &:hover {
+          background: #1178b8;
+        }
+      }
+    }
   }
 }

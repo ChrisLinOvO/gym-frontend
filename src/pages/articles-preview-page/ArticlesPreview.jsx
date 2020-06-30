@@ -131,18 +131,13 @@ const ArticlesPreview = (props) => {
   async function postArticleLikeUpdate(item) {
     // 注意資料格式要設定，伺服器才知道是json格式
     console.log(item);
-    axios.post(`http://localhost:5000/api/articles/postArticleLikeUpdate}`, {
-      method: "POST",
-      credentials: "include", // 需傳送 Cookie 必須開啟
-      headers: new Headers({
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      }),
-      data: {
-        articleId: item.articleId,
-      },
-    },
-      window.location.reload()
+    axios.post(`http://localhost:5000/api/articles/postArticleLikeUpdate`, {
+      articleId: item.articleId,
+    }
+      .then(function (response) {
+        postArticleLikeUpdate();
+      })
+
     );
   }
 
@@ -172,7 +167,7 @@ const ArticlesPreview = (props) => {
                   </div>
                 </div>
                 <p>{list.articleContent}</p>
-                <img src={list.articleImages} alt=""></img>
+                <div className="previewImgBox"><img className="previewImg" src={list.articleImages} alt=""></img></div>
                 <div className="card-tag">
                   <div className="card-tag1">{list.tagName1}</div>
                   <div className="card-tag2">{list.tagName2}</div>
@@ -208,25 +203,29 @@ const ArticlesPreview = (props) => {
                 <p>{commentsNum}則留言</p>
                 <div className="membar-comment">
                   <img className="member-avatar" src={currentUserImg} alt=""></img>
-                  <MyTextInput
-                    value={content}
-                    onChange={(event) => setContent(event.target.value)}
-                  />
+                  <div className="previewInputBox">
+                    <MyTextInput
+                      className="previewInput"
+                      value={content}
+                      onChange={(event) => setContent(event.target.value)}
+                    />
 
-                  <button
-                    type="button"
-                    onClick={() => {
-                      addToSever({
-                        content,
-                        articleId,
-                        memberId,
-                        memberName,
-                        memberImg,
-                      });
-                    }}
-                  >
-                    發佈
+                    <button
+                    className="previewBtn"
+                      type="button"
+                      onClick={() => {
+                        addToSever({
+                          content,
+                          articleId,
+                          memberId,
+                          memberName,
+                          memberImg,
+                        });
+                      }}
+                    >
+                      發佈
                       </button>
+                  </div>
                 </div>
                 <p>熱門留言</p>
                 {comments

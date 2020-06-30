@@ -15,23 +15,25 @@
         .member-avatar {
           width: 80px;
           height: 80px;
+          object-fit: cover;
           border-radius: 50%;
-          border: 1px solid #000000;
-          // background-color: #fecc2f;
-          margin: 0 10px 0 0;
+          object-position: 50% 10%;
+          padding: 2px;
+          display: block;
+          background-color: #1178b8;
         }
 
-        .membar-info{
-          margin:0 0 30px 20px;
+        .membar-info {
+          margin: 0 0 30px 20px;
 
-          h4{
+          h4 {
             margin-bottom: 30px;
           }
         }
       }
     }
     .card-body-mid {
-      width: 1000px;
+      margin: 0 auto;
       h1 {
         font-size: 36px;
         margin: 30px auto;
@@ -48,26 +50,31 @@
           transform: skewX(-10deg);
           position: relative;
           z-index: 2;
-          box-shadow: 3px 3px 6px black;
+          // box-shadow: 3px 3px 6px black;
           background: #fecc2f;
-        }
-
-        .card-category-child {
-          width: 80px;
-          height: 30px;
-          background: #1178b8;
-          font-size: 16px;
         }
       }
       p {
         line-height: 50px;
         margin: 20px auto;
       }
-      img {
-        width: 600px;
+      .previewImgBox {
+        position: relative;
+        width: 500px;
         height: 400px;
-        margin: auto 200px;
-    
+        margin-top: 10px;
+        background: #ffffff;
+        border: 1px solid #d3d3d3;
+        margin: 0 auto;
+
+        .previewImg {
+          width: 100%;
+          height: 400px;
+          object-fit: fill;
+          object-position: 50% 50%;
+          padding: 2px;
+          display: block;
+        }
       }
       .card-tag {
         display: flex;
@@ -85,7 +92,7 @@
           transform: skewX(-10deg);
           position: relative;
           z-index: 2;
-          box-shadow: 3px 3px 6px black;
+          // box-shadow: 3px 3px 6px black;
           background: #fecc2f;
         }
 
@@ -96,7 +103,7 @@
           transform: skewX(-10deg);
           position: relative;
           z-index: 2;
-          box-shadow: 3px 3px 6px black;
+          // box-shadow: 3px 3px 6px black;
           background: #fecc2f;
         }
       }
@@ -108,7 +115,7 @@
 
       .card-like {
         display: flex;
-        .icon{
+        .icon {
           margin-top: -5px;
         }
       }
@@ -143,24 +150,35 @@
         display: flex;
         margin: 20px auto;
         .member-avatar {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          border: 1px solid #000000;
-          // background-color: #fecc2f;
-          margin: 0 25px 0 0;
-        }
-
-        input {
-          width: 450px;
-          height: 60px;
-
-          font-size: 20px;
-        }
-        button {
           width: 50px;
-          height: 30px;
-          margin-top: 30px;
+          height: 50px;
+          object-fit: cover;
+          border-radius: 50%;
+          object-position: 50% 10%;
+          padding: 2px;
+          display: block;
+          background-color: #1178b8;
+          margin: 10px 20px 0 0;
+        }
+
+        .previewInputBox {
+          position: relative;
+          width: 450px;
+          height: 80px;
+          // border: 1px solid #1178b8;
+          font-size: 20px;
+
+          .previewBtn {
+            position: absolute;
+            width: 50px;
+            height: 30px;
+           right: 5%;
+           top: 40px;
+           background: none;
+           border: none;
+           color: #1178b8;
+           cursor: pointer;
+          }
         }
       }
       .article-comment {
@@ -168,11 +186,14 @@
         height: 80px;
         display: flex;
         .member-avatar-res {
-          width: 40px;
-          height: 40px;
+          width: 50px;
+          height: 50px;
+          object-fit: cover;
           border-radius: 50%;
-          border: 1px solid #000000;
-          float: left;
+          object-position: 50% 10%;
+          padding: 2px;
+          display: block;
+          background-color: #1178b8;
         }
         .member-info {
           // display: flex;
@@ -188,7 +209,7 @@
           .info1 {
             display: flex;
 
-            .time{
+            .time {
               margin-left: 20px;
             }
           }

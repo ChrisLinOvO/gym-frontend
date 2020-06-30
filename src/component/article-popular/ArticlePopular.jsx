@@ -37,12 +37,11 @@ function ArticlePopular(props) {
     <>
 
       {hotdata
-      
         ? hotdata.map((list, index) => (
-         
-            <div className="hotArticle" key={index}>
-            <Link to={"/articles/" + list.articleId}>
-              <div className="hotArticle-title">{list.articleTitle}</div>
+          <li className="popularList" key={index}>
+            <div className="hotArticle" >
+              <Link to={"/articles/" + list.articleId}>
+                <div className="hotArticle-title">{list.articleTitle}</div>
               </Link>
               <div className="hotArticle-under">
                 <div className="hotArticle-like">
@@ -61,6 +60,7 @@ function ArticlePopular(props) {
                 </div>
               </div>
             </div>
+          </li>
           ))
         : ""}
     </>

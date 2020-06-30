@@ -5,6 +5,8 @@ import Moment from "react-moment"
 
 import "./ArticleCard.scss"
 import { AiFillLike } from "react-icons/ai"
+import Fade from 'react-reveal/Fade';
+
 
 const ArticleCard = (props) => {
   const { text, allArticles, setAllArticles } = props
@@ -32,67 +34,76 @@ const ArticleCard = (props) => {
   let filterArticles = allArticles.filter((item) => {
     return item.categoryName.indexOf(text) !== -1;
   });
-  // console.log(update);
+
 
   return (
-    <><div className="masonry">
-      {filterArticles
-        ? filterArticles.map((list, index) => (
-          <div className="item" key={index}>
-            <div className="card-container" >
-              <img className="card-img" src={list.articleImages} alt="" ></img>
-              <div className="card-body">
-                <div className="card-body-top">
-                  <img className="member-avatar" src={list.memberImg} alt=""></img>
-                  <div className="membar-info">
-                    <h4>{list.memberNickname}</h4>
-                    <Moment format="YYYY-MM-DD HH:mm">{list.created_at}</Moment>
-                  </div>
-                </div>
-                <div className="card-body-mid">
-                  <Link to={"/articles/" + list.articleId}>
-                    <h4
-                      className="articleTitle"
-                      onClick={() => {
-                        handleClick(list.articleId);
-                        // console.log(v.articleId);
-                      }}
-                    >
-                      {list.articleTitle}
-                    </h4>
-                  </Link>
-                  <div className="card-category">
-                    <div className="card-category-parent">{list.categoryName}</div>
-                  </div>
-                  <div className="articleContent">{list.articleContent}</div>
+    <>
 
-                  <div className="card-tag">
-                    <div className="card-tag1">{list.tagName1}</div>
-                    <div className="card-tag2">{list.tagName2}</div>
-                  </div>
-                </div>
-                <div className="card-body-under">
-                  <div className="card-like">
-                    <div className="icon">
-                      <AiFillLike />
+      <div className="masonry">
+        {filterArticles
+          ? filterArticles.map((list, index) => (
+            <div className="item" key={index}>
+              <Fade bottom>
+                <Link to={"/articles/" + list.articleId}>
+                  <div className="card-container" >
+                    <img className="card-img" src={list.articleImages} alt="" ></img>
+                    <div className="card-body">
+                      <div className="card-body-top">
+                        <img className="member-avatar" src={list.memberImg} alt=""></img>
+                        <div className="membar-info">
+                          <h4>{list.memberNickname}</h4>
+                          <Moment className="homeTime" format="YYYY-MM-DD HH:mm">{list.created_at}</Moment>
+                        </div>
+                      </div>
+
+                      <div className="card-body-mid">
+
+                        <h4
+                          className="articleTitle"
+                          onClick={() => {
+                            handleClick(list.articleId);
+                            // console.log(v.articleId);
+                          }}
+                        >
+                          {list.articleTitle}
+                        </h4>
+
+                        <div className="article-top-line"></div>
+                        <div className="card-category">
+                          <div className="card-category-parent">{list.categoryName}</div>
+                        </div>
+                        <div className="articleContent">{list.articleContent}</div>
+
+                        <div className="card-tag">
+                          <div className="card-tag1">{list.tagName1}</div>
+                          <div className="card-tag2">{list.tagName2}</div>
+                        </div>
+                      </div>
+                      <div className="article-under-line"></div>
+                      <div className="card-body-under">
+                        <div className="card-like">
+                          <div className="icon">
+                            <AiFillLike />
+                          </div>
+                          <p>{list.articleLike}</p>
+                        </div>
+                        <div className="card-comment">
+                          <p>留言</p>
+                          <p>{list.COUNT}</p>
+                        </div>
+                        <div className="card-watch">
+                          <p>瀏覽人數</p>
+                          <p>800</p>
+                        </div>
+                      </div>
                     </div>
-                    <p>{list.articleLike}</p>
                   </div>
-                  <div className="card-comment">
-                    <p>留言</p>
-                    <p>{list.COUNT}</p>
-                  </div>
-                  <div className="card-watch">
-                    <p>瀏覽人數</p>
-                    <p>800</p>
-                  </div>
-                </div>
-              </div>
+                </Link>
+              </Fade>
             </div>
-          </div>
-        ))
-        : ""}
-    </div>
+          ))
+          : ""}
+      </div>
     </>
 
   );

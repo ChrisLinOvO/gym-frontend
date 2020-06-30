@@ -8,7 +8,7 @@ import ArticlePopular from "../../component/article-popular/ArticlePopular"
 
 function Articles() {
   const [allArticles, setAllArticles] = useState([])
-  
+
   const [text, setText] = useState("")
 
   function handleClick(value) {
@@ -39,9 +39,11 @@ function Articles() {
 
   return (
     <>
+
       <div>
-        <div className="category">
+        <div className="articleCategory">
           <button
+            className="articleCategoryButton"
             onClick={() => {
               handleClick("");
             }}
@@ -49,6 +51,7 @@ function Articles() {
             全部
           </button>
           <button
+            className="articleCategoryButton"
             onClick={() => {
               handleClick("重訓技巧");
             }}
@@ -57,6 +60,7 @@ function Articles() {
           </button>
 
           <button
+            className="articleCategoryButton"
             onClick={() => {
               handleClick("體脂控制");
             }}
@@ -64,6 +68,7 @@ function Articles() {
             體脂控制
           </button>
           <button
+            className="articleCategoryButton"
             onClick={() => {
               handleClick("健康飲食");
             }}
@@ -71,6 +76,7 @@ function Articles() {
             健康飲食
           </button>
           <button
+            className="articleCategoryButton"
             onClick={() => {
               handleClick("提升免疫力");
             }}
@@ -78,6 +84,7 @@ function Articles() {
             提升免疫力
           </button>
           <button
+            className="articleCategoryButton"
             onClick={() => {
               handleClick("減肥");
             }}
@@ -87,8 +94,8 @@ function Articles() {
         </div>
       </div>
       <Link to="./articlesAdd">
-        <div className="article-add-box">
-          <button className="article-add">發表文章</button>
+        <div className="articleHomePageAdd">
+          <button className="articleHomePageAdd-btn">發表文章</button>
         </div>
       </Link>
       <div className="article-page">
@@ -100,17 +107,9 @@ function Articles() {
           />
         </div>
         <div className="article-container-right">
-          <div className="popular-top">人氣文章排行</div>
-          <ul className="popular-list">
-            <li>
-              <ArticlePopular/>
-              
-            </li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+          <div className="article-popular-top">人氣文章排行</div>
+          <ul className="article-popular-list">
+            <ArticlePopular />
           </ul>
         </div>
       </div>
