@@ -35,10 +35,12 @@ const ArticlesPreview = (props) => {
   const [memberImg] = useState("")
   const [comments, setComments] = useState("")
   const [commentsNum, setCommentsNum] = useState("")
+  const [articleLike, setArticleLike] = useState()
+  
   // console.log(commentsNum);
-  // const [icon,setIcon] =useState(false)
+  const [icon,setIcon] =useState()
 
-
+  const getArticleId = props.match.params.articleId;
   //取得文章資料
   useEffect(() => {
     const FetchData = async (id) => {
@@ -47,7 +49,7 @@ const ArticlesPreview = (props) => {
     };
     FetchData(props.match.params.articleId);
   }, [props.match.params.articleId]);
-
+  // console.log(props.match.params.articleId)
   //傳送留言
   async function addToSever(item) {
     // 注意資料格式要設定，伺服器才知道是json格式
@@ -70,6 +72,7 @@ const ArticlesPreview = (props) => {
         },
       },
       window.location.reload()
+
     );
   }
 
@@ -128,18 +131,47 @@ const ArticlesPreview = (props) => {
   }, []);
 
   //更新點讚數
-  async function postArticleLikeUpdate(item) {
-    // 注意資料格式要設定，伺服器才知道是json格式
-    console.log(item);
-    axios.post(`http://localhost:5000/api/articles/postArticleLikeUpdate`, {
-      articleId: item.articleId,
+  async function postArticleLikeUpdate (){
+    const row = {
+      "articleId": getArticleId,
     }
-      .then(function (response) {
-        postArticleLikeUpdate();
-      })
+    const request = new Request('http://localhost:5000/api/articles/postArticleLikeUpdate', {
+      method: 'POST',
+      body: JSON.stringify(row),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
 
-    );
+    })
+    // window.location.reload()
+    const response = await fetch(request)
+    const data = await response.json()
+
+    console.log('伺服器回傳的json資料', data)
+    console.log(row)
+    setArticleLike(data)
   }
+  // async function postArticleLikeUpdate(item) {
+  //   // 注意資料格式要設定，伺服器才知道是json格式
+  //   console.log(item);
+  //   const fetchUpdateData =  axios.post(
+  //     `http://localhost:5000/api/articles/postArticleLikeUpdate`,
+  //     {
+  //       articleId: item.articleId,
+  //     });
+  //     setIcon(fetchUpdateData)
+  //     console.log(fetchUpdateData)
+
+  // }
+  // useEffect(() => {
+  //   const FetchData = async () => {
+  //     const result = await axios("http://localhost:5000/api/articles/postArticleLikeUpdate");
+
+  //     setArticleLike(result.data);
+  //   };
+  //   FetchData();
+  // }, [articleLike]);
 
 
   return (
@@ -179,12 +211,11 @@ const ArticlesPreview = (props) => {
                     <AiFillLike />
                     <AiOutlineLike onClick={() => {
                       postArticleLikeUpdate({
-                        articleId
+                       
                       });
-                      alert("點讚")
                     }} />
                   </div>
-                  <p>{list.articleLike}</p>
+                  <p>{list.articleLike }</p>
                 </div>
                 <div className="card-comment">
                   <p>留言</p>
@@ -196,9 +227,9 @@ const ArticlesPreview = (props) => {
                 </div>
 
               </div>
-            </div>
+            </div><div className="line"></div>
             <div className="ArticleContentCard">
-              <div className="line"></div>
+              
               <div className="articleCommentCard">
                 <p>{commentsNum}則留言</p>
                 <div className="membar-comment">
@@ -211,7 +242,7 @@ const ArticlesPreview = (props) => {
                     />
 
                     <button
-                    className="previewBtn"
+                      className="previewBtn"
                       type="button"
                       onClick={() => {
                         addToSever({

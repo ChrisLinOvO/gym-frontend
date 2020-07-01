@@ -1,5 +1,5 @@
 .articles-preview-container {
-  width: 1000px;
+  width: 1260px;
   height: auto;
   margin: 0 auto;
   padding: 50px;
@@ -133,9 +133,9 @@
   }
 
   .line {
-    width: 1000px;
+    width: 1200px;
     height: 2px;
-
+    margin: 0 auto;
     background-color: #1178b8;
   }
 
@@ -172,12 +172,12 @@
             position: absolute;
             width: 50px;
             height: 30px;
-           right: 5%;
-           top: 40px;
-           background: none;
-           border: none;
-           color: #1178b8;
-           cursor: pointer;
+            right: 5%;
+            top: 40px;
+            background: none;
+            border: none;
+            color: #1178b8;
+            cursor: pointer;
           }
         }
       }
@@ -220,5 +220,25 @@
         }
       }
     }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .articles-preview-container {
+    width: 100vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .articles-preview-container {
+    width: 100vw;
+  }
+}
+@media screen and (max-width: 576px) {
+  .articles-preview-container {
+    width: 100vw;
+  }
+}
+@media screen and (max-width: 375px) {
+  .articles-preview-container {
+    width: 100vw;
   }
 }

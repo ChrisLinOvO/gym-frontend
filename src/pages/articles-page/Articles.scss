@@ -1,69 +1,189 @@
 $border: 1px solid #000000;
+.articlesHomePage {
+  max-width: 1260px;
+  .articleCategory {
+    display: flex;
+    width: 1260px;
+    margin: 0 auto;
 
+    .articleCategoryButton {
+      width: 250px;
+      height: 40px;
+      margin: 60px 40px 0 40px;
 
-.articleCategory {
-  display: flex;
-  width: 1260px;
-  margin: 0 auto;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      &:hover {
+        background: #1178b8;
+      }
+    }
+  }
+  .articleHomePageAdd {
+    position: relative;
+    width: 1260px;
 
-  .articleCategoryButton {
-    width: 250px;
-    height: 40px;
-    margin: 60px 40px 0 40px;
-
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    &:hover {
+    margin: 0 auto;
+    .articleHomePageAdd-btn {
+      width: 100px;
+      height: 40px;
+      position: absolute;
+      right: 0;
+      top: 60px;
       background: #1178b8;
+      border: none;
+      cursor: pointer;
+      border-radius: 3px;
     }
   }
-}
-.articleHomePageAdd {
-  position: relative;
-  width: 1260px;
 
-  margin: 0 auto;
-  .articleHomePageAdd-btn {
-    width: 100px;
-    height: 40px;
-    position: absolute;
-    right: 0;
-    top: 60px;
-    background: #1178b8;
-    border: none;
-    cursor: pointer;
-    border-radius: 3px;
-  }
-}
+  .article-page {
+    position: relative;
+    width: 1260px;
+    margin: 100px auto;
 
-.article-page {
-  position: relative;
-  width: 1260px;
-  margin: 100px auto;
-
-  .article-container-left {
-    width: 960px;
-  }
-
-  .article-container-right {
-    position: absolute;
-    width: 250px;
-    height: 820px;
-    border: $border;
-    background: 	#FCFCFC	;
-    right: 0;
-    top: 0;
-    border-radius: 3px;
-    .article-popular-top {
-      text-align: center;
-      border-bottom: 1px solid #000000;
+    .article-container-left {
+      width: 960px;
     }
 
-    .article-popular-list {
-      list-style: none;
+    .article-container-right {
+      position: absolute;
+      width: 250px;
+      height: 820px;
+      border: $border;
+      background: #fcfcfc;
+      right: 0;
+      top: 0;
+      border-radius: 3px;
+      .article-popular-top {
+        text-align: center;
+        border-bottom: 1px solid #000000;
+      }
 
+      .article-popular-list {
+        list-style: none;
+      }
+    }
+  }
+  @media screen and (max-width: 1024px) {
+   
+      .articleCategory {
+        
+        width: 900px;
+        margin: 0 -40px;
+    
 
+        .articleCategoryButton {
+          margin: 60px 10px 0 10px;
+        }
+      }
+      .articleHomePageAdd {
+        width: 850px;
+      }
+      .article-page {
+        width: 1024px;
+        margin: 100px -30px;
+
+        .article-container-left {
+          width: 600px;
+        }
+
+        .article-container-right {
+          right: 145px;
+        }
+      }
+    
+  }
+  @media screen and (max-width: 768px) {
+    
+    .articleCategory {
+      // display: none;
+      width: 690px;
+      margin: 0 -40px;
+     
+
+      .articleCategoryButton {
+        margin: 60px 10px 0 10px;
+  
+      }
+    }
+    .articleHomePageAdd {
+      width:625px;
+    }
+    .article-page {
+      width: 768px;
+      margin: 100px auto;
+      
+
+      .article-container-left {
+        width: 650px;
+        margin-left: -10px;
+      }
+
+      .article-container-right {
+        display: none;
+      }
+    }
+  
+  }
+  @media screen and (max-width: 576px) {
+    .articleCategory {
+      // display: none;
+      width: 560px;
+      margin: 0 -10px;
+     
+
+      .articleCategoryButton {
+        margin: 60px 5px 0 5px;
+   
+      }
+    }
+    .articleHomePageAdd {
+      width: 520px;
+    }
+    .article-page {
+      width: 576px;
+      margin: 100px auto;
+      
+
+      .article-container-left {
+        width: 550px;
+        margin-left: 125px;
+      }
+
+      .article-container-right {
+        display: none;
+      }
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .articleCategory {
+      // display: none;
+      width: 360px;
+      margin: 0 3px;
+     
+
+      .articleCategoryButton {
+        margin: 60px 5px 0 5px;
+   
+      }
+    }
+    .articleHomePageAdd {
+      width: 300px;
+    }
+    .article-page {
+      width: 375px;
+      margin: 100px auto;
+      
+
+      .article-container-left {
+        width: 550px;
+        margin-left: 30px;
+      }
+
+      .article-container-right {
+        display: none;
+      }
     }
   }
 }

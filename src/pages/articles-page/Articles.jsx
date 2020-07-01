@@ -40,7 +40,7 @@ function Articles() {
   return (
     <>
 
-      <div>
+      <div className="articlesHomePage">
         <div className="articleCategory">
           <button
             className="articleCategoryButton"
@@ -92,25 +92,26 @@ function Articles() {
             減肥
           </button>
         </div>
-      </div>
-      <Link to="./articlesAdd">
-        <div className="articleHomePageAdd">
-          <button className="articleHomePageAdd-btn">發表文章</button>
-        </div>
-      </Link>
-      <div className="article-page">
-        <div className="article-container-left">
-          <ArticleCard
-            text={text}
-            allArticles={allArticles}
-            setAllArticles={setAllArticles}
-          />
-        </div>
-        <div className="article-container-right">
-          <div className="article-popular-top">人氣文章排行</div>
-          <ul className="article-popular-list">
-            <ArticlePopular />
-          </ul>
+
+        <Link to="./articlesAdd">
+          <div className="articleHomePageAdd">
+            <button className="articleHomePageAdd-btn">發表文章</button>
+          </div>
+        </Link>
+        <div className="article-page">
+          <div className="article-container-left">
+            <ArticleCard
+              text={text}
+              allArticles={allArticles}
+              setAllArticles={setAllArticles}
+            />
+          </div>
+          <div className="article-container-right">
+            <div className="article-popular-top">人氣文章排行</div>
+            <ul className="article-popular-list">
+              <ArticlePopular />
+            </ul>
+          </div>
         </div>
       </div>
     </>

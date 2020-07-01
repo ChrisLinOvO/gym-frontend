@@ -91,4 +91,18 @@
           }
         }
       }
+      @media screen and (max-width: 1024px) {
+        .popularList {
+          display: none;
+        }
+    
+        
+      }
+      @media screen and (max-width: 768px) {
+        column-count: 2;
+    
+      }
+      @media screen and (max-width: 576px) {
+        column-count: 1;
+      }
 }
