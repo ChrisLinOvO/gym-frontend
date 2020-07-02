@@ -8,7 +8,7 @@ $text: #000000;
       display: block;
       width: 300px;
       height: auto;
-      margin-bottom: 15px;
+      margin-bottom: 30px;
       border-radius: 6px;
       box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.7);
       background-color: #fcfcfc;
@@ -70,12 +70,11 @@ $text: #000000;
             margin: 10px 0 10px 0;
 
             .card-category-parent {
-              widows: 20%;
+              width: auto;
               height: 20px;
               transform: skew(-15deg);
               position: relative;
               z-index: 2;
-              // box-shadow: 3px 3px 6px black;
               background: #fecc2f;
             }
           }
@@ -163,19 +162,29 @@ $text: #000000;
       }
     }
   }
-  @media screen and (max-width: 1024px) {
-    column-count: 2; 
+}
+@media screen and (max-width: 1024px) {
+  .masonry {
+  column-count: 2;
   }
-  @media screen and (max-width: 768px) {
-      column-count: 2;
-  }
-  @media screen and (max-width: 576px) {
-      column-count: 1;
-  }
-  @media screen and (max-width: 500px) {
-      column-count: 1;
-  }
-  @media screen and (max-width: 375px) {
-      column-count: 1;
-  }
+}
+@media screen and (max-width: 768px) {
+  .masonry {
+    column-count: 2;
+    }
+}
+@media screen and (max-width: 576px) {
+  .masonry {
+    column-count: 1;
+    }
+}
+@media screen and (max-width: 500px) {
+  .masonry {
+    column-count: 1;
+    }
+}
+@media screen and (max-width: 375px) {
+  .masonry {
+    column-count: 1;
+    }
 }

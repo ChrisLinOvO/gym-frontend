@@ -32,7 +32,7 @@ const ArticleCard = (props) => {
   //類別篩選
 
   let filterArticles = allArticles.filter((item) => {
-    return item.categoryName.indexOf(text) !== -1;
+    return (item.categoryName.indexOf(text) && item.tagName1.indexOf(text) && item.tagName2.indexOf(text)) !== -1;
   });
 
 
@@ -70,7 +70,9 @@ const ArticleCard = (props) => {
 
                         <div className="article-top-line"></div>
                         <div className="card-category">
-                          <div className="card-category-parent">{list.categoryName}</div>
+                          <div className="card-category-parent">
+                            {list.categoryName}
+                          </div>
                         </div>
                         <div className="articleContent">{list.articleContent}</div>
 

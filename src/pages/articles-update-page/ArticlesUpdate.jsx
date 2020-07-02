@@ -109,123 +109,118 @@ function ArticlesUpdate(props) {
     <>
       {Data
         ? Data.map((list, index) => (
-          <div className="articleUpdate-container" key={index}>
-            <div className="articleUpdate-box">
-              <div className="articleUpdate-box-left">
-                <div className="articleMemberInfo-update">
-                  <img
-                    className="article-member-avatar-update"
-                    src={currentUserImg} alt=""
-                  ></img>
-                  <div>
-                    <div>{currentUserNickname}</div>
-                    <div className="articleUpdate-time">
-                      <Moment format="YYYY-MM-DD HH:mm">{list.created_at}</Moment>
-                    </div>
-                  </div>
-                </div>
-                <div className="articleUpdateLabel">
-                  <h2>發表類別</h2>
-                  <select
-                    className="articleUpdateSelect"
-                    defaultValue={list.categoryName}
-                    onChange={(event) => {
-                      setCategoryName(event.target.value);
-                    }}
-                  >
-                    <option>重訓技巧</option>
-                    <option>體脂控制</option>
-                    <option>健康飲食</option>
-                    <option>提升免疫力</option>
-                    <option>減肥</option>
-                  </select>
+          <div className="article-update-container" key={index}>
+
+            <div className="article-update-left">
+
+              <div className="article-member-update">
+                <img
+                  className="article-member-avatar-update"
+                  src={currentUserImg} alt=""
+                >
+                </img>
+                <div className="articleUpdateTime">
+                  <h2>{currentUserNickname}</h2>
+                  <Moment format="YYYY-MM-DD HH:mm">{list.created_at}</Moment>
                 </div>
 
-                <div className="articleUpdateTag">
-                  <h2>輸入標籤</h2>
-                  <input
-                    name="articleUpdateTagName1"
-                    type="text"
-                    placeholder="輸入標籤"
-                    defaultValue={list.tagName1}
-                    className="articleUpdateTagName1"
-                    onChange={(event) => setTagName1(event.target.value)}
-                  />
-                  <input
-                    name="articleUpdateTagName2"
-                    type="text"
-                    placeholder="輸入標籤"
-                    defaultValue={list.tagName2}
-                    className="articleUpdateTagName2"
-                    onChange={(event) => setTagName2(event.target.value)}
-                  />
-                </div>
-                <div className="articleUpdateData">
-                  <h2>上傳檔案</h2>
-                  <input
-                    name="addImg"
-                    className="articleInputAvatar-update"
-                    type="file"
-                    accept=".jpg,.png"
-                    onChange={(event) => {
-                      handleImgChange(event);
-                      handleImgDisplay(event);
-                    }}
-                  />
-                  <div className="articleUpdateImgBox">
-                    <img className="articleUpdateImg" src={avatarFile ? avatarFile : list.articleImages} alt="" />
-                  </div>
-                </div>
               </div>
-              <div className="articleUpdate-box-right">
-                <div className="articleTitle-box-update">
-                  <h2>標題</h2>
-                  <input
-                    type="text"
-                    name="articleTitle"
-                    defaultValue={list.articleTitle}
-                    placeholder="請輸入標題"
-                    className="articleUpdateInputTitle"
-                    onChange={(event) => setArticleTitle(event.target.value)}
-                  /></div>
-                <div className="articleContent-box-update">
-                  <h2>內容</h2>
-                  <textarea
-                    name="updateContent"
-                    className="articleUpdateContent"
-                    defaultValue={list.articleContent}
-                    placeholder="請輸入內文"
-                    onChange={(event) => setArticleContent(event.target.value)}
-                  />
-                </div>
+
+              <h2>發表類別</h2>
+              <select
+                className="articleUpdateSelect"
+                defaultValue={list.categoryName}
+                onChange={(event) => {
+                  setCategoryName(event.target.value);
+                }}
+              >
+                <option>重訓技巧</option>
+                <option>體脂控制</option>
+                <option>健康飲食</option>
+                <option>提升免疫力</option>
+                <option>減肥</option>
+              </select>
+              <h2>輸入標籤</h2>
+              <input
+                name="articleUpdateTagName1"
+                type="text"
+                placeholder="輸入標籤"
+                defaultValue={list.tagName1}
+                className="articleUpdateTagName1"
+                onChange={(event) => setTagName1(event.target.value)}
+              />
+
+              <input
+                name="articleUpdateTagName2"
+                type="text"
+                placeholder="輸入標籤"
+                defaultValue={list.tagName2}
+                className="articleUpdateTagName2"
+                onChange={(event) => setTagName2(event.target.value)}
+              />
+              <h2>上傳檔案</h2>
+              <input
+                name="updateImg"
+                className="articleFile"
+                type="file"
+                accept=".jpg,.png"
+                onChange={(event) => {
+                  handleImgChange(event);
+                  handleImgDisplay(event);
+                }}
+              />
+              <div className="articleUpdateImgBox">
+                <img className="articleUpdateImg" src={avatarFile ? avatarFile : list.articleImages} alt="" />
               </div>
+
             </div>
-            <div className="articleUpdate-footer">
-              <div className="articleUpdateBtn">
-                <button onClick={(e) => { props.history.push("/articlesEdit") }} className="articleUpdateCancle" type="button">
-                  取消
+            <div className="article-update-right">
+
+              <h2>標題</h2>
+              <input
+                type="text"
+                name="articleTitle"
+                defaultValue={list.articleTitle}
+                placeholder="請輸入標題"
+                className="articleUpdateInputTitle"
+                onChange={(event) => setArticleTitle(event.target.value)}
+              />
+
+              <h2>內容</h2>
+              <textarea
+                name="updateContent"
+                className="articleUpdateContent"
+                defaultValue={list.articleContent}
+                placeholder="請輸入內文"
+                onChange={(event) => setArticleContent(event.target.value)}
+              />
+
+            </div>
+            <div className="article-update-footer">
+              <button onClick={(e) => { props.history.push("/articlesEdit") }} className="articleUpdateCancle" type="button">
+                取消
           </button>
-                <button
-                  className="articleUpdateSubmit"
-                  type="button"
-                  onClick={() => {
-                    articleDataUpdate({
-                      // memberId,
-                      // memberName,
-                      articleTitle,
-                      categoryName,
-                      articleContent,
-                      tagName1,
-                      tagName2,
-                      articleImages,
-                      // memberImg,
-                    });
-                    props.history.push("/articlesEdit");
-                  }}
-                >
-                  更新
+              <button
+                className=" articleUpdateSubmit"
+                type="button"
+                onClick={() => {
+                  articleDataUpdate({
+                    // articleId,
+                    // memberId,
+                    // memberName,
+                    articleTitle,
+                    categoryName,
+                    articleContent,
+                    tagName1,
+                    tagName2,
+                    articleImages,
+                    // memberImg,
+                  });
+                  props.history.push("/articlesEdit");
+                }}
+              >
+                更新
           </button>
-              </div>
             </div>
           </div>
         ))

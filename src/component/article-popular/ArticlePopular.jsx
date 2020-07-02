@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ArticlePopular.scss";
-import { Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import { AiFillLike } from "react-icons/ai";
 
 function ArticlePopular(props) {
@@ -35,34 +35,31 @@ function ArticlePopular(props) {
 
   return (
     <>
-
-      {hotdata
-        ? hotdata.map((list, index) => (
-          <li className="popularList" key={index}>
-            <div className="hotArticle" >
-              <Link to={"/articles/" + list.articleId}>
-                <div className="hotArticle-title">{list.articleTitle}</div>
-              </Link>
-              <div className="hotArticle-under">
-                <div className="hotArticle-like">
-                  <div className="icon">
-                    <AiFillLike />
+ 
+        {hotdata
+          ? hotdata.map((list, index) => (
+            <div className="popularList" key={index}>
+              <div className="hotArticle" >
+                <Link to={"/articles/" + list.articleId}>
+                  <div className="hotArticle-title">{list.articleTitle}</div>
+                </Link>
+                <div className="hotArticle-under">
+                  <div className="hotArticle-like">
+                    <div className="icon">
+                      <AiFillLike />
+                    </div>
+                    <p>{list.articleLike}</p>
                   </div>
-                  <p>{list.articleLike}</p>
-                </div>
-                <div className="hotArticle-comment">
-                  <p>留言</p>
-                  <p>{list.COUNT}</p>
-                </div>
-                <div className="hotArticle-watch">
-                  <p>瀏覽人數</p>
-                  <p>20</p>
+                  <div className="hotArticle-comment">
+                    <p>留言</p>
+                    <p>{list.COUNT}</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </li>
           ))
-        : ""}
+          : ""}
+  
     </>
   );
 }

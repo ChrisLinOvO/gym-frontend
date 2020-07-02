@@ -1,164 +1,189 @@
-$border: 1px solid #000000;
-
-.articleCategory {
-  display: flex;
-  width: 1260px;
-  margin: 0 auto;
-
-  .articleCategoryButton {
-    width: 150px;
-    height: 40px;
-    margin: auto 40px;
-
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    &:hover {
+.articles-container {
+  width: 100%;
+  .articleCategory {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    width: 80%;
+    .articleCategoryButton {
+      width: 100px;
+      height: 40px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      &:hover {
+        background: #1178b8;
+        color: #ffffff;
+      }
+    }
+  }
+  .articleHomePageAdd {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    .articleHomePageAdd-btn {
+      width: 100px;
+      height: 40px;
+      position: absolute;
+      right: 0;
+      top: 20px;
       background: #1178b8;
+      border: none;
+      cursor: pointer;
+      border-radius: 3px;
+      &:hover {
+        color: #ffffff;
+      }
     }
   }
-}
-.articleHomePageAdd {
-  position: relative;
-  width: 1260px;
 
-  margin: 0 auto;
-  .articleHomePageAdd-btn {
-    width: 100px;
-    height: 40px;
-    position: absolute;
-    right: 0;
-    top: 20px;
-    background: #1178b8;
-    border: none;
-    cursor: pointer;
-    border-radius: 3px;
-  }
-}
+  .article-page {
+    position: relative;
+    width: 100%;
+    margin: 60px auto;
 
-.article-page {
-  position: relative;
-  width: 1260px;
-  margin: 60px auto;
-
-  .article-container-left {
-    width: 960px;
-  }
-
-  .article-container-right {
-    position: absolute;
-    width: 250px;
-    height: 820px;
-    border: $border;
-    background: #fcfcfc;
-    right: 0;
-    top: 0;
-    border-radius: 3px;
-    .article-popular-top {
-      text-align: center;
-      border-bottom: 1px solid #000000;
+    .article-container-left {
+      width: 80%;
     }
 
-    .article-popular-list {
-      list-style: none;
+    .article-container-right {
+      position: absolute;
+      width: 20%;
+      height: 820px;
+      border: 1px solid #000000;
+      background: #fcfcfc;
+      right: 0;
+      top: 0;
+      border-radius: 3px;
+      .article-popular-top {
+        text-align: center;
+        border-bottom: 1px solid #000000;
+      }
+
+      .article-popular-list {
+        width: 90%;
+
+        margin: 0 auto;
+      }
+      .article-Tag-btn {
+        margin-top: 100px;
+
+        .articleTagButton {
+          width: auto;
+          height: 40px;
+          margin: 10px;
+          background: #fecc2f;
+          border: none;
+          border-radius: 4px;
+          box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.7);
+
+          p {
+            padding: 10px;
+          }
+          &:hover {
+            background: #1178b8;
+            color: #ffffff;
+            cursor: pointer;
+          }
+        }
+      }
     }
   }
 }
 @media screen and (max-width: 1024px) {
-  .articleCategory {
-    flex-wrap: wrap;
-    width: 900px;
-
-    .articleCategoryButton {
-      margin-top: 10px;
-    }
-  }
-  .articleHomePageAdd {
-    width: 860px;
-  }
-  .article-page {
-    width: 900px;
-    margin: 60px -40px;
-
-    .article-container-left {
-      width: 600px;
-      margin-left: 10px;
+  .articles-container {
+    width: 100%;
+    .article-page {
+      width: 100%;
     }
   }
 }
 @media screen and (max-width: 768px) {
-  .articleCategory {
-    width: 768px;
-    margin-left: -35px;
-  }
-  .articleHomePageAdd {
-    width: 625px;
-  }
-  .article-page {
-    width: 768px;
-    margin: 65px auto;
-
-    .article-container-left {
-      width: 650px;
-      margin-left: -10px;
+  .articles-container {
+    width: 100%;
+    .articleCategory{
+      grid-template-columns:auto auto auto;
+      .articleCategoryButton {
+        margin-top: 20px;
+      }
     }
-
-    .article-container-right {
-      display: none;
+    .article-page {
+      width: 100%;
+      .article-container-left {
+        width: 100%;
+      }
+      .article-container-right {
+        display: none;
+      }
     }
   }
 }
 @media screen and (max-width: 576px) {
-  
-  .articleCategory {
-    width: 576px;
-    margin-left:50px;
-   
-  }
-  .articleHomePageAdd {
-    width: 390px;
-  }
-  .article-page {
-    width: 576px;
-    .article-container-left {
-      width: 576px;
-      margin-left:120px;
+  .articles-container {
+    width: 100%;
+    .articleCategory{
+      grid-template-columns:auto auto auto;
+      margin-left: 55px;
+      .articleCategoryButton {
+        margin-top: 20px;
+      }
+    }
+    .article-page {
+      width: 60%;
+      .article-container-left {
+       
+        width: 100%;
+      }
+      .article-container-right {
+        display: none;
+      }
     }
   }
 }
 @media screen and (max-width: 500px) {
-  .articleCategory {
-    width: 500px;
-    margin-left:10px;
-  }
-  .articleHomePageAdd {
-    width: 380px;
-  }
-  .article-page {
-    width: 500px;
-    .article-container-left {
-      width: 500px;
-      margin-left:90px;
+  .articles-container {
+    width: 100%;
+    .articleCategory{
+      grid-template-columns:auto auto auto;
+      margin-left: 55px;
+      .articleCategoryButton {
+        margin-top: 20px;
+      }
+    }
+    .article-page {
+      width: 60%;
+      .article-container-left {
+    
+        width: 100%;
+      }
+      .article-container-right {
+        display: none;
+      }
     }
   }
-
 }
 @media screen and (max-width: 375px) {
-
-  .articleCategory {
-    width: 375px;
-    .articleCategoryButton {
-      margin: 10px;
+  .articles-container {
+    width: 100%;
+    .articleCategory{
+      grid-template-columns:auto auto auto ;
+      margin-left: 35px;
+      .articleCategoryButton {
+        margin-top: 20px;
+       
+      }
     }
-  }
-  .articleHomePageAdd {
-    width: 300px;
-  }
-  .article-page {
-    width: 375px;
-    .article-container-left {
-      width: 500px;
-      margin-left:30px;
+    .articleHomePageAdd {
+     margin-left: -25px;
+    }
+    .article-page {
+      width: 80%;
+      .article-container-left {
+    
+        width: 100%;
+      }
+      .article-container-right {
+        display: none;
+      }
     }
   }
 }

@@ -1,11 +1,13 @@
 .articles-preview-container {
-  width: 1000px;
+  width: 100%;
   height: auto;
-  margin: 0 auto;
+
   background: #ffffff;
   // border: 1px solid #000000;
   color: #000000;
   .contentCard-container {
+    width: 80%;
+margin: 0 auto;
     .card-top {
       font-size: 20px;
 
@@ -58,19 +60,14 @@
         margin: 20px auto;
       }
       .previewImgBox {
-        position: relative;
-        width: 400px;
-        height: 40vh;
-        background: #ffffff;
-        // border: 1px solid #d3d3d3;
-        margin: 0 auto;
-
+        width: 100%;
+        height: 400px;
+        margin-top: 10px;
+        // border: 1px solid #000000;
         .previewImg {
-          position: absolute;
-          width: 400px;
-          height: 40vh;
-          object-fit: fill;
-          object-position: 50% 50%;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
         }
       }
       .card-tag {
@@ -135,7 +132,7 @@
   }
 
   .ArticleContentCard {
-    width: 1000px;
+    width: 100%;
 
     .articleCommentCard {
       p {
@@ -158,12 +155,12 @@
 
         .previewInputBox {
           position: relative;
-          width: 280px;
+          width:50%;
           height: 80px;
           // border: 1px solid #1178b8;
           font-size: 20px;
           .previewInput {
-            width: 280px;
+            width: 100%;
             height: 80px;
             border: 1px solid #1178b8;
             padding-left: 15px;
@@ -222,34 +219,53 @@
       }
     }
   }
-  
-
 }
-  @media screen and (max-width: 1024px) {
-    .articles-preview-container {
-      width: 80vw;
+@media screen and (max-width: 1024px) {
+  .articles-preview-container { 
+    width: 100%;
+    .contentCard-container {
+      width: 100%;
     }
   }
-  @media screen and (max-width: 768px) {
-    .articles-preview-container {
-      width: 80vw;
+}
+@media screen and (max-width: 768px) {
+  .articles-preview-container { 
+    width: 100%;
+    .contentCard-container {
+      width: 100%;
     }
   }
-  @media screen and (max-width: 576px) {
-    .articles-preview-container {
-      width: 80vw;
+}
+@media screen and (max-width: 576px) {
+  .articles-preview-container { 
+    width: 100%;
+    .contentCard-container {
+      width: 100%;
+      .ArticleContentCard {
+        width:576px;
+      }
     }
   }
-  @media screen and (max-width: 500px) {
-    .articles-preview-container {
-      width: 80vw;
+}
+@media screen and (max-width: 500px) {
+  .articles-preview-container { 
+    width: 100%;
+    .contentCard-container {
+      width: 100%;
+      .ArticleContentCard {
+        width:500px;
+      }
     }
   }
-  @media screen and (max-width: 375px) {
-    .articles-preview-container {
-    margin-right:  70vw;
-    padding:0 15px 0 0;
-      width: 100vw;
-     
+}
+@media screen and (max-width: 375px) {
+  .articles-preview-container { 
+    width: 100%;
+    .contentCard-container {
+      width: 100%;
+      .ArticleContentCard {
+        width:375px;
+      }
     }
   }
+}

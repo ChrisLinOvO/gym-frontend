@@ -125,7 +125,7 @@ function ArticlesAdd(props) {
             <h2>上傳檔案</h2>
             <input
               name="addImg"
-              className="articleInputAvatar"
+              className="articleFile"
               type="file"
               accept=".jpg,.png"
               onChange={(event) => {

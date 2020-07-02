@@ -208,6 +208,7 @@ const ArticlesPreview = (props) => {
                 <div className="articleCommentCard">
                   <p>{commentsNum}則留言</p>
                   <div className="membar-comment">
+                
                     <img className="member-avatar" src={currentUserImg} alt=""></img>
                     <div className="previewInputBox">
                       <input

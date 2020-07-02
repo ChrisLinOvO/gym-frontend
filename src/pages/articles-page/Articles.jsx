@@ -39,8 +39,7 @@ function Articles() {
 
   return (
     <>
-
-      {/* <div className="articlesHomePage"> */}
+      <div className="articles-container">
         <div className="articleCategory">
           <button
             className="articleCategoryButton"
@@ -108,12 +107,113 @@ function Articles() {
           </div>
           <div className="article-container-right">
             <div className="article-popular-top">人氣文章排行</div>
-            <ul className="article-popular-list">
+            <div className="article-popular-list">
               <ArticlePopular />
-            </ul>
+            </div>
+            <div className="article-Tag-btn">
+              <button
+                className="articleTagButton"
+                onClick={() => {
+                  handleClick("翹臀");
+                }}
+              >
+                <p>翹臀</p>
+              </button>
+              <button
+                className="articleTagButton"
+                onClick={() => {
+                  handleClick("蜜大腿");
+                }}
+              >
+                <p>蜜大腿</p>
+              </button>
+              <button
+                className="articleTagButton"
+                onClick={() => {
+                  handleClick("低GI");
+                }}
+              >
+                <p>低GI</p>
+              </button>
+              <button
+                className="articleTagButton"
+                onClick={() => {
+                  handleClick("胸肌");
+                }}
+              >
+                <p>胸肌</p>
+              </button>
+              <button
+                className="articleTagButton"
+                onClick={() => {
+                  handleClick("有氧");
+                }}
+              >
+                <p>有氧</p>
+              </button>
+              <button
+                className="articleTagButton"
+                onClick={() => {
+                  handleClick("蛋白質");
+                }}
+              >
+                <p>蛋白質</p>
+              </button>
+              <button
+                className="articleTagButton"
+                onClick={() => {
+                  handleClick("水煮");
+                }}
+              >
+                <p>水煮</p>
+              </button>
+              <button
+                className="articleTagButton"
+                onClick={() => {
+                  handleClick("體脂率");
+                }}
+              >
+                <p>體脂率</p>
+              </button>
+              <button
+                className="articleTagButton"
+                onClick={() => {
+                  handleClick("負重");
+                }}
+              >
+                <p>負重</p>
+              </button>
+              <button
+                className="articleTagButton"
+                onClick={() => {
+                  handleClick("馬甲線");
+                }}
+              >
+                <p>馬甲線</p>
+              </button>
+              <button
+                className="articleTagButton"
+                onClick={() => {
+                  handleClick("泡芙人");
+                }}
+              >
+                <p>泡芙人</p>
+              </button>
+              <button
+                className="articleTagButton"
+                onClick={() => {
+                  handleClick("川字肌");
+                }}
+              >
+                <p>川字肌</p>
+              </button>
+
+            </div>
+
           </div>
+
         </div>
-      {/* </div> */}
+      </div>
     </>
   );
 }
