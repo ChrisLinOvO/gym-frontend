@@ -8,7 +8,6 @@ import Moment from "react-moment"
 import { AiFillLike } from "react-icons/ai"
 import { AiOutlineLike } from "react-icons/ai"
 
-import MyTextInput from "../../component/article-comment/MyTextInput"
 
 import { createStructuredSelector } from "reselect"
 import { currentUserSelect } from "../../redux/user/user-selector"
@@ -34,13 +33,13 @@ const ArticlesPreview = (props) => {
   const [content, setContent] = useState("")
   const [memberImg] = useState("")
   const [comments, setComments] = useState("")
+  const [text, setText] = useState("")
   const [commentsNum, setCommentsNum] = useState("")
-  const [articleLike, setArticleLike] = useState()
-  
-  // console.log(commentsNum);
-  const [icon,setIcon] =useState()
+  const [articleLike, setArticleLike] = useState("")
 
-  const getArticleId = props.match.params.articleId;
+  // console.log(commentsNum);
+
+
   //取得文章資料
   useEffect(() => {
     const FetchData = async (id) => {
@@ -48,13 +47,15 @@ const ArticlesPreview = (props) => {
       setData(result.data);
     };
     FetchData(props.match.params.articleId);
-  }, [props.match.params.articleId]);
+  }, [props.match.params.articleId, articleLike])
+
+
   // console.log(props.match.params.articleId)
   //傳送留言
   async function addToSever(item) {
     // 注意資料格式要設定，伺服器才知道是json格式
     console.log(item);
-    axios.post(
+    const commentspost = axios.post(
       `http://localhost:5000/api/articles/postComments/:articleId`,
       {
         method: "POST",
@@ -72,8 +73,8 @@ const ArticlesPreview = (props) => {
         },
       },
       window.location.reload()
-
     );
+    setText(commentspost)
   }
 
 
@@ -98,7 +99,7 @@ const ArticlesPreview = (props) => {
   }
   useEffect(() => {
     getAddCommentsData();
-  }, []);
+  }, [text]);
   useEffect(() => {
     setArticleId(props.match.params.articleId);
   }, [articleId]);
@@ -131,47 +132,19 @@ const ArticlesPreview = (props) => {
   }, []);
 
   //更新點讚數
-  async function postArticleLikeUpdate (){
-    const row = {
-      "articleId": getArticleId,
-    }
-    const request = new Request('http://localhost:5000/api/articles/postArticleLikeUpdate', {
-      method: 'POST',
-      body: JSON.stringify(row),
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      }),
 
-    })
-    // window.location.reload()
-    const response = await fetch(request)
-    const data = await response.json()
+  async function postArticleLikeUpdate(item) {
+    // 注意資料格式要設定，伺服器才知道是json格式
 
-    console.log('伺服器回傳的json資料', data)
-    console.log(row)
-    setArticleLike(data)
+    const articleLikeData = axios.post(
+      `http://localhost:5000/api/articles/postArticleLikeUpdate`,
+      {
+        articleId: item.articleId,
+      });
+    setArticleLike(articleLikeData)
+
   }
-  // async function postArticleLikeUpdate(item) {
-  //   // 注意資料格式要設定，伺服器才知道是json格式
-  //   console.log(item);
-  //   const fetchUpdateData =  axios.post(
-  //     `http://localhost:5000/api/articles/postArticleLikeUpdate`,
-  //     {
-  //       articleId: item.articleId,
-  //     });
-  //     setIcon(fetchUpdateData)
-  //     console.log(fetchUpdateData)
 
-  // }
-  // useEffect(() => {
-  //   const FetchData = async () => {
-  //     const result = await axios("http://localhost:5000/api/articles/postArticleLikeUpdate");
-
-  //     setArticleLike(result.data);
-  //   };
-  //   FetchData();
-  // }, [articleLike]);
 
 
   return (
@@ -199,7 +172,9 @@ const ArticlesPreview = (props) => {
                   </div>
                 </div>
                 <p>{list.articleContent}</p>
-                <div className="previewImgBox"><img className="previewImg" src={list.articleImages} alt=""></img></div>
+                <div className="previewImgBox">
+                  <img className="previewImg" src={list.articleImages} alt="">
+                  </img></div>
                 <div className="card-tag">
                   <div className="card-tag1">{list.tagName1}</div>
                   <div className="card-tag2">{list.tagName2}</div>
@@ -211,11 +186,11 @@ const ArticlesPreview = (props) => {
                     <AiFillLike />
                     <AiOutlineLike onClick={() => {
                       postArticleLikeUpdate({
-                       
+                        articleId
                       });
                     }} />
                   </div>
-                  <p>{list.articleLike }</p>
+                  <p>{list.articleLike}</p>
                 </div>
                 <div className="card-comment">
                   <p>留言</p>
@@ -225,59 +200,62 @@ const ArticlesPreview = (props) => {
                   <p>瀏覽人數</p>
                   <p>800</p>
                 </div>
-
               </div>
-            </div><div className="line"></div>
-            <div className="ArticleContentCard">
-              
-              <div className="articleCommentCard">
-                <p>{commentsNum}則留言</p>
-                <div className="membar-comment">
-                  <img className="member-avatar" src={currentUserImg} alt=""></img>
-                  <div className="previewInputBox">
-                    <MyTextInput
-                      className="previewInput"
-                      value={content}
-                      onChange={(event) => setContent(event.target.value)}
-                    />
+              <div className="line"></div>
 
-                    <button
-                      className="previewBtn"
-                      type="button"
-                      onClick={() => {
-                        addToSever({
-                          content,
-                          articleId,
-                          memberId,
-                          memberName,
-                          memberImg,
-                        });
-                      }}
-                    >
-                      發佈
+              <div className="ArticleContentCard">
+
+                <div className="articleCommentCard">
+                  <p>{commentsNum}則留言</p>
+                  <div className="membar-comment">
+                    <img className="member-avatar" src={currentUserImg} alt=""></img>
+                    <div className="previewInputBox">
+                      <input
+                        className="previewInput"
+                        type="text"
+                        value={content}
+                        onChange={(event) => setContent(event.target.value)}
+                        placeholder="分享你的留言"
+                      />
+
+                      <button
+                        className="previewBtn"
+                        type="button"
+                        onClick={() => {
+                          addToSever({
+                            content,
+                            articleId,
+                            memberId,
+                            memberName,
+                            memberImg,
+                          });
+                        }}
+                      >
+                        發佈
                       </button>
-                  </div>
-                </div>
-                <p>熱門留言</p>
-                {comments
-                  ? comments.map((list, index) => (
-                    <div className="article-comment" key={index}>
-                      <img
-                        className="member-avatar-res"
-                        src={list.memberImg} alt=""
-                      ></img>
-                      <div className="member-info">
-                        <div className="info1">
-                          <h5>{list.memberNickname}</h5>
-                          <Moment className="time" format="YYYY-MM-DD HH:mm">
-                            {list.created_at}
-                          </Moment>
-                        </div>
-                        <div className="commentText">{list.content}</div>
-                      </div>
                     </div>
-                  ))
-                  : ""}
+                  </div>
+                  <p>熱門留言</p>
+                  {comments
+                    ? comments.map((list, index) => (
+                      <div className="article-comment" key={index}>
+                        <img
+                          className="member-avatar-res"
+                          src={list.memberImg} alt=""
+                        ></img>
+                        <div className="member-info">
+                          <div className="info1">
+                            <h5>{list.memberNickname}</h5>
+                            <Moment className="time" format="YYYY-MM-DD HH:mm">
+                              {list.created_at}
+                            </Moment>
+                          </div>
+                          <div className="commentText">{list.content}</div>
+                        </div>
+                      </div>
+                    ))
+                    : ""}
+                </div>
               </div>
             </div>
           </div>

@@ -198,5 +198,4 @@ function ArticlesAdd(props) {
 const mapStateToProps = createStructuredSelector({
   currentUserData: currentUserSelect,
 });
-
 export default withRouter(connect(mapStateToProps)(ArticlesAdd));

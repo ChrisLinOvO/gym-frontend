@@ -31,7 +31,7 @@ function ArticlesEdit(props) {
       // console.log(result)
     };
     FetchData(currentUserId);
-  }, []);
+  }, [delData]);
  
 
   async function articleDataDelete(id) {
@@ -48,15 +48,15 @@ function ArticlesEdit(props) {
           Accept: "application/json",
           "Content-Type": "appliaction/json",
         }),
-        
+  
       },
       );
       
-      window.location.reload()
+      // window.location.reload()
       const response = await fetch(request);
       const data = await response.json();
-      console.log(data);
-      setDelData(data)
+      // console.log(data);
+      setDelData(data);
 
   }
   

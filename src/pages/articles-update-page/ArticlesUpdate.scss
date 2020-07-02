@@ -15,11 +15,12 @@
     margin: 0 auto;
     padding: 20px;
     display: flex;
-    .articleUpdate-box-left {
-      width: 550px;
-      height: 800px;
+    .articleUpdate-box-left{
+      width: 500px;
+      height: 690px;
+      margin-left: 40px;
       // border: 1px solid #000000;
-      .articleMemberInfo-update{
+      .articleMemberInfo-update {
         display: flex;
         .article-member-avatar-update {
           width: 50px;
@@ -28,13 +29,9 @@
           border: 1px solid #000000;
           // background-color: #fecc2f;
           margin: 0 10px 0 0;
-
-        }
-        .articleUpdate-time{
-          margin-top: 5px;
         }
       }
-      .articleUpdateLabel {
+      .articleUpdateLabel{
         width: 100px;
         height: 80px;
         margin-top: 25px;
@@ -59,14 +56,14 @@
           color: #222222;
         }
 
-        .articleAddUpdateName1 {
+        .articleUpdateTagName1 {
           width: 500px;
           height: 45px;
           margin-top: 10px;
           padding-left: 10px;
           border-radius: 5px;
         }
-        .articleAddUpdateName2 {
+        .articleUpdateTagName2 {
           width: 500px;
           height: 45px;
           margin-top: 10px;
@@ -105,28 +102,27 @@
       }
     }
     .articleUpdate-box-right {
-      margin-top: 3px;
-      width: 600px;
-      height: 600px;
-      margin-left: 5px;
+      width: 500px;
+      height: 690px;
+      margin-left: 80px;
       // border: 1px solid #000000;
-      .articleTitle-box-update{
+      .articleTitle-box-update {
         margin-top: 70px;
-        .articleUpdateInputTitle {
-          width: 600px;
+        .articleUpdateInputTitle{
+          width: 500px;
           height: 45px;
           margin-top: 10px;
           padding-left: 10px;
           border-radius: 5px;
         }
       }
-      .articleContent-box-update {
-        width: 600px;
-        height: 560px;
+      .articleContent-box-update{
+        width: 500px;
+        height: 570px;
         // border: 1px solid #000000;
         margin-top: 20px;
         .articleUpdateContent {
-          width: 600px;
+          width: 500px;
           height: 490px;
           margin-top: 10px;
           padding: 10px;
@@ -169,6 +165,219 @@
         &:hover {
           background: #1178b8;
         }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .articleUpdate-container {
+    width: 80vw;
+    height: 1550px;
+    margin: 0 auto;
+
+    .articleUpdate-box {
+      flex-direction: column;
+      .articleUpdate-box-left {
+        margin-left: 10vw;
+      }
+      .articleUpdate-box-right {
+        margin-left: 10vw;
+        margin-top: -40px;
+      }
+    }
+    .articleUpdate-footer {
+      width: 80vw;
+      margin: 650px -30px;
+      .articleUpdateBtn {
+        margin-left: 175px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .articleUpdate-container {
+    width: 80vw;
+    height: 1550px;
+    margin: 0 auto;
+
+    .articleUpdate-box {
+      width: 768px;
+      margin-left: -70px;
+      flex-direction: column;
+    }
+    .articleUpdate-footer {
+      width: 80vw;
+      margin: 650px -30px;
+      .articleUpdateBtn {
+        margin-left: 85px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  .articleUpdate-container {
+    width: 90vw;
+    height: 1450px;
+    margin: 0 auto;
+    .articleUpdate-box {
+      width: 576px;
+      margin: 0 auto;
+      padding: 20px;
+      .articleUpdate-box-left {
+        width: 500px;
+        height: 690px;
+        margin-left: 20px;
+
+        .articleUpdateLabel {
+          width: 350px;
+
+          .articleUpdateSelect {
+            width: 350px;
+          }
+        }
+
+        .articleUpdateTag {
+          margin-top: 15px;
+          width: 350px;
+
+          .articleUpdateTagName1 {
+            width: 350px;
+          }
+          .articleUpdateTagName2 {
+            width: 350px;
+          }
+        }
+        .articleUpdateData {
+          width: 350px;
+          height: 365px;
+          margin-top: 10px;
+          // border: 1px solid #000000;
+          .articleUpdateImgBox {
+            width: 350px;
+            height: 200px;
+          }
+        }
+      }
+      .articleUpdate-box-right {
+        width: 350px;
+        height: 690px;
+        margin-left: 20px;
+        margin-top: -150px;
+
+        .articleTitle-box-update {
+          margin-top: 70px;
+          .articleUpdateInputTitle {
+            width: 350px;
+            height: 45px;
+            margin-top: 10px;
+            padding-left: 10px;
+            border-radius: 5px;
+          }
+        }
+        .articleContent-box-update {
+          width: 350px;
+          height: 570px;
+
+          margin-top: 20px;
+          .articleUpdateContent {
+            width: 350px;
+            height: 490px;
+          }
+        }
+      }
+    }
+    .articleUpdate-footer {
+      width: 90vw;
+      margin: 550px -30px;
+      .articleUpdateBtn {
+        margin-left: 50px;
+        width: 400px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .articleUpdate-container {
+    width: 90vw;
+    .articleUpdate-box {
+      .articleUpdate-box-left {
+        margin-left: 0;
+      }
+      .articleUpdate-box-right {
+        margin-left: 0;
+      }
+    }
+    .articleUpdate-footer {
+      width: 90vw;
+      margin: 550px -30px;
+      .articleUpdateBtn {
+        margin-left: 50px;
+        width: 350px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 375px) {
+  .articleUpdate-container {
+    width: 100%;
+    .articleUpdate-box {
+      .articleUpdate-box-left {
+        margin-left: -30px;
+
+        .articleUpdateLabel {
+          width: 300px;
+
+          .articleUpdateSelect {
+            width: 300px;
+          }
+        }
+        .articleUpdateTag {
+          margin-top: 15px;
+          width: 300px;
+
+          .articleUpdateTagName1 {
+            width: 300px;
+          }
+          .articleUpdateTagName2 {
+            width: 300px;
+          }
+        }
+        .articleUpdateData {
+          width: 300px;
+          height: 365px;
+          margin-top: 10px;
+          // border: 1px solid #000000;
+          .articleUpdateImgBox {
+            width: 300px;
+            height: 200px;
+          }
+        }
+      }
+      .articleUpdate-box-right {
+        margin-left: -20px;
+        .articleTitle-box-update {
+          margin-top: 70px;
+          .articleUpdateInputTitle {
+            width: 300px;
+          
+          }
+        }
+        .articleContent-box-update {
+          width: 300px;
+     
+          .articleUpdateContent {
+            width: 300px;
+         
+          }
+        }
+      }
+    }
+    .articleUpdate-footer {
+      width:100vw;
+      margin: 550px -50px;
+      .articleUpdateBtn {
+        margin-left: 50px;
+        width: 300px;
       }
     }
   }

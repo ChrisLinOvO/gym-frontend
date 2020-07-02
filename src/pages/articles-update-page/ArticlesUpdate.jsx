@@ -144,19 +144,19 @@ function ArticlesUpdate(props) {
                 <div className="articleUpdateTag">
                   <h2>輸入標籤</h2>
                   <input
-                    name="articleAddUpdateName1"
+                    name="articleUpdateTagName1"
                     type="text"
                     placeholder="輸入標籤"
                     defaultValue={list.tagName1}
-                    className="articleAddUpdateName1"
+                    className="articleUpdateTagName1"
                     onChange={(event) => setTagName1(event.target.value)}
                   />
                   <input
-                    name="articleAddUpdateName2"
+                    name="articleUpdateTagName2"
                     type="text"
                     placeholder="輸入標籤"
                     defaultValue={list.tagName2}
-                    className="articleAddUpdateName2"
+                    className="articleUpdateTagName2"
                     onChange={(event) => setTagName2(event.target.value)}
                   />
                 </div>

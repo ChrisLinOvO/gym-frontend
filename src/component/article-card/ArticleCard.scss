@@ -163,19 +163,19 @@ $text: #000000;
       }
     }
   }
-}
-@media screen and (max-width: 1024px) {
-  .masonry {
-    column-count: 2;
+  @media screen and (max-width: 1024px) {
+    column-count: 2; 
   }
-}
-@media screen and (max-width: 768px) {
-  .masonry {
-    column-count: 2;
+  @media screen and (max-width: 768px) {
+      column-count: 2;
   }
-}
-@media screen and (max-width: 576px) {
-  .masonry {
-    column-count: 1;
+  @media screen and (max-width: 576px) {
+      column-count: 1;
+  }
+  @media screen and (max-width: 500px) {
+      column-count: 1;
+  }
+  @media screen and (max-width: 375px) {
+      column-count: 1;
   }
 }

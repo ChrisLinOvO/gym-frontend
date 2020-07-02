@@ -16,8 +16,9 @@
     padding: 20px;
     display: flex;
     .articleAdd-box-left {
-      width: 550px;
-      height: 800px;
+      width: 500px;
+      height: 690px;
+      margin-left: 40px;
       // border: 1px solid #000000;
       .articleMemberInfo {
         display: flex;
@@ -101,15 +102,14 @@
       }
     }
     .articleAdd-box-right {
-      margin-top: 3px;
-      width: 600px;
-      height: 600px;
-      margin-left: 5px;
+      width: 500px;
+      height: 690px;
+      margin-left: 80px;
       // border: 1px solid #000000;
       .articleTitle-box {
         margin-top: 70px;
         .articleAddInputTitle {
-          width: 600px;
+          width: 500px;
           height: 45px;
           margin-top: 10px;
           padding-left: 10px;
@@ -117,12 +117,12 @@
         }
       }
       .articleContent-box {
-        width: 600px;
-        height: 560px;
+        width: 500px;
+        height: 570px;
         // border: 1px solid #000000;
         margin-top: 20px;
         .articleAddContent {
-          width: 600px;
+          width: 500px;
           height: 490px;
           margin-top: 10px;
           padding: 10px;
@@ -165,6 +165,219 @@
         &:hover {
           background: #1178b8;
         }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .articleAdd-container {
+    width: 80vw;
+    height: 1550px;
+    margin: 0 auto;
+
+    .articleAdd-box {
+      flex-direction: column;
+      .articleAdd-box-left {
+        margin-left: 10vw;
+      }
+      .articleAdd-box-right {
+        margin-left: 10vw;
+        margin-top: -40px;
+      }
+    }
+    .articleAdd-footer {
+      width: 80vw;
+      margin: 650px -30px;
+      .articleAddBtn {
+        margin-left: 175px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .articleAdd-container {
+    width: 80vw;
+    height: 1550px;
+    margin: 0 auto;
+
+    .articleAdd-box {
+      width: 768px;
+      margin-left: -70px;
+      flex-direction: column;
+    }
+    .articleAdd-footer {
+      width: 80vw;
+      margin: 650px -30px;
+      .articleAddBtn {
+        margin-left: 85px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  .articleAdd-container {
+    width: 90vw;
+    height: 1450px;
+    margin: 0 auto;
+    .articleAdd-box {
+      width: 576px;
+      margin: 0 auto;
+      padding: 20px;
+      .articleAdd-box-left {
+        width: 500px;
+        height: 690px;
+        margin-left: 20px;
+
+        .articleAddLabel {
+          width: 350px;
+
+          .articleAddSelect {
+            width: 350px;
+          }
+        }
+
+        .articleAddTag {
+          margin-top: 15px;
+          width: 350px;
+
+          .articleAddTagName1 {
+            width: 350px;
+          }
+          .articleAddTagName2 {
+            width: 350px;
+          }
+        }
+        .articleAddData {
+          width: 350px;
+          height: 365px;
+          margin-top: 10px;
+          // border: 1px solid #000000;
+          .articleAddImgBox {
+            width: 350px;
+            height: 200px;
+          }
+        }
+      }
+      .articleAdd-box-right {
+        width: 350px;
+        height: 690px;
+        margin-left: 20px;
+        margin-top: -150px;
+
+        .articleTitle-box {
+          margin-top: 70px;
+          .articleAddInputTitle {
+            width: 350px;
+            height: 45px;
+            margin-top: 10px;
+            padding-left: 10px;
+            border-radius: 5px;
+          }
+        }
+        .articleContent-box {
+          width: 350px;
+          height: 570px;
+
+          margin-top: 20px;
+          .articleAddContent {
+            width: 350px;
+            height: 490px;
+          }
+        }
+      }
+    }
+    .articleAdd-footer {
+      width: 90vw;
+      margin: 550px -30px;
+      .articleAddBtn {
+        margin-left: 50px;
+        width: 400px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .articleAdd-container {
+    width: 90vw;
+    .articleAdd-box {
+      .articleAdd-box-left {
+        margin-left: 0;
+      }
+      .articleAdd-box-right {
+        margin-left: 0;
+      }
+    }
+    .articleAdd-footer {
+      width: 90vw;
+      margin: 550px -30px;
+      .articleAddBtn {
+        margin-left: 50px;
+        width: 350px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 375px) {
+  .articleAdd-container {
+    width: 100%;
+    .articleAdd-box {
+      .articleAdd-box-left {
+        margin-left: -30px;
+
+        .articleAddLabel {
+          width: 300px;
+
+          .articleAddSelect {
+            width: 300px;
+          }
+        }
+        .articleAddTag {
+          margin-top: 15px;
+          width: 300px;
+
+          .articleAddTagName1 {
+            width: 300px;
+          }
+          .articleAddTagName2 {
+            width: 300px;
+          }
+        }
+        .articleAddData {
+          width: 300px;
+          height: 365px;
+          margin-top: 10px;
+          // border: 1px solid #000000;
+          .articleAddImgBox {
+            width: 300px;
+            height: 200px;
+          }
+        }
+      }
+      .articleAdd-box-right {
+        margin-left: -20px;
+        .articleTitle-box {
+          margin-top: 70px;
+          .articleAddInputTitle {
+            width: 300px;
+          
+          }
+        }
+        .articleContent-box {
+          width: 300px;
+     
+          .articleAddContent {
+            width: 300px;
+         
+          }
+        }
+      }
+    }
+    .articleAdd-footer {
+      width:100vw;
+      margin: 550px -50px;
+      .articleAddBtn {
+        margin-left: 50px;
+        width: 300px;
       }
     }
   }

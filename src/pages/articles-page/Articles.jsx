@@ -40,7 +40,7 @@ function Articles() {
   return (
     <>
 
-      <div className="articlesHomePage">
+      {/* <div className="articlesHomePage"> */}
         <div className="articleCategory">
           <button
             className="articleCategoryButton"
@@ -113,7 +113,7 @@ function Articles() {
             </ul>
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </>
   );
 }
