@@ -77,121 +77,120 @@ function ArticlesAdd(props) {
 
   return (
     <>
-      <div className="articleAdd-container">
-        <div className="articleAdd-box">
-          <div className="articleAdd-box-left">
-            <div className="articleMemberInfo">
+      <div className="article-add-container">
+ 
+          <div className="article-add-left">
+       
+            <div className="article-member-add">
               <img
                 className="article-member-avatar"
                 src={currentUserImg} alt=""
-              ></img>
-              <div>{currentUserNickname}</div>
-            </div>
-            <div className="articleAddLabel">
-              <h2>發表類別</h2>
-              <select
-                className="articleAddSelect"
-                value={categoryName}
-                onChange={(event) => {
-                  setCategoryName(event.target.value);
-                }}
               >
-                <option>重訓技巧</option>
-                <option>體脂控制</option>
-                <option>健康飲食</option>
-                <option>提升免疫力</option>
-                <option>減肥</option>
-              </select>
+              </img>
+              <h2>{currentUserNickname}</h2>
             </div>
 
-            <div className="articleAddTag">
-              <h2>輸入標籤</h2>
-              <input
-                name="articleAddTagName1"
-                type="text"
-                placeholder="輸入標籤"
-                value={tagName1}
-                className="articleAddTagName1"
-                onChange={(event) => setTagName1(event.target.value)}
-              />
-              <input
-                name="articleAddTagName2"
-                type="text"
-                placeholder="輸入標籤"
-                value={tagName2}
-                className="articleAddTagName2"
-                onChange={(event) => setTagName2(event.target.value)}
-              />
-            </div>
-            <div className="articleAddData">
-              <h2>上傳檔案</h2>
-              <input
-                name="addImg"
-                className="articleInputAvatar"
-                type="file"
-                accept=".jpg,.png"
-                onChange={(event) => {
-                  handleImgChange(event);
-                  handleImgDisplay(event);
-                }}
-              />
-              <div className="articleAddImgBox">
-                <img className="articleAddImg" src={avatarFile ? avatarFile : articleImages} alt="" />
-              </div>
-            </div>
-          </div>
-          <div className="articleAdd-box-right">
-            <div className="articleTitle-box">
-              <h2>標題</h2>
-              <input
-                type="text"
-                name="articleTitle"
-                value={articleTitle}
-                placeholder="請輸入標題"
-                className="articleAddInputTitle"
-                onChange={(event) => setArticleTitle(event.target.value)}
-              /></div>
-            <div className="articleContent-box">
-              <h2>內容</h2>
-              <textarea
-                name="addContent"
-                className="articleAddContent"
-                value={articleContent}
-                placeholder="請輸入內文"
-                onChange={(event) => setArticleContent(event.target.value)}
-              />
-            </div>
-          </div>
-        </div>
-        <div className="articleAdd-footer">
-          <div className="articleAddBtn">
-            <button onClick={(e) => { props.history.push("/articles")}} className="articleAddCancle" type="button">
-              取消
-          </button>
-            <button
-            className=" articleAddSubmit"
-              type="button"
-              onClick={() => {
-                addArticleToSever({
-                  // articleId,
-                  memberId,
-                  memberName,
-                  articleTitle,
-                  categoryName,
-                  articleContent,
-                  tagName1,
-                  tagName2,
-                  articleImages,
-                  memberImg,
-                });
-                props.history.push("/articles");
+            <h2>發表類別</h2>
+            <select
+              className="articleAddSelect"
+              value={categoryName}
+              onChange={(event) => {
+                setCategoryName(event.target.value);
               }}
             >
-              發佈
-          </button>
+              <option>重訓技巧</option>
+              <option>體脂控制</option>
+              <option>健康飲食</option>
+              <option>提升免疫力</option>
+              <option>減肥</option>
+            </select>
+            <h2>輸入標籤</h2>
+            <input
+              name="articleAddTagName1"
+              type="text"
+              placeholder="輸入標籤"
+              value={tagName1}
+              className="articleAddTagName1"
+              onChange={(event) => setTagName1(event.target.value)}
+            />
+
+            <input
+              name="articleAddTagName2"
+              type="text"
+              placeholder="輸入標籤"
+              value={tagName2}
+              className="articleAddTagName2"
+              onChange={(event) => setTagName2(event.target.value)}
+            />
+            <h2>上傳檔案</h2>
+            <input
+              name="addImg"
+              className="articleInputAvatar"
+              type="file"
+              accept=".jpg,.png"
+              onChange={(event) => {
+                handleImgChange(event);
+                handleImgDisplay(event);
+              }}
+            />
+              <div className="articleAddImgBox"> 
+            <img className="articleAddImg" src={avatarFile ? avatarFile : articleImages} alt="" />
+              </div>
+
           </div>
+          <div className="article-add-right">
+
+            <h2>標題</h2>
+            <input
+              type="text"
+              name="articleTitle"
+              value={articleTitle}
+              placeholder="請輸入標題"
+              className="articleAddInputTitle"
+              onChange={(event) => setArticleTitle(event.target.value)}
+            />
+
+            <h2>內容</h2>
+            <textarea
+              name="addContent"
+              className="articleAddContent"
+              value={articleContent}
+              placeholder="請輸入內文"
+              onChange={(event) => setArticleContent(event.target.value)}
+            />
+
+          </div>
+          <div className="article-add-footer">
+          <button onClick={(e) => { props.history.push("/articles") }} className="articleAddCancle" type="button">
+            取消
+          </button>
+          <button
+            className=" articleAddSubmit"
+            type="button"
+            onClick={() => {
+              addArticleToSever({
+                // articleId,
+                memberId,
+                memberName,
+                articleTitle,
+                categoryName,
+                articleContent,
+                tagName1,
+                tagName2,
+                articleImages,
+                memberImg,
+              });
+              props.history.push("/articles");
+            }}
+          >
+            發佈
+          </button>
         </div>
+  
+      
       </div>
+      
+
     </>
   );
 }

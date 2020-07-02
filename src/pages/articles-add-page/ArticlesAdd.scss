@@ -1,383 +1,216 @@
-.articleAdd-container {
-  width: 1260px;
-  height: 900px;
-  margin: 50px auto;
-  background: #555;
-  padding: 20px 30px 20px 30px;
-  color: #d3d3d3;
-  text-shadow: 1px 1px 1px #444;
-  border: none;
-  border-radius: 5px;
-  .articleAdd-box {
-    width: 1200px;
-    height: 750px;
-    // border: 1px solid #000000;
+.article-add-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 100%;
+  h2 {
+    margin-top: 10px;
+  }
+  .article-add-left {
     margin: 0 auto;
-    padding: 20px;
-    display: flex;
-    .articleAdd-box-left {
-      width: 500px;
-      height: 690px;
-      margin-left: 40px;
-      // border: 1px solid #000000;
-      .articleMemberInfo {
-        display: flex;
-        .article-member-avatar {
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          border: 1px solid #000000;
-          // background-color: #fecc2f;
-          margin: 0 10px 0 0;
-        }
-      }
-      .articleAddLabel {
-        width: 100px;
-        height: 80px;
-        margin-top: 25px;
-        // border: 1px solid #000000;
-        border-radius: 2px;
+    width: 500px;
 
-        .articleAddSelect {
-          width: 500px;
-          height: 45px;
-          margin-top: 10px;
-          padding-left: 10px;
-          border-radius: 5px;
-        }
+    .article-member-add {
+      width: 100px;
+      .article-member-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid #000000;
       }
-
-      .articleAddTag {
-        margin-top: 15px;
-        width: 100px;
-        height: 150px;
-        // border: 1px solid #000000;
-        &::-webkit-input-placeholder {
-          color: #222222;
-        }
-
-        .articleAddTagName1 {
-          width: 500px;
-          height: 45px;
-          margin-top: 10px;
-          padding-left: 10px;
-          border-radius: 5px;
-        }
-        .articleAddTagName2 {
-          width: 500px;
-          height: 45px;
-          margin-top: 10px;
-          padding-left: 10px;
-          border-radius: 5px;
-        }
-      }
-      .articleAddData {
-        width: 500px;
-        height: 365px;
-        margin-top: 10px;
-        // border: 1px solid #000000;
-        .articleAddImgBox {
-          position: relative;
-          width: 500px;
-          height: 300px;
-          margin-top: 10px;
-          background: #ffffff;
-          border: 1px solid #d3d3d3;
-          object-fit: fill;
-          border-radius: 5px;
-          .articleAddImg {
-            max-height: 100%;
-            max-width: 100%;
-            width: auto;
-            height: auto;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            // border: 1px solid #000000;
-          }
-        }
+      h2 {
+        margin-top: 0;
+        float: right;
       }
     }
-    .articleAdd-box-right {
+    .articleAddSelect {
       width: 500px;
-      height: 690px;
-      margin-left: 80px;
-      // border: 1px solid #000000;
-      .articleTitle-box {
-        margin-top: 70px;
-        .articleAddInputTitle {
-          width: 500px;
-          height: 45px;
-          margin-top: 10px;
-          padding-left: 10px;
-          border-radius: 5px;
-        }
-      }
-      .articleContent-box {
-        width: 500px;
-        height: 570px;
-        // border: 1px solid #000000;
-        margin-top: 20px;
-        .articleAddContent {
-          width: 500px;
-          height: 490px;
-          margin-top: 10px;
-          padding: 10px;
-          border-radius: 5px;
-        }
+      margin-top: 10px;
+      height: 50px;
+      padding-left: 5px;
+    }
+    .articleAddTagName1 {
+      width: 500px;
+      margin-top: 10px;
+      height: 50px;
+
+      padding-left: 5px;
+    }
+    .articleAddTagName2 {
+      width: 500px;
+      margin-top: 10px;
+      height: 50px;
+
+      padding-left: 5px;
+    }
+    .articleAddImgBox {
+      width: 100%;
+      height: 200px;
+      margin-top: 10px;
+      border: 1px solid #000000;
+      .articleAddImg {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
     }
   }
-  .articleAdd-footer {
-    width: 1160px;
-    height: 100px;
-    // border: 1px solid #000000;
-    border-top: 1px solid #d3d3d3;
+  .article-add-right {
     margin: 0 auto;
+    width: 500px;
 
-    .articleAddBtn {
-      margin: 30px 360px;
-      width: 550px;
-      display: flex;
+    margin-top: 55px;
+    .articleAddInputTitle {
+      width: 500px;
+      margin-top: 10px;
+      height: 50px;
+
+      padding-left: 5px;
+    }
+    .articleAddContent {
+      width: 500px;
+      margin-top: 10px;
+      height: 385px;
+
+      padding: 5px;
+    }
+  }
+  .article-add-footer {
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px;
+    margin-left: 385px;
+    .articleAddCancle {
+      width: 200px;
+      height: 45px;
+      margin: 0 10px;
+      border-radius: 5px;
+      border: none;
       cursor: pointer;
-
-      .articleAddCancle {
-        width: 200px;
-        height: 45px;
-        margin: 0 10px;
-        border-radius: 5px;
-        border: none;
-        cursor: pointer;
-        &:hover {
-          background: #1178b8;
-        }
+      &:hover {
+        background: #1178b8;
       }
-      .articleAddSubmit {
-        width: 200px;
-        height: 45px;
-        margin: 0 10px;
-        border-radius: 5px;
-        border: none;
-        cursor: pointer;
-        &:hover {
-          background: #1178b8;
-        }
+    }
+    .articleAddSubmit {
+      width: 200px;
+      height: 45px;
+      margin: 0 10px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      &:hover {
+        background: #1178b8;
       }
     }
   }
 }
 @media screen and (max-width: 1024px) {
-  .articleAdd-container {
-    width: 80vw;
-    height: 1550px;
-    margin: 0 auto;
-
-    .articleAdd-box {
-      flex-direction: column;
-      .articleAdd-box-left {
-        margin-left: 10vw;
-      }
-      .articleAdd-box-right {
-        margin-left: 10vw;
-        margin-top: -40px;
-      }
+  .article-add-container {
+    width: 100%;
+    grid-template-columns: 100%;
+    .article-add-right {
+      margin-top: 0px;
     }
-    .articleAdd-footer {
-      width: 80vw;
-      margin: 650px -30px;
-      .articleAddBtn {
-        margin-left: 175px;
-      }
+    .article-add-footer {
+      margin-left: 165px;
+    
     }
   }
 }
 @media screen and (max-width: 768px) {
-  .articleAdd-container {
-    width: 80vw;
-    height: 1550px;
-    margin: 0 auto;
-
-    .articleAdd-box {
-      width: 768px;
-      margin-left: -70px;
-      flex-direction: column;
+  .article-add-container {
+    width: 100%;
+    grid-template-columns: 100%;
+    .article-add-right {
+      margin-top: 0px;
     }
-    .articleAdd-footer {
-      width: 80vw;
-      margin: 650px -30px;
-      .articleAddBtn {
-        margin-left: 85px;
-      }
+    .article-add-footer {
+      margin-left: 70px;
     }
   }
 }
 @media screen and (max-width: 576px) {
-  .articleAdd-container {
-    width: 90vw;
-    height: 1450px;
-    margin: 0 auto;
-    .articleAdd-box {
-      width: 576px;
-      margin: 0 auto;
-      padding: 20px;
-      .articleAdd-box-left {
-        width: 500px;
-        height: 690px;
-        margin-left: 20px;
-
-        .articleAddLabel {
-          width: 350px;
-
-          .articleAddSelect {
-            width: 350px;
-          }
-        }
-
-        .articleAddTag {
-          margin-top: 15px;
-          width: 350px;
-
-          .articleAddTagName1 {
-            width: 350px;
-          }
-          .articleAddTagName2 {
-            width: 350px;
-          }
-        }
-        .articleAddData {
-          width: 350px;
-          height: 365px;
-          margin-top: 10px;
-          // border: 1px solid #000000;
-          .articleAddImgBox {
-            width: 350px;
-            height: 200px;
-          }
-        }
-      }
-      .articleAdd-box-right {
-        width: 350px;
-        height: 690px;
-        margin-left: 20px;
-        margin-top: -150px;
-
-        .articleTitle-box {
-          margin-top: 70px;
-          .articleAddInputTitle {
-            width: 350px;
-            height: 45px;
-            margin-top: 10px;
-            padding-left: 10px;
-            border-radius: 5px;
-          }
-        }
-        .articleContent-box {
-          width: 350px;
-          height: 570px;
-
-          margin-top: 20px;
-          .articleAddContent {
-            width: 350px;
-            height: 490px;
-          }
-        }
-      }
+  .article-add-container {
+    width: 100%;
+    grid-template-columns: 100%;
+    .article-add-right {
+      margin-top: 0px;
     }
-    .articleAdd-footer {
-      width: 90vw;
-      margin: 550px -30px;
-      .articleAddBtn {
-        margin-left: 50px;
-        width: 400px;
-      }
+    .article-add-footer {
+      margin-left: 35px;
     }
   }
 }
 @media screen and (max-width: 500px) {
-  .articleAdd-container {
-    width: 90vw;
-    .articleAdd-box {
-      .articleAdd-box-left {
-        margin-left: 0;
+  .article-add-container {
+    width: 100%;
+    grid-template-columns: 100%;
+    .article-add-left {
+      width: 400px;
+      .articleAddSelect {
+        width: 400px;
       }
-      .articleAdd-box-right {
-        margin-left: 0;
+      .articleAddTagName1 {
+        width: 400px;
+      }
+      .articleAddTagName2 {
+        width: 400px;
       }
     }
-    .articleAdd-footer {
-      width: 90vw;
-      margin: 550px -30px;
-      .articleAddBtn {
-        margin-left: 50px;
-        width: 350px;
+    .article-add-right {
+      width: 400px;
+      margin-top: 0px;
+      .articleAddInputTitle {
+        width: 400px;
+      }
+      .articleAddContent {
+        width: 400px;
+      }
+    }
+    .article-add-footer {
+      margin-left: 15px;
+      .articleAddCancle {
+        width: 180px;
+      }
+      .articleAddSubmit {
+        width: 180px;
       }
     }
   }
 }
 @media screen and (max-width: 375px) {
-  .articleAdd-container {
+  .article-add-container {
     width: 100%;
-    .articleAdd-box {
-      .articleAdd-box-left {
-        margin-left: -30px;
+    grid-template-columns: 100%;
 
-        .articleAddLabel {
-          width: 300px;
-
-          .articleAddSelect {
-            width: 300px;
-          }
-        }
-        .articleAddTag {
-          margin-top: 15px;
-          width: 300px;
-
-          .articleAddTagName1 {
-            width: 300px;
-          }
-          .articleAddTagName2 {
-            width: 300px;
-          }
-        }
-        .articleAddData {
-          width: 300px;
-          height: 365px;
-          margin-top: 10px;
-          // border: 1px solid #000000;
-          .articleAddImgBox {
-            width: 300px;
-            height: 200px;
-          }
-        }
+    .article-add-left {
+      width: 300px;
+      .articleAddSelect {
+        width: 300px;
       }
-      .articleAdd-box-right {
-        margin-left: -20px;
-        .articleTitle-box {
-          margin-top: 70px;
-          .articleAddInputTitle {
-            width: 300px;
-          
-          }
-        }
-        .articleContent-box {
-          width: 300px;
-     
-          .articleAddContent {
-            width: 300px;
-         
-          }
-        }
+      .articleAddTagName1 {
+        width: 300px;
+      }
+      .articleAddTagName2 {
+        width: 300px;
       }
     }
-    .articleAdd-footer {
-      width:100vw;
-      margin: 550px -50px;
-      .articleAddBtn {
-        margin-left: 50px;
+    .article-add-right {
+      width: 300px;
+      margin-top: 0px;
+      .articleAddInputTitle {
         width: 300px;
+      }
+      .articleAddContent {
+        width: 300px;
+      }
+    }
+    .article-add-footer {
+      margin-left: 25px;
+      .articleAddCancle {
+        width: 120px;
+      }
+      .articleAddSubmit {
+        width: 120px;
       }
     }
   }
