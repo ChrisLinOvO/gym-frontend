@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react"
 import { Link, withRouter } from "react-router-dom"
 
 import "./Articles.scss"
+import Swal from 'sweetalert2'
 
 import ArticleCard from "../../component/article-card/ArticleCard"
 import ArticlePopular from "../../component/article-popular/ArticlePopular"
 
-function Articles() {
+function Articles(props) {
   const [allArticles, setAllArticles] = useState([])
 
   const [text, setText] = useState("")
@@ -93,9 +94,22 @@ function Articles() {
         </div>
 
         <Link to="./articlesAdd">
-          <div className="articleHomePageAdd">
-            <button className="articleHomePageAdd-btn">發表文章</button>
-          </div>
+        <div className="articleHomePageAdd">
+          <button className="articleHomePageAdd-btn" 
+          // onClick={() => {
+          //   Swal.fire({
+          //     title: '請先登入會員'
+
+          //   }).then((result) => {
+          //     if (result.value) {
+          //       props.history.push("/login")
+          //     }
+          //   })
+
+          // }}
+          
+          >發表文章</button>
+        </div>
         </Link>
         <div className="article-page">
           <div className="article-container-left">

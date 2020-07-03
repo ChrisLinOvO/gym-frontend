@@ -111,6 +111,8 @@ margin: 0 auto;
         display: flex;
         .icon {
           margin-top: -5px;
+          &:hover{
+          cursor: pointer;}
         }
       }
 

@@ -93,10 +93,7 @@ const ArticleCard = (props) => {
                           <p>留言</p>
                           <p>{list.COUNT}</p>
                         </div>
-                        <div className="card-watch">
-                          <p>瀏覽人數</p>
-                          <p>800</p>
-                        </div>
+                        
                       </div>
                     </div>
                   </div>

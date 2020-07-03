@@ -132,7 +132,10 @@ $text: #000000;
           margin-top: 10px;
 
           .card-like {
+            width: 10px;
             display: flex;
+            margin-left: 180px;
+
             .icon {
               margin-top: -10px;
             }
@@ -143,17 +146,8 @@ $text: #000000;
 
           .card-comment {
             display: flex;
-            width: 70px;
-            margin-left: 100px;
-            p {
-              font-size: 12px;
-            }
-          }
-
-          .card-watch {
-            display: flex;
-            width: 80px;
-
+            width: 100px;
+            margin-left: 50px;
             p {
               font-size: 12px;
             }
@@ -165,26 +159,26 @@ $text: #000000;
 }
 @media screen and (max-width: 1024px) {
   .masonry {
-  column-count: 2;
+    column-count: 2;
   }
 }
 @media screen and (max-width: 768px) {
   .masonry {
     column-count: 2;
-    }
+  }
 }
 @media screen and (max-width: 576px) {
   .masonry {
     column-count: 1;
-    }
+  }
 }
 @media screen and (max-width: 500px) {
   .masonry {
     column-count: 1;
-    }
+  }
 }
 @media screen and (max-width: 375px) {
   .masonry {
     column-count: 1;
-    }
+  }
 }

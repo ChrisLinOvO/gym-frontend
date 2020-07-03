@@ -183,8 +183,8 @@ const ArticlesPreview = (props) => {
               <div className="card-body-under">
                 <div className="card-like">
                   <div className="icon">
-                    <AiFillLike />
-                    <AiOutlineLike onClick={() => {
+                  
+                    <AiFillLike onClick={() => {
                       postArticleLikeUpdate({
                         articleId
                       });
@@ -196,10 +196,10 @@ const ArticlesPreview = (props) => {
                   <p>留言</p>
                   <p>{commentsNum}</p>
                 </div>
-                <div className="card-watch">
+                {/* <div className="card-watch">
                   <p>瀏覽人數</p>
                   <p>800</p>
-                </div>
+                </div> */}
               </div>
               <div className="line"></div>
 
