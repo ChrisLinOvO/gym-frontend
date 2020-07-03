@@ -19,7 +19,7 @@ import { currentUserSelect } from "../../redux/user/user-selector";
 import { currentEmployeeSelect } from "../../redux/employee/employee-selector";
 
 // redux action-------------------------------
-import { userLogout } from "../../redux/user/user-action";
+import { userLogoutStart } from "../../redux/user/user-action";
 import { employeeLogout } from "../../redux/employee/employee-action";
 import { shopShowFilterTag } from "../../redux/shop/shop-action";
 
@@ -27,23 +27,22 @@ const Header = ({
   navBarSelect,
   shopShowFilterTag,
   currentUser,
-  userLogout,
-  currentEmployee,
-  employeeLogout,
+  userLogoutStart,
 }) => {
   const [subDiv, setSubDiv] = useState(false);
   const history = useHistory();
 
   return (
     <div className="header">
-      <div className="header-spacing" />
-      <div
-        className={`hamburger-btn ${subDiv ? "hamburger-clicked" : ""}`}
-        onClick={() => setSubDiv(!subDiv)}
-      >
-        <div className="" />
-        <div className="" />
-        <div className="" />
+      <div className="header-spacing">
+        <div
+          className={`hamburger-btn ${subDiv ? "hamburger-clicked" : ""}`}
+          onClick={() => setSubDiv(!subDiv)}
+        >
+          <div className="" />
+          <div className="" />
+          <div className="" />
+        </div>
       </div>
 
       <div className="main">
@@ -73,45 +72,25 @@ const Header = ({
           >
             精選商城
           </Link>
-          <Link
-            to="/courses"
-            className="option"
-            onClick={() => setSubDiv(false)}
-            onMouseEnter={() => {
-              navBarSelect("coach");
-              if (subDiv) return;
-              setSubDiv(true);
-            }}
-          >
-            教練課程
-          </Link>
-          <Link
-            to="/articles"
-            className="option"
-            onClick={() => setSubDiv(false)}
-            onMouseEnter={() => {
-              navBarSelect("article");
-              if (subDiv) return;
-              setSubDiv(true);
-            }}
-          >
-            心得討論
-          </Link>
         </div>
       </div>
 
       <div className="sub sub-cart" onMouseOver={() => setSubDiv(false)}>
-        {currentEmployee ? (
-          <CustomButton onClick={() => employeeLogout()}>教練登出</CustomButton>
-        ) : (
-          <CustomButton onClick={() => history.push("/employeelogin")}>
-            教練登入
-          </CustomButton>
-        )}
         {currentUser ? (
-          <CustomButton onClick={() => userLogout()}>登出</CustomButton>
+          <>
+            <span className="current-user-title">
+              嗨! {currentUser.memberName}
+            </span>
+            <CustomButton signin unMobileMode onClick={() => userLogoutStart()}>
+              登出
+            </CustomButton>
+          </>
         ) : (
-          <CustomButton signin onClick={() => history.push("/login")}>
+          <CustomButton
+            signin
+            unMobileMode
+            onClick={() => history.push("/login")}
+          >
             登入
           </CustomButton>
         )}
@@ -133,7 +112,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => ({
   navBarSelect: (select) => dispatch(navBarSelect(select)),
   shopShowFilterTag: (tag) => dispatch(shopShowFilterTag(tag)),
-  userLogout: () => dispatch(userLogout()),
+  userLogoutStart: () => dispatch(userLogoutStart()),
   employeeLogout: () => dispatch(employeeLogout()),
 });
 

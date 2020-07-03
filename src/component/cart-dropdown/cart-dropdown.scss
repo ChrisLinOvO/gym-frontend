@@ -48,6 +48,16 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
+    .cart-dropdown-close {
+      margin: 0 auto 0 10px;
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+        color: #1178b8;
+      }
+    }
   }
 
   .empty-message {
@@ -84,8 +94,21 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .cart-dropdown {
+    .cart-icon-fav-container {
+      height: 4.5rem;
+    }
+  }
+}
 @media screen and (max-width: 768px) {
   .cart-dropdown {
     width: 50vw;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .cart-dropdown {
+    width: 100vw;
   }
 }

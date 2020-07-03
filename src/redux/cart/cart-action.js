@@ -30,16 +30,12 @@ export const addQuantity = (item, quantity) => ({
   quantity,
 });
 
-
-//訂單
-export const ReduceItem = item => ({
-  type: cartActionTypes.REDUCE_ITEM,
-  payload: item,
-
+export const cleanCheckout = (cartItem) => ({
+  type: cartActionTypes.CHECKOUT_CLEAN,
+  payload: cartItem,
 });
 
-
-export const ChangeFavr = (item) => ({
-  type: cartActionTypes.CHANGEFAVR_ITEM,
-  payload: item,
+export const decreaseCheckout = (cartItem) => ({
+  type: cartActionTypes.CHECKOUT_DECREASE,
+  payload: cartItem,
 });

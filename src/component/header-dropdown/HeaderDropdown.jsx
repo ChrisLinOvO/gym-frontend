@@ -11,6 +11,8 @@ import {
 
 import "./HeaderDropdown.scss";
 import { shopShowFilterTag } from "../../redux/shop/shop-action";
+import CustomButton from "../custom-button/Custom-button";
+import { currentUserSelect } from "../../redux/user/user-selector";
 
 const HeaderDropdown = ({
   setSubDiv,
@@ -18,6 +20,7 @@ const HeaderDropdown = ({
   navChoose,
   navLink,
   dispatch,
+  currentUser,
 }) => {
   const history = useHistory();
   return (
@@ -61,31 +64,34 @@ const HeaderDropdown = ({
             ))}
           </div>
 
-          <h2 onClick={() => history.push("/courses")}>教練專區</h2>
-          <div className="side-sub-link-container">
-            {navLink["coach"].map((linkInfo) => (
-              <Link
-                key={linkInfo.name + "h2"}
-                to={`${linkInfo.linkRoute}`}
-                onClick={() => setSubDiv(false)}
+          {currentUser ? (
+            <>
+              <span className="side-sub-user-title">
+                嗨! {currentUser.memberName}
+              </span>
+              <CustomButton
+                signin
+                mobileMode
+                onClick={() => {
+                  setSubDiv(false);
+                  history.push("/login");
+                }}
               >
-                {linkInfo.name}
-              </Link>
-            ))}
-          </div>
-
-          <h2 onClick={() => history.push("/articles")}>討論專區</h2>
-          <div className="side-sub-link-container">
-            {navLink["article"].map((linkInfo) => (
-              <Link
-                key={linkInfo.name + "h3"}
-                to={`${linkInfo.linkRoute}`}
-                onClick={() => setSubDiv(false)}
-              >
-                {linkInfo.name}
-              </Link>
-            ))}
-          </div>
+                登出
+              </CustomButton>
+            </>
+          ) : (
+            <CustomButton
+              signin
+              mobileMode
+              onClick={() => {
+                setSubDiv(false);
+                history.push("/login");
+              }}
+            >
+              登入
+            </CustomButton>
+          )}
         </div>
       </div>
     </CSSTransition>
@@ -99,6 +105,7 @@ const HeaderDropdown = ({
 const mapStateToProps = createStructuredSelector({
   navChoose: navChooseSelect,
   navLink: navLinkSelect,
+  currentUser: currentUserSelect,
 });
 
 export default connect(mapStateToProps)(HeaderDropdown);

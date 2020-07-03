@@ -3,9 +3,7 @@ import {
   addShopItemToCart,
   removeCartItem,
   unlikeCartItem,
-  ChangeFavr,
-  RedeuceCartItem,
-  FavCartItem,
+  decreaseCheckoutItem,
 } from "./cart-utils";
 
 const INITIAL_STATE = {
@@ -52,28 +50,19 @@ const cartReducer = (state = INITIAL_STATE, action) => {
           action.payload,
           action.quantity
         ),
-
       };
-    case cartActionTypes.REDUCE_ITEM:
+    case cartActionTypes.CHECKOUT_CLEAN:
       return {
         ...state,
-        cartItems: RedeuceCartItem(state.cartItems, action.payload),
+        cartItems: state.cartItems.filter(
+          (cartItem) => cartItem.itemId !== action.payload.itemId
+        ),
       };
-
-
-    ///還沒改完
-    case cartActionTypes.CHANGEFAVR_ITEM:
+    case cartActionTypes.CHECKOUT_DECREASE:
       return {
         ...state,
-
-        cartFavoriteItems: FavCartItem(
-          state.cartFavoriteItems,
-          action.payload
-        )
-        ,
-        cartItems: ChangeFavr(state.cartItems, action.payload),
+        cartItems: decreaseCheckoutItem(state.cartItems, action.payload),
       };
-
     default:
       return state;
   }
