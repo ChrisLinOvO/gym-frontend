@@ -72,7 +72,7 @@ const ArticlesPreview = (props) => {
           memberImg: item.memberImg,
         },
       },
-      window.location.reload()
+      // window.location.reload()
     );
     setText(commentspost)
   }
@@ -129,7 +129,7 @@ const ArticlesPreview = (props) => {
   }, [comments]);
   useEffect(() => {
     getCommentsNumber();
-  }, []);
+  }, [comments]);
 
   //更新點讚數
 
