@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Link, withRouter } from "react-router-dom"
 
 import "./Articles.scss"
-import Swal from 'sweetalert2'
+// import Swal from 'sweetalert2'
 
 import ArticleCard from "../../component/article-card/ArticleCard"
 import ArticlePopular from "../../component/article-popular/ArticlePopular"
