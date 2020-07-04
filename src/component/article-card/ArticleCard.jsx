@@ -46,7 +46,8 @@ const ArticleCard = (props) => {
               <Fade bottom>
                 <Link to={"/articles/" + list.articleId}>
                   <div className="card-container" >
-                    <img className="card-img" src={list.articleImages} alt="" ></img>
+                  <div className="card-img-box">
+                    <img className="card-img" src={list.articleImages} alt="" ></img></div>
                     <div className="card-body">
                       <div className="card-body-top">
                         <img className="member-avatar" src={list.memberImg} alt=""></img>
