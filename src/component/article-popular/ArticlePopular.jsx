@@ -45,7 +45,7 @@ function ArticlePopular(props) {
                 </Link>
                 <div className="hotArticle-under">
                   <div className="hotArticle-like">
-                    <div className="icon">
+                    <div className="popular-icon">
                       <AiFillLike />
                     </div>
                     <p>{list.articleLike}</p>

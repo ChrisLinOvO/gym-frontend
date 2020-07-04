@@ -59,16 +59,20 @@
       border-bottom: 1px solid #000000;
 
       .hotArticle-like {
-        display: flex;
+        display: flex; 
+        .popular-icon{
+          margin-top: 2px;
+        }
         p {
           font-size: 12px;
+         
         }
       }
 
       .hotArticle-comment {
         display: flex;
         width: 40px;
-        margin-left: 30px;
+        margin-left: 20px;
         p {
           font-size: 12px;
         }
