@@ -4,9 +4,10 @@
   width: 100%;
   h2 {
     margin-top: 10px;
+    font-size: 16px;
   }
   .article-add-left {
-    margin: 0 auto;
+    margin: 5px auto;
     width: 500px;
 
     .article-member-add {
@@ -185,11 +186,12 @@
 }
 @media screen and (max-width: 375px) {
   .article-add-container {
-    width: 100%;
+    width: 90%;
     grid-template-columns: 100%;
 
     .article-add-left {
       width: 300px;
+      margin-left: 30px;
       .articleAddSelect {
         width: 300px;
       }
@@ -201,6 +203,7 @@
       }
     }
     .article-add-right {
+      margin-left: 30px;
       width: 300px;
       margin-top: 0px;
       .articleAddInputTitle {

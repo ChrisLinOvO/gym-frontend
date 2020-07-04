@@ -1,16 +1,14 @@
 .articles-preview-container {
   width: 100%;
   height: auto;
-
   background: #ffffff;
   // border: 1px solid #000000;
   color: #000000;
   .contentCard-container {
     width: 80%;
-margin: 0 auto;
+    margin: 0 auto;
     .card-top {
       font-size: 20px;
-
       .membar {
         display: flex;
         .member-avatar {
@@ -28,7 +26,7 @@ margin: 0 auto;
           margin: 0 0 30px 20px;
 
           h4 {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
           }
         }
       }
@@ -53,6 +51,7 @@ margin: 0 auto;
           z-index: 2;
           // box-shadow: 3px 3px 6px black;
           background: #fecc2f;
+         
         }
       }
       p {
@@ -109,22 +108,20 @@ margin: 0 auto;
 
       .card-like {
         display: flex;
+        margin-top: 1px;
         .icon {
-          margin-top: -5px;
-          &:hover{
-          cursor: pointer;}
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
 
       .card-comment {
         display: flex;
         margin-left: 50px;
+        align-items: center;
       }
 
-      .card-watch {
-        display: flex;
-        margin-left: 25px;
-      }
     }
     .line {
       height: 2px;
@@ -157,7 +154,7 @@ margin: 0 auto;
 
         .previewInputBox {
           position: relative;
-          width:50%;
+          width: 50%;
           height: 80px;
           // border: 1px solid #1178b8;
           font-size: 20px;
@@ -223,7 +220,7 @@ margin: 0 auto;
   }
 }
 @media screen and (max-width: 1024px) {
-  .articles-preview-container { 
+  .articles-preview-container {
     width: 100%;
     .contentCard-container {
       width: 100%;
@@ -231,7 +228,7 @@ margin: 0 auto;
   }
 }
 @media screen and (max-width: 768px) {
-  .articles-preview-container { 
+  .articles-preview-container {
     width: 100%;
     .contentCard-container {
       width: 100%;
@@ -239,34 +236,34 @@ margin: 0 auto;
   }
 }
 @media screen and (max-width: 576px) {
-  .articles-preview-container { 
+  .articles-preview-container {
     width: 100%;
     .contentCard-container {
       width: 100%;
       .ArticleContentCard {
-        width:576px;
+        width: 576px;
       }
     }
   }
 }
 @media screen and (max-width: 500px) {
-  .articles-preview-container { 
+  .articles-preview-container {
     width: 100%;
     .contentCard-container {
       width: 100%;
       .ArticleContentCard {
-        width:500px;
+        width: 500px;
       }
     }
   }
 }
 @media screen and (max-width: 375px) {
-  .articles-preview-container { 
+  .articles-preview-container {
     width: 100%;
     .contentCard-container {
       width: 100%;
       .ArticleContentCard {
-        width:375px;
+        width: 375px;
       }
     }
   }

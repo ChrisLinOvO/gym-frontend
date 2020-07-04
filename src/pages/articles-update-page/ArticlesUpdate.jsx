@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import "./ArticlesUpdate.scss";
 import axios from "axios";
 import Moment from "react-moment";
+import Swal from 'sweetalert2'
 
 import { createStructuredSelector } from "reselect";
 import { currentUserSelect } from "../../redux/user/user-selector"
@@ -17,7 +18,7 @@ function ArticlesUpdate(props) {
   const currentUserImg = currentUserData ? currentUserData.memberImg : ''
   const currentUserNickname = currentUserData ? currentUserData.memberNickname : ''
 
-
+  console.log(currentUserData)
   const {
     match: { params },
   } = props;
@@ -204,23 +205,45 @@ function ArticlesUpdate(props) {
                 className=" articleUpdateSubmit"
                 type="button"
                 onClick={() => {
-                  articleDataUpdate({
-                    // articleId,
-                    // memberId,
-                    // memberName,
-                    articleTitle,
-                    categoryName,
-                    articleContent,
-                    tagName1,
-                    tagName2,
-                    articleImages,
-                    // memberImg,
-                  });
-                  props.history.push("/articlesEdit");
+                  Swal.fire({
+                    title: '更新文章',
+                    text: "確認想修改欄位是否更新!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '確定',
+                    cancelButtonText: '取消'
+                  }).then((result) => {
+                    if (result.value) {
+                      Swal.fire(
+                        '完成!',
+                        '已更新文章至討論區囉!!',
+                        'success'
+                      ).then(() => {
+                        if (result.value) {
+                          props.history.push("/articlesEdit");
+                        }
+                      })
+                      articleDataUpdate({
+                        // articleId,
+                        // memberId,
+                        // memberName,
+                        articleTitle,
+                        categoryName,
+                        articleContent,
+                        tagName1,
+                        tagName2,
+                        articleImages,
+                        // memberImg,
+                      });
+                    
+                    }
+                  })
+
                 }}
-              >
-                更新
-          </button>
+              >更新</button>
+
             </div>
           </div>
         ))
@@ -231,6 +254,4 @@ function ArticlesUpdate(props) {
 const mapStateToProps = createStructuredSelector({
   currentUserData: currentUserSelect,
 });
-
 export default withRouter(connect(mapStateToProps)(ArticlesUpdate));
-

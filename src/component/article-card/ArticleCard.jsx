@@ -104,8 +104,6 @@ const ArticleCard = (props) => {
           : ""}
       </div>
     </>
-
   );
 };
-
 export default withRouter(ArticleCard)

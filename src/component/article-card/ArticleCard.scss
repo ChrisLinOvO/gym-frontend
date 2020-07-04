@@ -13,7 +13,7 @@ $text: #000000;
       box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.7);
       background-color: #fcfcfc;
       // &:hover {
-      //   border: 1px solid #1178b8;
+      //   border: 3px solid #1178b8;
       // }
 
       .card-img {
@@ -129,28 +129,19 @@ $text: #000000;
         .card-body-under {
           display: flex;
           font-size: 12px;
-          margin-top: 10px;
+          margin-left: 180px;
 
           .card-like {
-            width: 10px;
             display: flex;
-            margin-left: 180px;
-
+            margin-top: 1px;
             .icon {
-              margin-top: -10px;
-            }
-            p {
-              font-size: 12px;
+              margin-top: 1px;
             }
           }
-
           .card-comment {
             display: flex;
-            width: 100px;
-            margin-left: 50px;
-            p {
-              font-size: 12px;
-            }
+            align-items: center;
+            margin-left: 20px;
           }
         }
       }

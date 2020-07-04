@@ -63,5 +63,4 @@ function ArticlePopular(props) {
     </>
   );
 }
-
 export default ArticlePopular;

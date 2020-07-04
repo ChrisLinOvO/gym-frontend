@@ -5,13 +5,7 @@ import { connect } from "react-redux";
 // Pages----------
 import Header from "./component/header/Header";
 import SignInOutPage from "./pages/sign-in-out-page/Sign-in-out-page";
-//課程----------
-import Courses from "./pages/courses-page/Courses";
-import Coaches from "./pages/coaches-page/Coaches";
-//教練中心-----------
-import EmployeeFormPage from "./pages/employee-form-page/EmployeeFormPage";
-import EmployeeCenterPage from "./pages/employee-center-page/EmployeeCenterPage";
-import EmployeeSignInOutPage from "./pages/employee-sign-in-out-page/employee-sign-in-out-page";
+
 //討論區-----------
 import Articles from "./pages/articles-page/Articles";
 import ArticlesAdd from "./pages/articles-add-page/ArticlesAdd";
@@ -19,14 +13,7 @@ import ArticlesPreview from "./pages/articles-preview-page/ArticlesPreview";
 import ArticlesEdit from "./pages/articles-edit-page/ArticlesEdit";
 import ArticlesUpdate from "./pages/articles-update-page/ArticlesUpdate";
 
-// 訂單----------
-import OrderList from "./pages/orders-list-page/OrderList";
-import OrderListDetail from "./component/OrderList/OrderListDetail";
-import CartList from "./component/Order-CartList/CartList";
-import CheckOutPage from "./component/Order-CheckOutPage/CheckOutPage";
-import OrderCompleted from "./component/OrderCompleted/OrderCompleted";
 
-import HomePage from "./pages/HomePage/Home";
 // Component------
 import LoadingSpinner from "./component/loading-spinner/LoadingSpinner";
 import ErrorBoundary from "./component/error-boundary/ErrorBoundary";
@@ -60,7 +47,6 @@ const App = ({ userListStart, employeeListStart }) => {
         <Switch>
           <ErrorBoundary>
             <Suspense fallback={<LoadingSpinner />}>
-              <Route exact path="/" component={HomePage} />
               <Route exact path="/shopping" component={ShopPage} />
               <Route
                 exact
@@ -73,17 +59,7 @@ const App = ({ userListStart, employeeListStart }) => {
               />
               <Route path="/login" component={SignInOutPage} />
 
-              {/* lora */}
-              <Route path="/employeeform" component={EmployeeFormPage} />
-              <Route
-                path={`/employeecenter/:employeeId`}
-                component={EmployeeCenterPage}
-              />
-              <Route path="/employeelogin" component={EmployeeSignInOutPage} />
-
-              {/* 玉玲 */}
-              <Route path="/coaches" component={Coaches} />
-              <Route path="/courses" component={Courses} />
+             
 
               {/* ＣhrisLin */}
               <Route exact path="/articles" component={Articles} />
@@ -91,16 +67,9 @@ const App = ({ userListStart, employeeListStart }) => {
               <Route path="/articlesAdd" component={ArticlesAdd} />
               <Route path="/articlesEdit" component={ArticlesEdit} />
               <Route path="/articlesUpdate/:articleId" component={ArticlesUpdate} />
-              
 
 
 
-              {/* Darren測試用 */}
-              <Route path="/OrderList" component={OrderList} />
-              <Route path="/CartList" component={CartList} />
-              <Route path="/OrderListDetail" component={OrderListDetail} />
-              <Route path="/CheckOutPage" component={CheckOutPage} />
-              <Route path="/OrderCompleted" component={OrderCompleted} />
             </Suspense>
           </ErrorBoundary>
         </Switch>

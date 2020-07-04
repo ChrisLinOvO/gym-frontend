@@ -14,7 +14,7 @@ import { currentUserSelect } from "../../redux/user/user-selector"
 function ArticlesAdd(props) {
   const { currentUserData } = props
   //該使用者的id
-  const currentUserId = currentUserData ? currentUserData.memberId : ''
+  const currentUserId = currentUserData ? currentUserData.id : ''
   const currentUserImg = currentUserData ? currentUserData.memberImg : ''
   const currentUserNickname = currentUserData ? currentUserData.memberNickname : ''
 
@@ -172,13 +172,14 @@ function ArticlesAdd(props) {
             type="button"
             onClick={() => {
               Swal.fire({
-                title: '將文章添加至討論區',
+                title: '新增文章',
                 text: "確認欄位是否已填寫!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Submit'
+                confirmButtonText: '確定',
+                cancelButtonText:'取消'
               }).then((result) => {
                 if (result.value) {
                   Swal.fire(

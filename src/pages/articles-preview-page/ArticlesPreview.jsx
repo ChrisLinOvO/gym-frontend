@@ -6,7 +6,7 @@ import axios from "axios"
 import "./ArticlesPreview.scss"
 import Moment from "react-moment"
 import { AiFillLike } from "react-icons/ai"
-import { AiOutlineLike } from "react-icons/ai"
+// import { AiOutlineLike } from "react-icons/ai"
 
 
 import { createStructuredSelector } from "reselect"
@@ -17,8 +17,8 @@ const ArticlesPreview = (props) => {
 
   const { currentUserData } = props
   //該使用者的id
-  const currentUserId = currentUserData ? currentUserData.memberId : ''
-  // console.log(currentUserId)
+  const currentUserId = currentUserData ? currentUserData.id : ''
+  console.log(currentUserId)
 
   const currentUserImg = currentUserData ? currentUserData.memberImg : ''
   // const currentUserNickname = currentUserData ? currentUserData.memberNickname : ''
@@ -31,7 +31,7 @@ const ArticlesPreview = (props) => {
   const [memberId] = useState(currentUserId)
   const [memberName] = useState("")
   const [content, setContent] = useState("")
-  const [memberImg] = useState("")
+  const [memberImg,setMemberImg] = useState("")
   const [comments, setComments] = useState("")
   const [text, setText] = useState("")
   const [commentsNum, setCommentsNum] = useState("")
@@ -39,7 +39,9 @@ const ArticlesPreview = (props) => {
 
   // console.log(commentsNum);
 
-
+  // useEffect(() => {
+  //   setMemberImg(currentUserImg)
+  // },[currentUserImg])
   //取得文章資料
   useEffect(() => {
     const FetchData = async (id) => {
@@ -75,6 +77,7 @@ const ArticlesPreview = (props) => {
       // window.location.reload()
     );
     setText(commentspost)
+    setContent("")
   }
 
 
@@ -93,9 +96,10 @@ const ArticlesPreview = (props) => {
 
     const response = await fetch(request);
     const data = await response.json();
-    // console.log(data);
+    console.log(data);
     // 設定資料
     setComments(data);
+ 
   }
   useEffect(() => {
     getAddCommentsData();
@@ -268,6 +272,4 @@ const ArticlesPreview = (props) => {
 const mapStateToProps = createStructuredSelector({
   currentUserData: currentUserSelect,
 });
-
 export default withRouter(connect(mapStateToProps)(ArticlesPreview))
-

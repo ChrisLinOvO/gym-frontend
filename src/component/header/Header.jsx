@@ -72,6 +72,21 @@ const Header = ({
           >
             精選商城
           </Link>
+          <Link
+            to="/articles"
+            className="option"
+            onClick={() => {
+              shopShowFilterTag("選擇篩選");
+              setSubDiv(false);
+            }}
+            onMouseEnter={() => {
+              navBarSelect("shop");
+              if (subDiv) return;
+              setSubDiv(true);
+            }}
+          >
+          心得分享
+          </Link>
         </div>
       </div>
 
