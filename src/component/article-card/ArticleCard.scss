@@ -7,14 +7,14 @@ $text: #000000;
     .card-container {
       display: block;
       width: 300px;
-      height: auto;
+      height: 100%;
       margin-bottom: 30px;
       border-radius: 6px;
       box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.7);
       background-color: #fcfcfc;
-      // &:hover {
-      //   border: 3px solid #1178b8;
-      // }
+      &:hover {
+        border: 3px solid #1178b8;
+      }
 
       .card-img {
         width: 100%;
